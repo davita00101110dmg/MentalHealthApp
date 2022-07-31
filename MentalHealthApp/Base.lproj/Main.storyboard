@@ -32,7 +32,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NWn-By-Syc"/>
-                                    <segue destination="ey6-1q-otO" kind="show" id="gkq-M2-waz"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2T-iD-nIB">
@@ -56,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoM-WI-9NC">
-                                <rect key="frame" x="50" y="463.5" width="275" height="20.5"/>
+                                <rect key="frame" x="50" y="458.5" width="275" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -72,7 +71,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="d0w-yi-nkD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="0AJ-Kc-Udi"/>
-                            <constraint firstItem="GoM-WI-9NC" firstAttribute="top" secondItem="KIf-ie-iSo" secondAttribute="bottom" constant="20" id="0Gb-g4-oxO"/>
+                            <constraint firstItem="GoM-WI-9NC" firstAttribute="top" secondItem="KIf-ie-iSo" secondAttribute="bottom" constant="15" id="0Gb-g4-oxO"/>
                             <constraint firstItem="d0w-yi-nkD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5yz-9O-AB7"/>
                             <constraint firstItem="KIf-ie-iSo" firstAttribute="top" secondItem="he4-0F-62u" secondAttribute="bottom" constant="20" id="7UD-Cs-bFD"/>
                             <constraint firstItem="GoM-WI-9NC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Cae-OF-2tC"/>
@@ -137,13 +136,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tA7-Ed-yc8">
-                                <rect key="frame" x="50" y="64" width="275" height="20.5"/>
+                                <rect key="frame" x="50" y="20" width="275" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RJz-Zo-EWb">
-                                <rect key="frame" x="37.5" y="173.5" width="300" height="320"/>
+                                <rect key="frame" x="37.5" y="70.5" width="300" height="320"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bAA-4U-5Fi">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
@@ -198,8 +197,14 @@
                                     <action selector="signupButtonPressed:" destination="ey6-1q-otO" eventType="touchUpInside" id="SIe-4F-Bjn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zI9-Gz-AyD">
+                                <rect key="frame" x="50" y="410.5" width="275" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzZ-iI-pId">
-                                <rect key="frame" x="50" y="513.5" width="275" height="20.5"/>
+                                <rect key="frame" x="50" y="446" width="275" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -208,17 +213,20 @@
                         <viewLayoutGuide key="safeArea" id="Avw-NR-ChU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="RJz-Zo-EWb" firstAttribute="top" secondItem="tA7-Ed-yc8" secondAttribute="bottom" constant="30" id="0Tx-23-RpC"/>
+                            <constraint firstItem="zI9-Gz-AyD" firstAttribute="leading" secondItem="Avw-NR-ChU" secondAttribute="leading" constant="50" id="0sU-Wh-U7o"/>
                             <constraint firstItem="tA7-Ed-yc8" firstAttribute="leading" secondItem="Avw-NR-ChU" secondAttribute="leading" constant="50" id="1ME-4f-Zzf"/>
-                            <constraint firstItem="RJz-Zo-EWb" firstAttribute="centerY" secondItem="ob6-mq-Ys0" secondAttribute="centerY" id="7tp-4h-fqb"/>
                             <constraint firstItem="Avw-NR-ChU" firstAttribute="bottom" secondItem="qsV-U6-o62" secondAttribute="bottom" constant="30" id="8vm-5o-L3V"/>
-                            <constraint firstItem="yzZ-iI-pId" firstAttribute="top" secondItem="RJz-Zo-EWb" secondAttribute="bottom" constant="20" id="Kgm-7k-LON"/>
+                            <constraint firstItem="zI9-Gz-AyD" firstAttribute="centerX" secondItem="ob6-mq-Ys0" secondAttribute="centerX" id="LaJ-rY-scM"/>
                             <constraint firstItem="tA7-Ed-yc8" firstAttribute="centerX" secondItem="ob6-mq-Ys0" secondAttribute="centerX" id="P5Y-iP-Rij"/>
                             <constraint firstItem="qsV-U6-o62" firstAttribute="centerX" secondItem="ob6-mq-Ys0" secondAttribute="centerX" id="RmO-DF-AtP"/>
-                            <constraint firstItem="yzZ-iI-pId" firstAttribute="centerX" secondItem="ob6-mq-Ys0" secondAttribute="centerX" id="S0q-eG-zSo"/>
-                            <constraint firstItem="yzZ-iI-pId" firstAttribute="leading" secondItem="Avw-NR-ChU" secondAttribute="leading" constant="50" id="VTy-fB-NU0"/>
                             <constraint firstItem="tA7-Ed-yc8" firstAttribute="top" secondItem="Avw-NR-ChU" secondAttribute="top" constant="20" id="ak5-tK-foZ"/>
                             <constraint firstItem="qsV-U6-o62" firstAttribute="leading" secondItem="Avw-NR-ChU" secondAttribute="leading" constant="75" id="d50-5O-ned"/>
+                            <constraint firstItem="yzZ-iI-pId" firstAttribute="centerX" secondItem="ob6-mq-Ys0" secondAttribute="centerX" id="gL9-er-BYM"/>
                             <constraint firstItem="RJz-Zo-EWb" firstAttribute="centerX" secondItem="ob6-mq-Ys0" secondAttribute="centerX" id="hTw-5a-XCG"/>
+                            <constraint firstItem="zI9-Gz-AyD" firstAttribute="top" secondItem="RJz-Zo-EWb" secondAttribute="bottom" constant="20" id="kfc-Js-69j"/>
+                            <constraint firstItem="yzZ-iI-pId" firstAttribute="top" secondItem="zI9-Gz-AyD" secondAttribute="bottom" constant="15" id="lYm-ko-BP6"/>
+                            <constraint firstItem="yzZ-iI-pId" firstAttribute="leading" secondItem="Avw-NR-ChU" secondAttribute="leading" constant="50" id="u1Z-QR-Nky"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xtD-IA-nZi">
@@ -228,6 +236,7 @@
                         <outlet property="confirmPasswordTextField" destination="ldb-DZ-bGc" id="p9T-3a-Yoe"/>
                         <outlet property="emailTextField" destination="0T9-tP-gq8" id="Jw4-qW-HhO"/>
                         <outlet property="lastnameTextField" destination="Q0G-92-dmL" id="bvZ-Oa-7jH"/>
+                        <outlet property="loginSuggestionLabel" destination="zI9-Gz-AyD" id="ZZN-El-aJT"/>
                         <outlet property="nameTextField" destination="bAA-4U-5Fi" id="CVT-Yc-qRM"/>
                         <outlet property="passwordTextField" destination="RHC-di-AKW" id="eKU-1x-aOt"/>
                         <outlet property="registrationOutcomeLabel" destination="yzZ-iI-pId" id="eAw-ZV-5bg"/>
