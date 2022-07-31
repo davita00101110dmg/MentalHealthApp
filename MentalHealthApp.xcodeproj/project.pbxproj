@@ -7,23 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B815D172895826100AF6FB6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B815D162895826100AF6FB6 /* Extensions.swift */; };
+		2B815D192895878900AF6FB6 /* Alegreya-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B815D182895878900AF6FB6 /* Alegreya-Regular.ttf */; };
+		2B815D1B2895884300AF6FB6 /* Alegreya-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B815D1A2895884300AF6FB6 /* Alegreya-Bold.ttf */; };
+		2B815D1D2895888400AF6FB6 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B815D1C2895888400AF6FB6 /* Montserrat-Regular.ttf */; };
 		2BB0989F28956F70008707A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB0989E28956F70008707A5 /* AppDelegate.swift */; };
 		2BB098A128956F70008707A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098A028956F70008707A5 /* SceneDelegate.swift */; };
-		2BB098A328956F70008707A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098A228956F70008707A5 /* ViewController.swift */; };
+		2BB098A328956F70008707A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098A228956F70008707A5 /* LoginViewController.swift */; };
 		2BB098A628956F70008707A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB098A428956F70008707A5 /* Main.storyboard */; };
 		2BB098A828956F72008707A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB098A728956F72008707A5 /* Assets.xcassets */; };
 		2BB098AB28956F72008707A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB098A928956F72008707A5 /* LaunchScreen.storyboard */; };
+		2BB098B428956F9F008707A5 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098B328956F9F008707A5 /* RegistrationViewController.swift */; };
+		2BB098B628956FAC008707A5 /* HomeScreemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098B528956FAC008707A5 /* HomeScreemViewController.swift */; };
+		2BB098B828956FB2008707A5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098B728956FB2008707A5 /* ProfileViewController.swift */; };
+		2BB098BC28957136008707A5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098BB28957136008707A5 /* Utilities.swift */; };
+		2BB098BE289571B7008707A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098BD289571B7008707A5 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B815D162895826100AF6FB6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2B815D182895878900AF6FB6 /* Alegreya-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Regular.ttf"; sourceTree = "<group>"; };
+		2B815D1A2895884300AF6FB6 /* Alegreya-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Bold.ttf"; sourceTree = "<group>"; };
+		2B815D1C2895888400AF6FB6 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		2BB0989B28956F70008707A5 /* MentalHealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalHealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB0989E28956F70008707A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BB098A028956F70008707A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2BB098A228956F70008707A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2BB098A228956F70008707A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2BB098A528956F70008707A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BB098A728956F72008707A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BB098AA28956F72008707A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BB098AC28956F72008707A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BB098B328956F9F008707A5 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		2BB098B528956FAC008707A5 /* HomeScreemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreemViewController.swift; sourceTree = "<group>"; };
+		2BB098B728956FB2008707A5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2BB098BB28957136008707A5 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		2BB098BD289571B7008707A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +55,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B815D0C28957A4A00AF6FB6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2B815D182895878900AF6FB6 /* Alegreya-Regular.ttf */,
+				2B815D1A2895884300AF6FB6 /* Alegreya-Bold.ttf */,
+				2B815D1C2895888400AF6FB6 /* Montserrat-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2B815D152895824A00AF6FB6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2B815D162895826100AF6FB6 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2BB0989228956F70008707A5 = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +94,36 @@
 			children = (
 				2BB0989E28956F70008707A5 /* AppDelegate.swift */,
 				2BB098A028956F70008707A5 /* SceneDelegate.swift */,
-				2BB098A228956F70008707A5 /* ViewController.swift */,
+				2BB098BA28957126008707A5 /* Helpers */,
+				2BB098B228956F7E008707A5 /* Controllers */,
+				2B815D152895824A00AF6FB6 /* Extensions */,
+				2B815D0C28957A4A00AF6FB6 /* Fonts */,
 				2BB098A428956F70008707A5 /* Main.storyboard */,
 				2BB098A728956F72008707A5 /* Assets.xcassets */,
 				2BB098A928956F72008707A5 /* LaunchScreen.storyboard */,
 				2BB098AC28956F72008707A5 /* Info.plist */,
 			);
 			path = MentalHealthApp;
+			sourceTree = "<group>";
+		};
+		2BB098B228956F7E008707A5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2BB098A228956F70008707A5 /* LoginViewController.swift */,
+				2BB098B328956F9F008707A5 /* RegistrationViewController.swift */,
+				2BB098B528956FAC008707A5 /* HomeScreemViewController.swift */,
+				2BB098B728956FB2008707A5 /* ProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2BB098BA28957126008707A5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2BB098BB28957136008707A5 /* Utilities.swift */,
+				2BB098BD289571B7008707A5 /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +184,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B815D1B2895884300AF6FB6 /* Alegreya-Bold.ttf in Resources */,
 				2BB098AB28956F72008707A5 /* LaunchScreen.storyboard in Resources */,
 				2BB098A828956F72008707A5 /* Assets.xcassets in Resources */,
 				2BB098A628956F70008707A5 /* Main.storyboard in Resources */,
+				2B815D192895878900AF6FB6 /* Alegreya-Regular.ttf in Resources */,
+				2B815D1D2895888400AF6FB6 /* Montserrat-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +200,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BB098A328956F70008707A5 /* ViewController.swift in Sources */,
+				2BB098B828956FB2008707A5 /* ProfileViewController.swift in Sources */,
+				2B815D172895826100AF6FB6 /* Extensions.swift in Sources */,
+				2BB098B628956FAC008707A5 /* HomeScreemViewController.swift in Sources */,
+				2BB098BC28957136008707A5 /* Utilities.swift in Sources */,
+				2BB098A328956F70008707A5 /* LoginViewController.swift in Sources */,
 				2BB0989F28956F70008707A5 /* AppDelegate.swift in Sources */,
+				2BB098B428956F9F008707A5 /* RegistrationViewController.swift in Sources */,
 				2BB098A128956F70008707A5 /* SceneDelegate.swift in Sources */,
+				2BB098BE289571B7008707A5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
