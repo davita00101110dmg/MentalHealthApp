@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
     
     private func setupElements() {
     
+        self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = mainColor
         
         // Hide the error label.
@@ -44,16 +45,20 @@ class LoginViewController: UIViewController {
         Utilities.customLabel(titleLabel, 28, "Mental Health App")
         Utilities.customTextField(emailTextField, "Email")
         Utilities.customTextField(passwordTextField, "Password")
-        Utilities.customLabel(forgotPasswordLabel, 18, "Forgot your password or don't have an account? Sign up here!")
+        Utilities.customLabel(forgotPasswordLabel, 20, "Forgot your password or don't have an account? Sign up here!")
         Utilities.customLabel(errorLabel, 20, "Please provide a password which will contain valid creditals")
         Utilities.customButton(signInButton, "Login")
+        Utilities.highlightedText(forgotPasswordLabel, "Sign up")
         
         // Setting up gesture for the label.
         setupTapGesture()
         
+        errorLabel.textColor = redColor
+        errorLabel.font = UIFont.appRegularBoldFontWith(size: forgotPasswordLabel.font.pointSize)
+        
     }
     
-    func setupTapGesture() {
+    private func setupTapGesture() {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(gestureTapped))
         gestureRecognizer.numberOfTapsRequired = 1
         gestureRecognizer.numberOfTouchesRequired = 1
@@ -63,7 +68,9 @@ class LoginViewController: UIViewController {
     }
     
     @objc func gestureTapped() {
-        //TODO: go to the registration view controller.
+        guard let registrationVC = storyboard?.instantiateViewController(withIdentifier: "RegistrationViewController") as? RegistrationViewController else { return }
+        
+        self.navigationController?.pushViewController(registrationVC, animated: true)
 
     }
     
