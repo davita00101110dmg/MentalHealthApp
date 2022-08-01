@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class Utilities {
     
@@ -28,9 +29,6 @@ class Utilities {
         textfield.font = UIFont.appRegularFontWith(size: 18)
         textfield.placeholder = placeholder
         textfield.textAlignment = .center
-        
-        
-        
     }
     
     static func customButton(_ button: UIButton, _ title: String) {
@@ -40,7 +38,6 @@ class Utilities {
         button.backgroundColor = redColor
         button.layer.cornerRadius = 20
         button.tintColor = .clear
-        
     }
     
     static func highlightedText(_ label: UILabel, _ text: String) {
@@ -59,7 +56,18 @@ class Utilities {
         mutableAttributedString.addAttribute(.font, value: UIFont.appRegularBoldFontWith(size: label.font.pointSize), range: range)
         
         label.attributedText = mutableAttributedString
+    }
+    
+    static func showOutcume(_ label: UILabel, _ message: String, _ error: Bool) {
+        label.text = message
+        label.alpha = 1
+        label.font = UIFont.appRegularBoldFontWith(size: label.font.pointSize)
         
+        if error {
+            label.textColor = redColor
+        } else {
+            label.textColor = greenColor
+        }
     }
     
     // Function for checking if password is secure.
@@ -69,7 +77,5 @@ class Utilities {
         
         return passwordTest.evaluate(with: password)
     }
-    
-    //TODO: function to validate email like done on passwords.
     
 }
