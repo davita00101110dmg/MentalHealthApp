@@ -96,8 +96,7 @@ class LoginViewController: UIViewController {
                 if error != nil {
                     
                     // Can't sign in
-                    self.errorLabel.text = error!.localizedDescription
-                    self.errorLabel.alpha = 1
+                    Utilities.showOutcume(self.errorLabel, "\(error!.localizedDescription)", true)
                 } else {
                     
                     // Signed in
