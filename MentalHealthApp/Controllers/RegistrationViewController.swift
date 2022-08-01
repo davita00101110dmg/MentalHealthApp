@@ -6,25 +6,19 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class RegistrationViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var lastnameTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var confirmPasswordTextField: UITextField!
-    
     @IBOutlet weak var loginSuggestionLabel: UILabel!
-    
     @IBOutlet weak var registrationOutcomeLabel: UILabel!
-    
     @IBOutlet weak var signupButton: UIButton!
     
     override func viewDidLoad() {
@@ -34,7 +28,6 @@ class RegistrationViewController: UIViewController {
     }
     
     private func setupElements() {
-    
         self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = mainColor
         
@@ -53,11 +46,8 @@ class RegistrationViewController: UIViewController {
         Utilities.customButton(signupButton, "Sign Up")
         Utilities.highlightedText(loginSuggestionLabel, "Sign in")
         
-        // Setting up gesture for the label.
+        // Setting up gesture for the label which will lead to loginVC
         setupTapGesture()
-        
-        registrationOutcomeLabel.textColor = redColor
-        registrationOutcomeLabel.font = UIFont.appRegularBoldFontWith(size: registrationOutcomeLabel.font.pointSize)
         
     }
     
@@ -73,6 +63,8 @@ class RegistrationViewController: UIViewController {
 
     
     private func validateFields() -> String? {
+        let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let cleanedConfirmPassowrd = confirmPasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Check if all the fields are filled in.
         if nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -81,17 +73,15 @@ class RegistrationViewController: UIViewController {
             passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             confirmPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             
-            return "Please fill in all fields."
+            return "Please fill in all fields"
         }
-        
-        let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let cleanedConfirmPassowrd = confirmPasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         // Checking if the password is secure
         if Utilities.isPasswordValid(cleanedPassword) == false {
             return "Please make sure your password is at least 8 characters, contains a number and an uppercase letter"
         }
         
+        // Checking if passwords match
         if cleanedPassword != cleanedConfirmPassowrd {
             return "Please make sure your passwords match"
         }
@@ -99,17 +89,6 @@ class RegistrationViewController: UIViewController {
         return nil
     }
     
-    private func showOutcume(_ message: String, _ error: Bool) {
-        registrationOutcomeLabel.text = message
-        registrationOutcomeLabel.alpha = 1
-        
-        if error {
-            registrationOutcomeLabel.textColor = redColor
-        } else {
-            registrationOutcomeLabel.textColor = greenColor
-        }
-        
-    }
     
     @objc func gestureTapped() {
         self.navigationController?.popToRootViewController(animated: true)
@@ -123,14 +102,49 @@ class RegistrationViewController: UIViewController {
         if error != nil {
             
             // Showing error message
-            showOutcume(error!, true)
+            Utilities.showOutcume(registrationOutcomeLabel, error!, true)
         } else {
-            //TODO: register user and send data to the firebase database
             
-            showOutcume("You've succesfully registered!", false)
+            // Creating string values of textfields
+            let name = self.nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let lastname = self.lastnameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let email = self.emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let password = self.passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.navigationController?.popToRootViewController(animated: true)
+            // Creating the user
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                
+                // Checking for errors while creating the user
+                if error != nil {
+                    
+                    // Was an error
+                    Utilities.showOutcume(self.registrationOutcomeLabel, "\(error!.localizedDescription)", true)
+                } else {
+                
+                    // User was created succesfully storing properties in database.
+                    let database = Firestore.firestore()
+                    
+                    database.collection("users").addDocument(data: [
+                        "firstname": name,
+                        "lastname": lastname,
+                        "uid": result!.user.uid
+                    ]) { (error) in
+                        
+                        if error != nil {
+                            
+                            Utilities.showOutcume(self.registrationOutcomeLabel, "\(error!.localizedDescription)", true)
+                        }
+                    }   
+                    
+                    // Going back to login view
+                    Utilities.showOutcume(self.registrationOutcomeLabel, "You've succesfully registered!", false)
+                    
+                    //TODO: Fix error which is poping up after setting async for 2 seconds
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.navigationController?.popToRootViewController(animated: true)
+//                    }
+                    
+                }
             }
         }
     }
