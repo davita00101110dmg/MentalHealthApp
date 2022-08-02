@@ -79,6 +79,7 @@ class Utilities {
         return passwordTest.evaluate(with: password)
     }
     
+    // Function to change view depending on having or not having registered account
     static func setupTapGestureToChangeView(_ controller: UIViewController, _ label: UILabel, _ selector: Selector) {
         let gestureRecognizer = UITapGestureRecognizer(target: controller, action: selector)
         gestureRecognizer.numberOfTapsRequired = 1
