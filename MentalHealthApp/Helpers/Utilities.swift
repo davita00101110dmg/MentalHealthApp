@@ -11,24 +11,25 @@ import SwiftUI
 class Utilities {
     
     static func customLabel(_ label: UILabel, _ fontSize: CGFloat, _ text: String) {
+        label.textColor = .black
         label.font = UIFont.appRegularFontWith(size: fontSize)
         label.text = text
     }
     
     static func customTextField(_ textfield: UITextField, _ placeholder: String) {
         
-        // Making textfields transparent and visible by only botttom line.
         let bottomLine = CALayer()
         
+        // Making textfields transparent and visible by only botttom line.
         bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width, height: 2)
         bottomLine.backgroundColor = redColor.cgColor
-        
         textfield.borderStyle = .none
         textfield.layer.addSublayer(bottomLine)
         
         textfield.font = UIFont.appRegularFontWith(size: 18)
-        textfield.placeholder = placeholder
+        textfield.textColor = .black
         textfield.textAlignment = .center
+        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : grayColor])
     }
     
     static func customButton(_ button: UIButton, _ title: String) {
@@ -78,4 +79,9 @@ class Utilities {
         return passwordTest.evaluate(with: password)
     }
     
+    // Adding tap gesture to hide keyboard when pressed anywhere else
+    static func setupTapGestureHideKeyboard(_ controller: UIViewController) {
+        let tap = UITapGestureRecognizer(target: controller.view, action: #selector(UIView.endEditing))
+        controller.view.addGestureRecognizer(tap)
+    }
 }
