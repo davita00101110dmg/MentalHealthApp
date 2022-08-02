@@ -23,8 +23,17 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        setupTextFieldDelegates()
         setupElements()
+    }
+    
+    private func setupTextFieldDelegates() {
+        self.nameTextField.delegate = self
+        self.lastnameTextField.delegate = self
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        self.confirmPasswordTextField.delegate = self
     }
     
     private func setupElements() {
@@ -46,21 +55,30 @@ class RegistrationViewController: UIViewController {
         Utilities.customButton(signupButton, "Sign Up")
         Utilities.highlightedText(loginSuggestionLabel, "Sign in")
         
+        // Setting up gesture to hide keyboard when pressed anywhere else.
+        Utilities.setupTapGestureHideKeyboard(self)
+        
         // Setting up gesture for the label which will lead to loginVC
-        setupTapGesture()
+        Utilities.setupTapGestureToChangeView(self, loginSuggestionLabel, #selector(gestureTapped))
         
     }
-    
-    private func setupTapGesture() {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(gestureTapped))
-        gestureRecognizer.numberOfTapsRequired = 1
-        gestureRecognizer.numberOfTouchesRequired = 1
         
-        loginSuggestionLabel.isUserInteractionEnabled = true
-        loginSuggestionLabel.addGestureRecognizer(gestureRecognizer)
+    internal func switchBasedNextTextField(_ textField: UITextField) {
+        
+        // Setting up switch statement to determine which textfield's return key was pressed and if it's not last move to the next one. If last hide the keyboard
+        switch textField {
+        case self.nameTextField:
+            self.lastnameTextField.becomeFirstResponder()
+        case self.lastnameTextField:
+            self.emailTextField.becomeFirstResponder()
+        case self.emailTextField:
+            self.passwordTextField.becomeFirstResponder()
+        case self.passwordTextField:
+            self.confirmPasswordTextField.becomeFirstResponder()
+        default:
+            self.view.endEditing(true)
+        }
     }
-    
-
     
     private func validateFields() -> String? {
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)

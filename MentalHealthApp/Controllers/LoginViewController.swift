@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var forgotPasswordLabel: UILabel!
+    @IBOutlet weak var registerSuggestionLabel: UILabel!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
     
@@ -22,7 +22,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTextFieldDelegates()
         setupElements()
+    }
+    
+    private func setupTextFieldDelegates() {
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
     }
     
     private func setupElements() {
@@ -39,23 +45,28 @@ class LoginViewController: UIViewController {
         Utilities.customLabel(titleLabel, 28, "Mental Health App")
         Utilities.customTextField(emailTextField, "Email")
         Utilities.customTextField(passwordTextField, "Password")
-        Utilities.customLabel(forgotPasswordLabel, 20, "Forgot your password or don't have an account? Sign up here!")
+        Utilities.customLabel(registerSuggestionLabel, 20, "Forgot your password or don't have an account? Sign up here!")
         Utilities.customLabel(errorLabel, 20, "Please provide a password which will contain valid creditals")
         Utilities.customButton(signInButton, "Login")
-        Utilities.highlightedText(forgotPasswordLabel, "Sign up")
+        Utilities.highlightedText(registerSuggestionLabel, "Sign up")
+        
+        // Setting up gesture to hide keyboard when pressed anywhere else.
+        Utilities.setupTapGestureHideKeyboard(self)
         
         // Setting up gesture for the label which will lead to registration VC.
-        setupTapGesture()
+        Utilities.setupTapGestureToChangeView(self, registerSuggestionLabel, #selector(gestureTapped))
         
     }
     
-    private func setupTapGesture() {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(gestureTapped))
-        gestureRecognizer.numberOfTapsRequired = 1
-        gestureRecognizer.numberOfTouchesRequired = 1
+    internal func switchBasedNextTextField(_ textField: UITextField) {
         
-        forgotPasswordLabel.isUserInteractionEnabled = true
-        forgotPasswordLabel.addGestureRecognizer(gestureRecognizer)
+        // Setting up switch statement to determine which textfield's return key was pressed and if it's not last move to the next one. If last hide the keyboard
+        switch textField {
+        case self.emailTextField:
+            self.passwordTextField.becomeFirstResponder()
+        default:
+            self.view.endEditing(true)
+        }
     }
     
     private func validateFields() -> String? {
