@@ -79,6 +79,15 @@ class Utilities {
         return passwordTest.evaluate(with: password)
     }
     
+    static func setupTapGestureToChangeView(_ controller: UIViewController, _ label: UILabel, _ selector: Selector) {
+        let gestureRecognizer = UITapGestureRecognizer(target: controller, action: selector)
+        gestureRecognizer.numberOfTapsRequired = 1
+        gestureRecognizer.numberOfTouchesRequired = 1
+        
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(gestureRecognizer)
+    }
+    
     // Adding tap gesture to hide keyboard when pressed anywhere else
     static func setupTapGestureHideKeyboard(_ controller: UIViewController) {
         let tap = UITapGestureRecognizer(target: controller.view, action: #selector(UIView.endEditing))
