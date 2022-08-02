@@ -7,10 +7,8 @@
 
 import UIKit
 
+// Adding font functions on UIFont for easier usage.
 extension UIFont {
-    
-    // Adding font functions to use them in project easier.
-    
     static func appRegularFontWith(size: CGFloat) -> UIFont {
         return UIFont(name: "Alegreya-Regular", size: size)!
     }
@@ -21,6 +19,26 @@ extension UIFont {
     
     static func appSecondaryFontWith(size: CGFloat) -> UIFont {
         return UIFont(name: "Montserrat-Regular", size: size)!
+    }
+    
+}
+
+// Reaching out text fields whose return button was pressed.
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Calling function to make return key switch on next textfield
+        self.switchBasedNextTextField(textField)
+        return true
+    }
+    
+}
+
+extension RegistrationViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.switchBasedNextTextField(textField)
+        return true
     }
     
 }
