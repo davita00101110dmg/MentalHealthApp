@@ -8,22 +8,27 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    @IBOutlet weak var logoutButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupElements()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupElements() {
+        self.view.backgroundColor = lightGreen
+        
+        logoutButton.setTitle("Logout", for: .normal)
     }
-    */
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        // TODO: make alert do you really want to sign out?
+        let rootNavVC = storyboard?.instantiateViewController(withIdentifier: "rootNavigationController")
+
+        self.view.window?.rootViewController = rootNavVC
+        self.view.window?.makeKeyAndVisible()
+    }
 
 }
