@@ -12,7 +12,10 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupElements()
     }
 
+    private func setupElements() {
+        self.view.backgroundColor = lightGreen
+    }
 }
