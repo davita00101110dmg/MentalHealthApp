@@ -112,7 +112,7 @@
         <!--Navigation Controller-->
         <scene sceneID="wcb-zA-juH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kja-Qe-pe4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="rootNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Kja-Qe-pe4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZKw-YL-Zo1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -248,26 +248,46 @@
             </objects>
             <point key="canvasLocation" x="741" y="419"/>
         </scene>
-        <!--Item 2-->
+        <!--Profile View-->
         <scene sceneID="aUk-tL-Wvz">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="cgZ-ZD-mrE" customClass="ProfileViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="cgZ-ZD-mrE" userLabel="Profile View" customClass="ProfileViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I7Q-gf-xss">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyn-4J-P2A">
+                                <rect key="frame" x="288" y="20" width="67" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eGp-xo-qjm"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="logoutAction:" destination="cgZ-ZD-mrE" eventType="touchUpInside" id="SQF-HS-ssd"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="CUG-21-fbD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Hyn-4J-P2A" firstAttribute="top" secondItem="CUG-21-fbD" secondAttribute="top" constant="20" id="gXF-ew-KDO"/>
+                            <constraint firstItem="CUG-21-fbD" firstAttribute="trailing" secondItem="Hyn-4J-P2A" secondAttribute="trailing" constant="20" id="yCH-fJ-vFn"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="eo9-Ut-Qgb"/>
+                    <connections>
+                        <outlet property="logoutButton" destination="Hyn-4J-P2A" id="mla-9p-Mh4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s6o-FC-NDI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2509" y="335"/>
+            <point key="canvasLocation" x="2670" y="440"/>
         </scene>
-        <!--Item 1-->
+        <!--Home Page View-->
         <scene sceneID="bet-Gy-v4i">
             <objects>
-                <viewController storyboardIdentifier="HomeScreenViewController" id="kCp-Iz-f5h" customClass="HomeScreenViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeScreenViewController" id="kCp-Iz-f5h" userLabel="Home Page View" customClass="HomeScreenViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zFa-0o-zfA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -278,25 +298,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8uo-lD-gZg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2508" y="-361"/>
+            <point key="canvasLocation" x="2669.5999999999999" y="-256.82158920539734"/>
         </scene>
         <!--Tab Bar Controller-->
-        <scene sceneID="UaO-zI-g6T">
+        <scene sceneID="0YF-zm-AVl">
             <objects>
-                <tabBarController id="AsP-bg-bhN" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="20I-v6-ciB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="KcZ-Ed-YI0" customClass="TabBarController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6jQ-Kd-zYN">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="kCp-Iz-f5h" kind="relationship" relationship="viewControllers" id="GjL-sL-9G8"/>
-                        <segue destination="cgZ-ZD-mrE" kind="relationship" relationship="viewControllers" id="wgR-im-7aO"/>
+                        <segue destination="kCp-Iz-f5h" kind="relationship" relationship="viewControllers" id="3O2-ot-Xv6"/>
+                        <segue destination="cgZ-ZD-mrE" kind="relationship" relationship="viewControllers" id="cU0-qh-t0h"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ego-93-w0E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="04n-WU-Fz5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1586" y="31"/>
+            <point key="canvasLocation" x="1801" y="92"/>
         </scene>
     </scenes>
     <resources>
