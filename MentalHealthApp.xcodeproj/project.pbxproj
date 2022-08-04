@@ -27,6 +27,7 @@
 		2BE992BD2896D71E001E9199 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2BE992BC2896D71E001E9199 /* FirebaseAuth */; };
 		2BE992BF2896D71E001E9199 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2BE992BE2896D71E001E9199 /* FirebaseFirestore */; };
 		2BE992C12896D71E001E9199 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2BE992C02896D71E001E9199 /* FirebaseStorage */; };
+		2BF5CC802899E613007D223F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF5CC7F2899E613007D223F /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		2BB098BB28957136008707A5 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2BB098BD289571B7008707A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2BE992B72896D565001E9199 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2BF5CC7F2899E613007D223F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				2BB098B328956F9F008707A5 /* RegistrationViewController.swift */,
 				2BB098B528956FAC008707A5 /* HomeScreenViewController.swift */,
 				2BB098B728956FB2008707A5 /* ProfileViewController.swift */,
+				2BF5CC7F2899E613007D223F /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				2BB098B828956FB2008707A5 /* ProfileViewController.swift in Sources */,
 				2B815D172895826100AF6FB6 /* Extensions.swift in Sources */,
 				2BB098B628956FAC008707A5 /* HomeScreenViewController.swift in Sources */,
+				2BF5CC802899E613007D223F /* TabBarController.swift in Sources */,
 				2BB098BC28957136008707A5 /* Utilities.swift in Sources */,
 				2BB098A328956F70008707A5 /* LoginViewController.swift in Sources */,
 				2BB0989F28956F70008707A5 /* AppDelegate.swift in Sources */,
