@@ -7,7 +7,7 @@
 
 import UIKit
 
-// Adding font functions on UIFont for easier usage.
+// Add font functions on UIFont for easier usage.
 extension UIFont {
     static func appRegularFontWith(size: CGFloat) -> UIFont {
         return UIFont(name: "Alegreya-Regular", size: size)!
@@ -23,7 +23,7 @@ extension UIFont {
     
 }
 
-// Reaching out text fields whose return button was pressed.
+// Reach out text fields whose return button was pressed.
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -41,4 +41,13 @@ extension RegistrationViewController: UITextFieldDelegate {
         return true
     }
     
+}
+
+// Add function on UIImage for resizing icons to needed size
+extension UIImage {
+    func imageResized(to size: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
+        }
+    }
 }
