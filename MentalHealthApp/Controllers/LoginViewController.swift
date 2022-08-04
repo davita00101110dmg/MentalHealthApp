@@ -113,10 +113,19 @@ class LoginViewController: UIViewController {
                     // Signed in
                     Utilities.showOutcume(self.errorLabel, "You've succesfully logged in!", false)
                     
-                    guard let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreenViewController") as? HomeScreenViewController else { return }
+                    let tabBarController = TabBarController()
+                    
+                    let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreenViewController") as! HomeScreenViewController
+                    
+                    let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+                    
+                    Utilities.setupTabBarItem(homeVC, inactiveHomeImage!, activeHomeImage!)
+                    Utilities.setupTabBarItem(profileVC, inactiveProfileImage!, activeProfileImage!)
+                    
+                    tabBarController.viewControllers = [homeVC, profileVC]
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        self.view.window?.rootViewController = homeVC
+                        self.view.window?.rootViewController = tabBarController
                         self.view.window?.makeKeyAndVisible()
                     }
                 }
