@@ -7,7 +7,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
 
 class RegistrationViewController: UIViewController {
 
@@ -44,16 +43,16 @@ class RegistrationViewController: UIViewController {
         registrationOutcomeLabel.alpha = 0
         
         // Configuring components of the current view.
-        Utilities.customLabel(titleLabel, 30, "Create your account")
-        Utilities.customTextField(nameTextField, "First Name")
-        Utilities.customTextField(lastnameTextField, "Last Name")
-        Utilities.customTextField(emailTextField, "Email")
-        Utilities.customTextField(passwordTextField, "Password")
-        Utilities.customTextField(confirmPasswordTextField, "Confirm Password")
-        Utilities.customLabel(loginSuggestionLabel, 20, "Already have an account? Sign in here!")
-        Utilities.customLabel(registrationOutcomeLabel, 20, "Please fill all the fields correctly!")
-        Utilities.customButton(signupButton, "Sign Up")
-        Utilities.highlightedText(loginSuggestionLabel, "Sign in")
+        Utilities.customLabel(for: titleLabel, size: 30, text: "Create your account")
+        Utilities.customTextField(for: nameTextField, placeholder: "First Name")
+        Utilities.customTextField(for: lastnameTextField, placeholder: "Last Name")
+        Utilities.customTextField(for: emailTextField, placeholder: "Email")
+        Utilities.customTextField(for: passwordTextField, placeholder: "Password")
+        Utilities.customTextField(for: confirmPasswordTextField, placeholder: "Confirm Password")
+        Utilities.customLabel(for: loginSuggestionLabel, size: 20, text: "Already have an account? Sign in here!")
+        Utilities.customLabel(for: registrationOutcomeLabel, size: 20, text: "Please fill all the fields correctly!")
+        Utilities.customButton(for: signupButton, title: "Sign Up", cornerRadius: 20, color: redColor)
+        Utilities.highlightedText(for: loginSuggestionLabel, text: "Sign in")
         
         // Setting up gesture to hide keyboard when pressed anywhere else.
         Utilities.setupTapGestureHideKeyboard(self)
@@ -63,7 +62,7 @@ class RegistrationViewController: UIViewController {
         
     }
         
-    internal func switchBasedNextTextField(_ textField: UITextField) {
+    internal func switchBasedNextTextField(for textField: UITextField) {
         
         // Setting up switch statement to determine which textfield's return key was pressed and if it's not last move to the next one. If last hide the keyboard
         switch textField {
@@ -120,7 +119,7 @@ class RegistrationViewController: UIViewController {
         if error != nil {
             
             // Showing error message
-            Utilities.showOutcume(registrationOutcomeLabel, error!, true)
+            Utilities.showOutcume(for: registrationOutcomeLabel, message: error!, isError: true)
         } else {
             
             // Creating string values of textfields
@@ -130,13 +129,13 @@ class RegistrationViewController: UIViewController {
             let password = self.passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             // Creating the user
-            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            AuthService.registerUser(withEmail: email, password: password) { result, error in
                 
                 // Checking for errors while creating the user
                 if error != nil {
                     
                     // Was an error
-                    Utilities.showOutcume(self.registrationOutcomeLabel, "\(error!.localizedDescription)", true)
+                    Utilities.showOutcume(for: self.registrationOutcomeLabel, message: "\(error!.localizedDescription)", isError: true)
                 } else {
                 
                     // User was created succesfully storing properties in database.
@@ -150,12 +149,12 @@ class RegistrationViewController: UIViewController {
                         
                         if error != nil {
                             
-                            Utilities.showOutcume(self.registrationOutcomeLabel, "\(error!.localizedDescription)", true)
+                            Utilities.showOutcume(for: self.registrationOutcomeLabel, message: "\(error!.localizedDescription)", isError: true)
                         }
                     }   
                     
                     // Going back to login view
-                    Utilities.showOutcume(self.registrationOutcomeLabel, "You've succesfully registered!", false)
+                    Utilities.showOutcume(for: self.registrationOutcomeLabel, message: "You've succesfully registered!", isError: false)
                     
                     //TODO: Fix error which is poping up after setting async for 2 seconds
 //                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
