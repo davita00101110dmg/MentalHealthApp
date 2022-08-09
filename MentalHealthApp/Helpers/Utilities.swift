@@ -6,20 +6,22 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class Utilities {
+struct Utilities {
     
-    static func customLabel(_ label: UILabel, _ fontSize: CGFloat, _ text: String) {
+    static func customLabel(for label: UILabel, size fontSize: CGFloat, text: String) {
         label.textColor = .black
         label.font = UIFont.appRegularFontWith(size: fontSize)
         label.text = text
+        label.textAlignment = .center
     }
     
-    static func customTextField(_ textfield: UITextField, _ placeholder: String) {
+    static func customTextField(for textfield: UITextField, placeholder: String) {
         
         let bottomLine = CALayer()
         
-        // Make textfields transparent and visible by only botttom line.
+        // Make textfields transparent and make visible only red botttom line.
         bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width, height: 2)
         bottomLine.backgroundColor = redColor.cgColor
         textfield.borderStyle = .none
@@ -31,16 +33,16 @@ class Utilities {
         textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : grayColor])
     }
     
-    static func customButton(_ button: UIButton, _ title: String) {
+    static func customButton(for button: UIButton, title: String, cornerRadius: CGFloat, color: UIColor) {
         button.setTitle(title, for: .normal)
         button.titleLabel?.font = UIFont.appRegularFontWith(size: 20)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = redColor
-        button.layer.cornerRadius = 20
+        button.backgroundColor = color
+        button.layer.cornerRadius = cornerRadius
         button.tintColor = .clear
     }
     
-    static func highlightedText(_ label: UILabel, _ text: String) {
+    static func highlightedText(for label: UILabel, text: String) {
         
         // Store main text and word that will be colored in different color
         let mainString = label.text!
@@ -58,12 +60,12 @@ class Utilities {
         label.attributedText = mutableAttributedString
     }
     
-    static func showOutcume(_ label: UILabel, _ message: String, _ error: Bool) {
+    static func showOutcume(for label: UILabel, message: String, isError: Bool) {
         label.text = message
         label.alpha = 1
         label.font = UIFont.appRegularBoldFontWith(size: label.font.pointSize)
         
-        if error {
+        if isError {
             label.textColor = redColor
         } else {
             label.textColor = greenColor
@@ -96,8 +98,36 @@ class Utilities {
     
     // Add function to setup tab bar icons
     static func setupTabBarItem(_ viewController: UIViewController, _ inactiveImage: UIImage, _ activeImage: UIImage ) {
-        viewController.tabBarItem.image = inactiveImage.imageResized(to: tabBarItemSize)
-        viewController.tabBarItem.selectedImage = activeImage.imageResized(to: tabBarItemSize)
+        viewController.tabBarItem.image = inactiveImage
+        viewController.tabBarItem.selectedImage = activeImage
         viewController.title = ""
+    }
+}
+
+struct AuthService {
+    
+    // Sign in user
+    static func loginUser(withEmail email: String, password: String, completion: @escaping ((AuthDataResult?, Error?) -> Void)) {
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    }
+    
+    static func logoutUser(viewController: UIViewController) {
+        
+        // Log out the user and change root vc to root nav controller
+        do {
+            try Auth.auth().signOut()
+            
+            let rootNavVC = viewController.storyboard?.instantiateViewController(withIdentifier: "rootNavigationController")
+
+            viewController.view.window?.rootViewController = rootNavVC
+            viewController.view.window?.makeKeyAndVisible()
+        } catch let error {
+            //TODO: handle the erorr in the better way
+            print(error) }
+    }
+    
+    // Register user
+    static func registerUser(withEmail email: String, password: String, completion: @escaping ((AuthDataResult?, Error?) -> Void)) {
+        Auth.auth().createUser(withEmail: email, password: password, completion: completion)
     }
 }
