@@ -16,8 +16,19 @@ class TabBarController: UITabBarController {
     }
     
     private func setupTabBar() {
-        self.tabBar.backgroundColor = .white
+        
+        // Setting tap bar appareance
+        self.tabBar.backgroundColor = whiteColor
         self.tabBar.tintColor = .black
+        self.tabBar.layer.cornerRadius = 20
+        self.tabBar.layer.masksToBounds = true
+        self.tabBar.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+        
+        
     }
     
 }
