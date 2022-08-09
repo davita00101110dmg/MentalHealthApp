@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B540899289D92900096E0FC /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B540897289D92900096E0FC /* QuoteCell.swift */; };
+		2B54089A289D92900096E0FC /* QuoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B540898289D92900096E0FC /* QuoteCell.xib */; };
 		2B815D172895826100AF6FB6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B815D162895826100AF6FB6 /* Extensions.swift */; };
 		2B815D192895878900AF6FB6 /* Alegreya-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B815D182895878900AF6FB6 /* Alegreya-Regular.ttf */; };
 		2B815D1B2895884300AF6FB6 /* Alegreya-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B815D1A2895884300AF6FB6 /* Alegreya-Bold.ttf */; };
@@ -22,6 +24,9 @@
 		2BB098B828956FB2008707A5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098B728956FB2008707A5 /* ProfileViewController.swift */; };
 		2BB098BC28957136008707A5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098BB28957136008707A5 /* Utilities.swift */; };
 		2BB098BE289571B7008707A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098BD289571B7008707A5 /* Constants.swift */; };
+		2BB74378289F15C3006FD01C /* ProfileViewController + CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB74377289F15C3006FD01C /* ProfileViewController + CollectionView.swift */; };
+		2BB7437C289F19E0006FD01C /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */; };
+		2BD6E5B2289DB2290039661C /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6E5B1289DB2280039661C /* LikeButton.swift */; };
 		2BE992B82896D565001E9199 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BE992B72896D565001E9199 /* GoogleService-Info.plist */; };
 		2BE992BB2896D71E001E9199 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2BE992BA2896D71E001E9199 /* FirebaseAnalytics */; };
 		2BE992BD2896D71E001E9199 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2BE992BC2896D71E001E9199 /* FirebaseAuth */; };
@@ -31,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B540897289D92900096E0FC /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
+		2B540898289D92900096E0FC /* QuoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCell.xib; sourceTree = "<group>"; };
 		2B815D162895826100AF6FB6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2B815D182895878900AF6FB6 /* Alegreya-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Regular.ttf"; sourceTree = "<group>"; };
 		2B815D1A2895884300AF6FB6 /* Alegreya-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Bold.ttf"; sourceTree = "<group>"; };
@@ -48,6 +55,9 @@
 		2BB098B728956FB2008707A5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2BB098BB28957136008707A5 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2BB098BD289571B7008707A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2BB74377289F15C3006FD01C /* ProfileViewController + CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController + CollectionView.swift"; sourceTree = "<group>"; };
+		2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		2BD6E5B1289DB2280039661C /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		2BE992B72896D565001E9199 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2BF5CC7F2899E613007D223F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B540896289D92680096E0FC /* QuoteCell */ = {
+			isa = PBXGroup;
+			children = (
+				2B540897289D92900096E0FC /* QuoteCell.swift */,
+				2B540898289D92900096E0FC /* QuoteCell.xib */,
+			);
+			path = QuoteCell;
+			sourceTree = "<group>";
+		};
 		2B815D0C28957A4A00AF6FB6 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +127,7 @@
 				2BB098A028956F70008707A5 /* SceneDelegate.swift */,
 				2BB098BA28957126008707A5 /* Helpers */,
 				2BB098B228956F7E008707A5 /* Controllers */,
+				2B540896289D92680096E0FC /* QuoteCell */,
 				2B815D152895824A00AF6FB6 /* Extensions */,
 				2B815D0C28957A4A00AF6FB6 /* Fonts */,
 				2BB098A428956F70008707A5 /* Main.storyboard */,
@@ -126,7 +146,9 @@
 				2BB098B328956F9F008707A5 /* RegistrationViewController.swift */,
 				2BB098B528956FAC008707A5 /* HomeScreenViewController.swift */,
 				2BB098B728956FB2008707A5 /* ProfileViewController.swift */,
+				2BB74377289F15C3006FD01C /* ProfileViewController + CollectionView.swift */,
 				2BF5CC7F2899E613007D223F /* TabBarController.swift */,
+				2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -136,6 +158,7 @@
 			children = (
 				2BB098BB28957136008707A5 /* Utilities.swift */,
 				2BB098BD289571B7008707A5 /* Constants.swift */,
+				2BD6E5B1289DB2280039661C /* LikeButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -211,6 +234,7 @@
 				2BB098AB28956F72008707A5 /* LaunchScreen.storyboard in Resources */,
 				2BB098A828956F72008707A5 /* Assets.xcassets in Resources */,
 				2BB098A628956F70008707A5 /* Main.storyboard in Resources */,
+				2B54089A289D92900096E0FC /* QuoteCell.xib in Resources */,
 				2B815D192895878900AF6FB6 /* Alegreya-Regular.ttf in Resources */,
 				2B815D1D2895888400AF6FB6 /* Montserrat-Regular.ttf in Resources */,
 				2BE992B82896D565001E9199 /* GoogleService-Info.plist in Resources */,
@@ -225,9 +249,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BB098B828956FB2008707A5 /* ProfileViewController.swift in Sources */,
+				2BB7437C289F19E0006FD01C /* BottomSheetViewController.swift in Sources */,
 				2B815D172895826100AF6FB6 /* Extensions.swift in Sources */,
 				2BB098B628956FAC008707A5 /* HomeScreenViewController.swift in Sources */,
 				2BF5CC802899E613007D223F /* TabBarController.swift in Sources */,
+				2BD6E5B2289DB2290039661C /* LikeButton.swift in Sources */,
+				2B540899289D92900096E0FC /* QuoteCell.swift in Sources */,
+				2BB74378289F15C3006FD01C /* ProfileViewController + CollectionView.swift in Sources */,
 				2BB098BC28957136008707A5 /* Utilities.swift in Sources */,
 				2BB098A328956F70008707A5 /* LoginViewController.swift in Sources */,
 				2BB0989F28956F70008707A5 /* AppDelegate.swift in Sources */,
@@ -386,6 +414,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -397,7 +426,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -414,6 +443,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -425,7 +455,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
