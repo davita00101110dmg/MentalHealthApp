@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0E8C6428AA96F20003A641 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E8C6328AA96F20003A641 /* NetworkService.swift */; };
+		2B0E8C6628AA98220003A641 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E8C6528AA98220003A641 /* User.swift */; };
+		2B4F27BE28BF7BDF00443099 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4F27BD28BF7BDF00443099 /* AuthService.swift */; };
 		2B540899289D92900096E0FC /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B540897289D92900096E0FC /* QuoteCell.swift */; };
 		2B54089A289D92900096E0FC /* QuoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B540898289D92900096E0FC /* QuoteCell.xib */; };
+		2B59207F28C113F700B287B0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59207E28C113F700B287B0 /* UserService.swift */; };
+		2B59208728C15F9C00B287B0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59208628C15F9C00B287B0 /* NetworkError.swift */; };
+		2B59208928C1601900B287B0 /* QuoteCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59208828C1601900B287B0 /* QuoteCellModel.swift */; };
 		2B815D172895826100AF6FB6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B815D162895826100AF6FB6 /* Extensions.swift */; };
 		2B815D192895878900AF6FB6 /* Alegreya-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B815D182895878900AF6FB6 /* Alegreya-Regular.ttf */; };
 		2B815D1B2895884300AF6FB6 /* Alegreya-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B815D1A2895884300AF6FB6 /* Alegreya-Bold.ttf */; };
@@ -24,7 +30,6 @@
 		2BB098B828956FB2008707A5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098B728956FB2008707A5 /* ProfileViewController.swift */; };
 		2BB098BC28957136008707A5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098BB28957136008707A5 /* Utilities.swift */; };
 		2BB098BE289571B7008707A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098BD289571B7008707A5 /* Constants.swift */; };
-		2BB74378289F15C3006FD01C /* ProfileViewController + CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB74377289F15C3006FD01C /* ProfileViewController + CollectionView.swift */; };
 		2BB7437C289F19E0006FD01C /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */; };
 		2BD6E5B2289DB2290039661C /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6E5B1289DB2280039661C /* LikeButton.swift */; };
 		2BE992B82896D565001E9199 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BE992B72896D565001E9199 /* GoogleService-Info.plist */; };
@@ -36,8 +41,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B0E8C6328AA96F20003A641 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = MentalHealthApp/API/NetworkService.swift; sourceTree = SOURCE_ROOT; };
+		2B0E8C6528AA98220003A641 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2B4F27BD28BF7BDF00443099 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2B540897289D92900096E0FC /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
 		2B540898289D92900096E0FC /* QuoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCell.xib; sourceTree = "<group>"; };
+		2B59207E28C113F700B287B0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		2B59208628C15F9C00B287B0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		2B59208828C1601900B287B0 /* QuoteCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCellModel.swift; sourceTree = "<group>"; };
 		2B815D162895826100AF6FB6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2B815D182895878900AF6FB6 /* Alegreya-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Regular.ttf"; sourceTree = "<group>"; };
 		2B815D1A2895884300AF6FB6 /* Alegreya-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Bold.ttf"; sourceTree = "<group>"; };
@@ -55,7 +66,6 @@
 		2BB098B728956FB2008707A5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2BB098BB28957136008707A5 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2BB098BD289571B7008707A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		2BB74377289F15C3006FD01C /* ProfileViewController + CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController + CollectionView.swift"; sourceTree = "<group>"; };
 		2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		2BD6E5B1289DB2280039661C /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		2BE992B72896D565001E9199 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -80,10 +90,54 @@
 		2B540896289D92680096E0FC /* QuoteCell */ = {
 			isa = PBXGroup;
 			children = (
-				2B540897289D92900096E0FC /* QuoteCell.swift */,
 				2B540898289D92900096E0FC /* QuoteCell.xib */,
+				2B540897289D92900096E0FC /* QuoteCell.swift */,
+				2B59208828C1601900B287B0 /* QuoteCellModel.swift */,
 			);
 			path = QuoteCell;
+			sourceTree = "<group>";
+		};
+		2B59208128C15DFA00B287B0 /* Firebase Services */ = {
+			isa = PBXGroup;
+			children = (
+				2B4F27BD28BF7BDF00443099 /* AuthService.swift */,
+				2B59207E28C113F700B287B0 /* UserService.swift */,
+			);
+			path = "Firebase Services";
+			sourceTree = "<group>";
+		};
+		2B59208228C15E1400B287B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E8C6528AA98220003A641 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B59208328C15E8000B287B0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2BB0989E28956F70008707A5 /* AppDelegate.swift */,
+				2BB098A028956F70008707A5 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2B59208428C15E9000B287B0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2B540896289D92680096E0FC /* QuoteCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2B59208528C15F8700B287B0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2B0E8C6328AA96F20003A641 /* NetworkService.swift */,
+				2B59208628C15F9C00B287B0 /* NetworkError.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		2B815D0C28957A4A00AF6FB6 /* Fonts */ = {
@@ -123,11 +177,13 @@
 		2BB0989D28956F70008707A5 /* MentalHealthApp */ = {
 			isa = PBXGroup;
 			children = (
-				2BB0989E28956F70008707A5 /* AppDelegate.swift */,
-				2BB098A028956F70008707A5 /* SceneDelegate.swift */,
+				2B59208328C15E8000B287B0 /* App */,
+				2B59208528C15F8700B287B0 /* API */,
+				2B59208428C15E9000B287B0 /* Cell */,
+				2B59208128C15DFA00B287B0 /* Firebase Services */,
+				2B59208228C15E1400B287B0 /* Model */,
 				2BB098BA28957126008707A5 /* Helpers */,
 				2BB098B228956F7E008707A5 /* Controllers */,
-				2B540896289D92680096E0FC /* QuoteCell */,
 				2B815D152895824A00AF6FB6 /* Extensions */,
 				2B815D0C28957A4A00AF6FB6 /* Fonts */,
 				2BB098A428956F70008707A5 /* Main.storyboard */,
@@ -146,7 +202,6 @@
 				2BB098B328956F9F008707A5 /* RegistrationViewController.swift */,
 				2BB098B528956FAC008707A5 /* HomeScreenViewController.swift */,
 				2BB098B728956FB2008707A5 /* ProfileViewController.swift */,
-				2BB74377289F15C3006FD01C /* ProfileViewController + CollectionView.swift */,
 				2BF5CC7F2899E613007D223F /* TabBarController.swift */,
 				2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */,
 			);
@@ -156,8 +211,8 @@
 		2BB098BA28957126008707A5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				2BB098BB28957136008707A5 /* Utilities.swift */,
 				2BB098BD289571B7008707A5 /* Constants.swift */,
+				2BB098BB28957136008707A5 /* Utilities.swift */,
 				2BD6E5B1289DB2280039661C /* LikeButton.swift */,
 			);
 			path = Helpers;
@@ -177,6 +232,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				2B57BA6128C0BBF900915AD0 /* PBXTargetDependency */,
+				2B4F27C228BFBB7A00443099 /* PBXTargetDependency */,
+				2B4F27C028BFBB6500443099 /* PBXTargetDependency */,
 			);
 			name = MentalHealthApp;
 			packageProductDependencies = (
@@ -254,18 +312,38 @@
 				2BB098B628956FAC008707A5 /* HomeScreenViewController.swift in Sources */,
 				2BF5CC802899E613007D223F /* TabBarController.swift in Sources */,
 				2BD6E5B2289DB2290039661C /* LikeButton.swift in Sources */,
+				2B59207F28C113F700B287B0 /* UserService.swift in Sources */,
 				2B540899289D92900096E0FC /* QuoteCell.swift in Sources */,
-				2BB74378289F15C3006FD01C /* ProfileViewController + CollectionView.swift in Sources */,
 				2BB098BC28957136008707A5 /* Utilities.swift in Sources */,
 				2BB098A328956F70008707A5 /* LoginViewController.swift in Sources */,
+				2B0E8C6428AA96F20003A641 /* NetworkService.swift in Sources */,
+				2B0E8C6628AA98220003A641 /* User.swift in Sources */,
 				2BB0989F28956F70008707A5 /* AppDelegate.swift in Sources */,
 				2BB098B428956F9F008707A5 /* RegistrationViewController.swift in Sources */,
+				2B4F27BE28BF7BDF00443099 /* AuthService.swift in Sources */,
+				2B59208728C15F9C00B287B0 /* NetworkError.swift in Sources */,
 				2BB098A128956F70008707A5 /* SceneDelegate.swift in Sources */,
+				2B59208928C1601900B287B0 /* QuoteCellModel.swift in Sources */,
 				2BB098BE289571B7008707A5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B4F27C028BFBB6500443099 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 2B4F27BF28BFBB6500443099 /* FirebaseFirestore */;
+		};
+		2B4F27C228BFBB7A00443099 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 2B4F27C128BFBB7A00443099 /* FirebaseAuth */;
+		};
+		2B57BA6128C0BBF900915AD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 2B57BA6028C0BBF900915AD0 /* FirebaseFirestoreSwift */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2BB098A428956F70008707A5 /* Main.storyboard */ = {
@@ -494,6 +572,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2B4F27BF28BFBB6500443099 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BE992B92896D71E001E9199 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		2B4F27C128BFBB7A00443099 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BE992B92896D71E001E9199 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2B57BA6028C0BBF900915AD0 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BE992B92896D71E001E9199 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		2BE992BA2896D71E001E9199 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2BE992B92896D71E001E9199 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
