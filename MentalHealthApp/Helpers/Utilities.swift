@@ -6,9 +6,10 @@
 //
 
 import UIKit
-import FirebaseAuth
 
-struct Utilities {
+// MARK: - Utilities
+
+enum Utilities {
     
     static func customLabel(for label: UILabel, size fontSize: CGFloat, text: String) {
         label.textColor = .black
@@ -23,14 +24,14 @@ struct Utilities {
         
         // Make textfields transparent and make visible only red botttom line.
         bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width, height: 2)
-        bottomLine.backgroundColor = redColor.cgColor
+        bottomLine.backgroundColor = Color.redColor.cgColor
         textfield.borderStyle = .none
         textfield.layer.addSublayer(bottomLine)
         
         textfield.font = UIFont.appRegularFontWith(size: 18)
         textfield.textColor = .black
         textfield.textAlignment = .center
-        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : grayColor])
+        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : Color.grayColor])
     }
     
     static func customButton(for button: UIButton, title: String, cornerRadius: CGFloat, color: UIColor) {
@@ -53,7 +54,7 @@ struct Utilities {
         let mutableAttributedString = NSMutableAttributedString.init(string: mainString)
         
         // Make the word in different color and bold font.
-        mutableAttributedString.addAttribute(.foregroundColor, value: redColor, range: range)
+        mutableAttributedString.addAttribute(.foregroundColor, value: Color.redColor, range: range)
         
         mutableAttributedString.addAttribute(.font, value: UIFont.appRegularBoldFontWith(size: label.font.pointSize), range: range)
         
@@ -66,14 +67,13 @@ struct Utilities {
         label.font = UIFont.appRegularBoldFontWith(size: label.font.pointSize)
         
         if isError {
-            label.textColor = redColor
+            label.textColor = Color.redColor
         } else {
-            label.textColor = greenColor
+            label.textColor = Color.greenColor
         }
     }
     
     // Function to check if password is secure.
-    // Used from: https://medium.com/swlh/password-validation-in-swift-5-3de161569910
     static func isPasswordValid(_ password: String) -> Bool {
         let passwordTest = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{8,}$")
         
@@ -101,33 +101,5 @@ struct Utilities {
         viewController.tabBarItem.image = inactiveImage
         viewController.tabBarItem.selectedImage = activeImage
         viewController.title = ""
-    }
-}
-
-struct AuthService {
-    
-    // Sign in user
-    static func loginUser(withEmail email: String, password: String, completion: @escaping ((AuthDataResult?, Error?) -> Void)) {
-        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
-    }
-    
-    static func logoutUser(viewController: UIViewController) {
-        
-        // Log out the user and change root vc to root nav controller
-        do {
-            try Auth.auth().signOut()
-            
-            let rootNavVC = viewController.storyboard?.instantiateViewController(withIdentifier: "rootNavigationController")
-
-            viewController.view.window?.rootViewController = rootNavVC
-            viewController.view.window?.makeKeyAndVisible()
-        } catch let error {
-            //TODO: handle the erorr in the better way
-            print(error) }
-    }
-    
-    // Register user
-    static func registerUser(withEmail email: String, password: String, completion: @escaping ((AuthDataResult?, Error?) -> Void)) {
-        Auth.auth().createUser(withEmail: email, password: password, completion: completion)
     }
 }
