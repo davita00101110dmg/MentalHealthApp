@@ -7,8 +7,8 @@
 
 import UIKit
 
-// Custom like button with animation
-// Used from: https://betterprogramming.pub/recreating-instagrams-like-%EF%B8%8F-animation-in-swift-6b95f74c9593
+// MARK: - Like Button
+
 class LikeButton: UIButton {
     var isLiked = false
     
@@ -23,7 +23,7 @@ class LikeButton: UIButton {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setTitle("", for: .normal)
-        setImage(heartEmpty, for: .normal)
+        setImage(Image.heartEmpty, for: .normal)
     }
     
     public func flipLikedState() {
@@ -34,7 +34,7 @@ class LikeButton: UIButton {
     // Handles animation when clicked
     private func animate() {
       UIView.animate(withDuration: 0.1, animations: {
-        let newImage = self.isLiked ? heartFilled : heartEmpty
+        let newImage = self.isLiked ? Image.heartFilled : Image.heartEmpty
         let newScale = self.isLiked ? self.likedScale : self.unlikedScale
         self.transform = self.transform.scaledBy(x: newScale, y: newScale)
         self.setImage(newImage, for: .normal)
