@@ -6,19 +6,21 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
-class TabBarController: UITabBarController {
+
+class TabBarController: UITabBarController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupTabBar()
     }
     
     private func setupTabBar() {
         
         // Setting tap bar appareance
-        self.tabBar.backgroundColor = whiteColor
+        self.tabBar.backgroundColor = Color.whiteColor
         self.tabBar.tintColor = .black
         self.tabBar.layer.cornerRadius = 20
         self.tabBar.layer.masksToBounds = true

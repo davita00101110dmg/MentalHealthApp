@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
     
     private func setupElements() {
         self.navigationController?.isNavigationBarHidden = true
-        self.view.backgroundColor = mainColor
+        self.view.backgroundColor = Color.mainColor
         
         // Hiding the error label.  
         errorLabel.alpha = 0
@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
         Utilities.customTextField(for: passwordTextField, placeholder: "Password")
         Utilities.customLabel(for: registerSuggestionLabel, size: 20, text: "Don't have an account? Sign up here!")
         Utilities.customLabel(for: errorLabel, size: 20, text: "Please provide a password which will contain valid creditals")
-        Utilities.customButton(for: signInButton, title: "Login", cornerRadius: 20, color: redColor)
+        Utilities.customButton(for: signInButton, title: "Login", cornerRadius: 20, color: Color.redColor)
         Utilities.highlightedText(for: registerSuggestionLabel, text: "Sign up")
         
         // Setting up gesture to hide keyboard when pressed anywhere else.
@@ -58,7 +58,6 @@ class LoginViewController: UIViewController {
     }
     
     internal func switchBasedNextTextField(for textField: UITextField) {
-        
         // Setting up switch statement to determine which textfield's return key was pressed and if it's not last move to the next one. If last hide the keyboard
         switch textField {
         case self.emailTextField:
@@ -69,7 +68,6 @@ class LoginViewController: UIViewController {
     }
     
     private func validateFields() -> String? {
-        
         // Creating cleaned versions of the text fields
         let cleanedEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -102,14 +100,11 @@ class LoginViewController: UIViewController {
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             // Trying to sign in
-            
             AuthService.loginUser(withEmail: email, password: password) { result, error in
                 if error != nil {
-                    
                     // Can't sign in
                     Utilities.showOutcume(for: self.errorLabel, message: "\(error!.localizedDescription)", isError: true)
                 } else {
-                    
                     // Signed in
                     Utilities.showOutcume(for: self.errorLabel, message: "You've succesfully logged in!", isError: false)
                     
@@ -119,16 +114,16 @@ class LoginViewController: UIViewController {
                     
                     let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
                     
-                    Utilities.setupTabBarItem(homeVC, inactiveHomeImage, activeHomeImage)
-                    Utilities.setupTabBarItem(profileVC, inactiveProfileImage, activeProfileImage)
+                    Utilities.setupTabBarItem(homeVC, Image.inactiveHome, Image.activeHome)
+                    Utilities.setupTabBarItem(profileVC, Image.inactiveProfile, Image.activeProfile)
                     
                     homeVC.username = email
                     tabBarController.viewControllers = [homeVC, profileVC]
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         self.view.window?.rootViewController = tabBarController
                         self.view.window?.makeKeyAndVisible()
-                    }
+//                    }
                 }
             }
         }

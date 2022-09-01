@@ -25,15 +25,15 @@ class BottomSheetViewController: UIViewController, UISheetPresentationController
     }
     
     private func setupElements() {
-        self.view.backgroundColor = lightGreenColor
+        self.view.backgroundColor = Color.lightGreenColor
         
         sheetPresentationController.delegate = self
         sheetPresentationController.detents = [.medium()]
         
         // Configuring components of the bottom sheet view.
         Utilities.customLabel(for: questionLabel, size: 28, text: "Do you really want to sign out?")
-        Utilities.customButton(for: yesButtonOutlet, title: "Yes", cornerRadius: 10, color: redColor)
-        Utilities.customButton(for: noButtonOutlet, title: "No", cornerRadius: 10, color: redColor)
+        Utilities.customButton(for: yesButtonOutlet, title: "Yes", cornerRadius: 10, color: Color.redColor)
+        Utilities.customButton(for: noButtonOutlet, title: "No", cornerRadius: 10, color: Color.redColor)
     }
 
     @IBAction func yesButtonAction(_ sender: Any) {

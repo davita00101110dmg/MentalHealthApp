@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+
 
 class HomeScreenViewController: UIViewController {
     
@@ -14,41 +17,79 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var quoteHeaderLabel: UILabel!
     @IBOutlet weak var quoteLabel: UILabel!
     
+    @IBOutlet weak var likeButtonOutlet: LikeButton!
     @IBOutlet weak var generateButtonOutlet: UIButton!
     
     var username: String = ""
+    
+    var quote: Quote?
+    var networkService = NetworkService.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupElements()
-        
     }
     
     private func setupElements() {
-        self.view.backgroundColor = lightGreenColor
+        self.view.backgroundColor = Color.lightGreenColor
         
         // Configuring image
-        imageView.image = cuteBrain
-        imageView.contentMode = .center
+        imageView.image = Image.cuteBrain
+        imageView.contentMode = .scaleAspectFit
+        
+        likeButtonOutlet.isHidden = true
         
         // Configuring components of the current view.
-        Utilities.customLabel(for: userLabel, size: 28, text: "Welcome \(username), \n How are you feeling today?")
-        Utilities.customLabel(for: quoteHeaderLabel, size: 25, text: "Today's quote👇🏻")
-        Utilities.customLabel(for: quoteLabel, size: 22, text: "first quote")        
-        Utilities.customButton(for: generateButtonOutlet, title: "Next", cornerRadius: 15, color: greenColor)
-
+        Utilities.customLabel(for: userLabel, size: 24, text: "Welcome \(username), \n How are you feeling today?")
+        setupQuoteLabel()
+        Utilities.customLabel(for: quoteHeaderLabel, size: 22, text: "Today's quote👇🏻")
         
+        //TODO: put quote here
+        Utilities.customLabel(for: quoteLabel, size: 20, text: "Press Next button to generate new quote")
+        Utilities.customButton(for: generateButtonOutlet, title: "Next", cornerRadius: 20, color: Color.greenColor)
+        
+        
+    }
+    
+    private func setupQuoteLabel() {
+        quoteLabel.layer.borderWidth = 0.5
+        quoteLabel.layer.cornerRadius = 20
+        quoteLabel.layer.backgroundColor = Color.whiteColor.cgColor
     }
     
     @IBAction func likeButtonAction(_ sender: Any) {
         // Calling function which will handle the animation of the like button
-        guard let button = sender as? LikeButton else { return }
-        button.flipLikedState()
+        
+        guard let quote = quote?.content else { return }
+        let flag = likeButtonOutlet.isLiked
+
+        likeButtonOutlet.flipLikedState()
+        
+        UserService.updateLikedQuotesArray(condition: flag, quote: quote)
+
     }
     
     @IBAction func generateButtonAction(_ sender: Any) {
-        //TODO: generate new quote
+        
+        if likeButtonOutlet.isLiked {
+            likeButtonOutlet.flipLikedState()
+        }
+        
+        Task {
+            let response = await networkService.fetchQuotes()
+            
+            switch response {
+            case .success(let quote):
+                self.quote = quote
+                self.likeButtonOutlet.isHidden = false
+                self.quoteLabel.text = quote.content + "\n -" + quote.author
+                
+            case .failure(_):
+                print(ApiError.decodingError)
+            }
+        }
+        
     }
     
 }

@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseFirestoreSwift
+
 
 class ProfileViewController: UIViewController {
     
@@ -15,12 +19,29 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var fullnameLabel: UILabel!
     @IBOutlet weak var yourLikedQuotesLabel: UILabel!
     @IBOutlet weak var collectionViewOutlet: UICollectionView!
+     
+    var user: User? {
+        didSet {
+            collectionViewOutlet.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchUser()
         setupCollectionView()
         setupElements()
+
+    }
+    
+    
+    //MARK: - Fetch User From DB
+    
+    private func fetchUser() {
+        UserService.fetchUser { user in
+            self.user = user
+        }
     }
     
     private func setupCollectionView() {
@@ -28,7 +49,7 @@ class ProfileViewController: UIViewController {
         collectionViewOutlet.dataSource = self
         collectionViewOutlet.registerNib(class: QuoteCell.self)
         collectionViewOutlet.layer.cornerRadius = 20
-        collectionViewOutlet.backgroundColor = whiteColor
+        collectionViewOutlet.backgroundColor = Color.whiteColor
         
         let customFlowLayout = UICollectionViewFlowLayout()
         customFlowLayout.minimumLineSpacing = 10
@@ -37,7 +58,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupElements() {
-        self.view.backgroundColor = lightGreenColor
+        self.view.backgroundColor = Color.lightGreenColor
         
         // Adding system image temprorary
         profilePictureImage.image = UIImage(systemName: "person.crop.circle")
@@ -47,7 +68,7 @@ class ProfileViewController: UIViewController {
         Utilities.customLabel(for: titleLabel, size: 28, text: "Profile")
         Utilities.customLabel(for: fullnameLabel, size: 20, text: "Dato Khvedelidze") //TODO: Text should be full name variable
         Utilities.customLabel(for: yourLikedQuotesLabel, size: 28, text: "Your liked quotes👇🏻")
-        Utilities.customButton(for: logoutButton, title: "Logout", cornerRadius: 10, color: redColor)
+        Utilities.customButton(for: logoutButton, title: "Logout", cornerRadius: 10, color: Color.redColor)
     }
     
     @IBAction func logoutAction(_ sender: Any) {
@@ -60,3 +81,26 @@ class ProfileViewController: UIViewController {
     }
 
 }
+
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        user?.liked_quotes.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuoteCell", for: indexPath) as! QuoteCell
+        
+        let currentQute = user?.liked_quotes[indexPath.row]
+
+        cell.quoteLabel.text = currentQute
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: view.frame.size.width, height: 100.0)
+    }
+    
+}
+
+

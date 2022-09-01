@@ -37,7 +37,7 @@ class RegistrationViewController: UIViewController {
     
     private func setupElements() {
         self.navigationController?.isNavigationBarHidden = true
-        self.view.backgroundColor = mainColor
+        self.view.backgroundColor = Color.mainColor
         
         // Hiding the outcome label.
         registrationOutcomeLabel.alpha = 0
@@ -51,7 +51,7 @@ class RegistrationViewController: UIViewController {
         Utilities.customTextField(for: confirmPasswordTextField, placeholder: "Confirm Password")
         Utilities.customLabel(for: loginSuggestionLabel, size: 20, text: "Already have an account? Sign in here!")
         Utilities.customLabel(for: registrationOutcomeLabel, size: 20, text: "Please fill all the fields correctly!")
-        Utilities.customButton(for: signupButton, title: "Sign Up", cornerRadius: 20, color: redColor)
+        Utilities.customButton(for: signupButton, title: "Sign Up", cornerRadius: 20, color: Color.redColor)
         Utilities.highlightedText(for: loginSuggestionLabel, text: "Sign in")
         
         // Setting up gesture to hide keyboard when pressed anywhere else.
@@ -137,25 +137,12 @@ class RegistrationViewController: UIViewController {
                     // Was an error
                     Utilities.showOutcume(for: self.registrationOutcomeLabel, message: "\(error!.localizedDescription)", isError: true)
                 } else {
-                
+                    
                     // User was created succesfully storing properties in database.
-                    let database = Firestore.firestore()
-                    
-                    database.collection("users").addDocument(data: [
-                        "firstname": name,
-                        "lastname": lastname,
-                        "uid": result!.user.uid
-                    ]) { (error) in
-                        
-                        if error != nil {
-                            
-                            Utilities.showOutcume(for: self.registrationOutcomeLabel, message: "\(error!.localizedDescription)", isError: true)
-                        }
-                    }   
-                    
-                    // Going back to login view
+                    UserService.registerInDB(with: name, lastname: lastname, uid: result!.user.uid, label: self.registrationOutcomeLabel)
                     Utilities.showOutcume(for: self.registrationOutcomeLabel, message: "You've succesfully registered!", isError: false)
                     
+                    // Going back to login view
                     //TODO: Fix error which is poping up after setting async for 2 seconds
 //                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         self.navigationController?.popToRootViewController(animated: true)
