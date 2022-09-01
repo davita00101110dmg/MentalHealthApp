@@ -7,28 +7,35 @@
 
 import UIKit
 
-// Initializing constant colors for the project.
-let mainColor = UIColor(red: 252/255, green: 251/255, blue: 221/255, alpha: 1)
-let redColor = UIColor(red: 197/255, green: 105/255, blue: 95/255, alpha: 1)
-let greenColor = UIColor(red: 145/255, green: 163/255, blue: 98/255, alpha: 1)
-let lightGreenColor = UIColor(red: 238/255, green: 243/255, blue: 223/255, alpha: 1)
-let grayColor = UIColor(red: 0, green: 0, blue: 0.0980392, alpha: 0.22)
-let whiteColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+// MARK: - Colors
 
-// Initializing icon sizes
-let defaultIconSize = CGSize(width: 30, height: 30)
-let biggerIconSize = CGSize(width: 75, height: 75)
-let biggestIconSize = CGSize(width: 275, height: 275)
+enum Color {
+    static let mainColor = UIColor(red: 252/255, green: 251/255, blue: 221/255, alpha: 1)
+    static let redColor = UIColor(red: 197/255, green: 105/255, blue: 95/255, alpha: 1)
+    static let greenColor = UIColor(red: 145/255, green: 163/255, blue: 98/255, alpha: 1)
+    static let lightGreenColor = UIColor(red: 238/255, green: 243/255, blue: 223/255, alpha: 1)
+    static let grayColor = UIColor(red: 0, green: 0, blue: 0.0980392, alpha: 0.22)
+    static let whiteColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+}
 
-// Initializing images
-let activeHomeImage = UIImage(named: "home_active")!.imageResized(to: defaultIconSize)
-let inactiveHomeImage = UIImage(named: "home_inactive")!.imageResized(to: defaultIconSize)
-let activeProfileImage = UIImage(named: "user_active")!.imageResized(to: defaultIconSize)
-let inactiveProfileImage = UIImage(named: "user_inactive")!.imageResized(to: defaultIconSize)
 
-let heartEmpty = UIImage(named: "heart_empty")?.imageResized(to: defaultIconSize)
-let heartFilled = UIImage(named: "heart_filled")?.imageResized(to: defaultIconSize)
+// MARK: - Icon sizes
 
-let arrowTriangle = UIImage(systemName: "arrowtriangle.forward.circle.fill")?.imageResized(to: biggerIconSize).withTintColor(greenColor)
+enum ImageSize {
+    static let defaultIcon = CGSize(width: 30, height: 30)
+    static let biggerIcon = CGSize(width: 75, height: 75)
+    static let biggestIcon = CGSize(width: 275, height: 275)
+}
 
-let cuteBrain = UIImage(named: "CuteBrain")?.imageResized(to: biggestIconSize)
+// MARK: - Images
+
+enum Image {
+    static let activeHome = UIImage(named: "home_active")!.imageResized(to: ImageSize.defaultIcon)
+    static let inactiveHome = UIImage(named: "home_inactive")!.imageResized(to: ImageSize.defaultIcon)
+    static let activeProfile = UIImage(named: "user_active")!.imageResized(to: ImageSize.defaultIcon)
+    static let inactiveProfile = UIImage(named: "user_inactive")!.imageResized(to: ImageSize.defaultIcon)
+    static let heartEmpty = UIImage(named: "heart_empty")?.imageResized(to: ImageSize.defaultIcon)
+    static let heartFilled = UIImage(named: "heart_filled")?.imageResized(to: ImageSize.defaultIcon)
+    static let cuteBrain = UIImage(named: "CuteBrain")
+    static let arrowTriangle = UIImage(systemName: "arrowtriangle.forward.circle.fill")?.imageResized(to: ImageSize.biggerIcon).withTintColor(Color.greenColor)
+}
