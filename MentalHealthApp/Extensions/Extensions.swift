@@ -7,7 +7,8 @@
 
 import UIKit
 
-// Add font functions on UIFont for easier usage.
+// MARK: - UIFont
+
 extension UIFont {
     
     static func appRegularFontWith(size: CGFloat) -> UIFont {
@@ -24,7 +25,8 @@ extension UIFont {
     
 }
 
-// Reach out text fields whose return button was pressed.
+// MARK: - UITextFieldDelegate
+
 extension LoginViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -45,7 +47,8 @@ extension RegistrationViewController: UITextFieldDelegate {
     
 }
 
-// Add function on UIImage for resizing icons to needed size
+// MARK: - UIImage
+
 extension UIImage {
     
     func imageResized(to size: CGSize) -> UIImage {
@@ -55,7 +58,17 @@ extension UIImage {
     }
 }
 
-// Extension to reach cell easier
+// MARK: - UICollectionView register function
+
+extension UICollectionView {
+    
+    func registerNib<T: UICollectionViewCell>(class: T.Type) {
+        self.register(T.nibFile, forCellWithReuseIdentifier: T.identifier)
+    }
+}
+
+// MARK: - UICollectionViewCell
+
 extension UICollectionViewCell {
     
     static var identifier: String { String(describing: self) }
@@ -64,10 +77,3 @@ extension UICollectionViewCell {
     }
 }
 
-// Extension to register cell easier
-extension UICollectionView {
-    
-    func registerNib<T: UICollectionViewCell>(class: T.Type) {
-        self.register(T.nibFile, forCellWithReuseIdentifier: T.identifier)
-    }
-}
