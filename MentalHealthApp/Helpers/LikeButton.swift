@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Like Button
 
-class LikeButton: UIButton {
+final class LikeButton: UIButton {
     var isLiked = false
     
     
