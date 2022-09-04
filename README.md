@@ -1,12 +1,11 @@
 # MentalHealthApp
 
-Software architecture pattern - [VIP](https://clean-swift.com/) 👑 </br>
+## Overview
 
-Inspiration - [Dribble](https://dribbble.com/shots/18507485-Mental-Health-App?fbclid=IwAR222a8UDCoWlqtzDlZwLng8zRSsS8U0cSJoDcdbf87X8FD0lUZm8Mr61vY) 🎈 </br>
-
-Package Manager - [Firebase](https://firebase.google.com/) 🔥 </br>
-
-API - [Quotable](https://github.com/lukePeavey/quotable) 💬 </br>
+Software architecture pattern - [VIP](https://clean-swift.com/) </br>
+Inspiration - [Dribble](https://dribbble.com/shots/18507485-Mental-Health-App?fbclid=IwAR222a8UDCoWlqtzDlZwLng8zRSsS8U0cSJoDcdbf87X8FD0lUZm8Mr61vY) </br>
+Package Manager - [Firebase](https://firebase.google.com/) </br>
+API - [Quotable](https://github.com/lukePeavey/quotable) </br>
 
 **Made for TBC iOS Bootcamp Final exam** 
 
