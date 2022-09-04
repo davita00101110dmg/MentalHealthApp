@@ -39,7 +39,6 @@ extension LoginViewController: UITextFieldDelegate {
 
 extension RegistrationViewController: UITextFieldDelegate {
     
-    //MARK: double check in documentation
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.switchBasedNextTextField(for: textField)
         return true
@@ -77,3 +76,23 @@ extension UICollectionViewCell {
     }
 }
 
+// MARK: - UIWindow
+
+extension UIWindow {
+    
+    func switchRootViewController(_ viewController: UIViewController,  animated: Bool = true, duration: TimeInterval = 0.5, options: UIView.AnimationOptions = .transitionFlipFromRight, completion: (() -> Void)? = nil) {
+        guard animated else {
+            rootViewController = viewController
+            return
+        }
+        
+        UIView.transition(with: self, duration: duration, options: options, animations: {
+            let oldState = UIView.areAnimationsEnabled
+            UIView.setAnimationsEnabled(false)
+            self.rootViewController = viewController
+            UIView.setAnimationsEnabled(oldState)
+        }) { _ in
+            completion?()
+        }
+    }
+}
