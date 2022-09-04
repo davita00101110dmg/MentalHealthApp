@@ -20,7 +20,11 @@ class HomeScreenViewController: UIViewController {
     @IBOutlet weak var likeButtonOutlet: LikeButton!
     @IBOutlet weak var generateButtonOutlet: UIButton!
     
-    var username: String = ""
+    var user: User? {
+        didSet {
+            userLabel.text = "Welcome, \(user!.firstname) \n How are you feeling today?"
+        }
+    }
     
     var quote: Quote?
     var networkService = NetworkService.shared
@@ -28,7 +32,14 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchUser()
         setupElements()
+    }
+    
+    private func fetchUser() {
+        UserService.fetchUser { user in
+            self.user = user
+        }
     }
     
     private func setupElements() {
@@ -41,7 +52,7 @@ class HomeScreenViewController: UIViewController {
         likeButtonOutlet.isHidden = true
         
         // Configuring components of the current view.
-        Utilities.customLabel(for: userLabel, size: 24, text: "Welcome \(username), \n How are you feeling today?")
+        Utilities.customLabel(for: userLabel, size: 24, text: "Welcome, \n How are you feeling today?")
         setupQuoteLabel()
         Utilities.customLabel(for: quoteHeaderLabel, size: 22, text: "Today's quote👇🏻")
         

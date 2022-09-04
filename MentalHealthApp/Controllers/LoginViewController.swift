@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = Color.mainColor
         
-        // Hiding the error label.  
+        // Hiding the error label.
         errorLabel.alpha = 0
         
         // Adding icon to the home page.
@@ -117,7 +117,6 @@ class LoginViewController: UIViewController {
                     Utilities.setupTabBarItem(homeVC, Image.inactiveHome, Image.activeHome)
                     Utilities.setupTabBarItem(profileVC, Image.inactiveProfile, Image.activeProfile)
                     
-                    homeVC.username = email
                     tabBarController.viewControllers = [homeVC, profileVC]
                     
 //                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

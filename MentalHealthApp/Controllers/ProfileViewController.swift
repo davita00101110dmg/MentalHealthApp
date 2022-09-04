@@ -22,9 +22,11 @@ class ProfileViewController: UIViewController {
      
     var user: User? {
         didSet {
+            fullnameLabel.text = "\(user!.firstname) \(user!.lastname)"
             collectionViewOutlet.reloadData()
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +68,7 @@ class ProfileViewController: UIViewController {
         
         // Configuring components of the current view.
         Utilities.customLabel(for: titleLabel, size: 28, text: "Profile")
-        Utilities.customLabel(for: fullnameLabel, size: 20, text: "Dato Khvedelidze") //TODO: Text should be full name variable
+        Utilities.customLabel(for: fullnameLabel, size: 20, text: String(describing: user?.firstname)) //TODO: Text should be full name variable
         Utilities.customLabel(for: yourLikedQuotesLabel, size: 28, text: "Your liked quotes👇🏻")
         Utilities.customButton(for: logoutButton, title: "Logout", cornerRadius: 10, color: Color.redColor)
     }

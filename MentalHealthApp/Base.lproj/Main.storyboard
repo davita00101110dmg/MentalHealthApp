@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-182" y="93"/>
         </scene>
-        <!--Login View Controller-->
+        <!--LoginVIP View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVIPViewController" id="BYZ-38-t0r" customClass="LoginVIPViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="741" y="-256"/>
         </scene>
-        <!--Registration View Controller-->
+        <!--RegistrationVIP View Controller-->
         <scene sceneID="8fF-fy-2ZL">
             <objects>
-                <viewController storyboardIdentifier="RegistrationViewController" id="ey6-1q-otO" customClass="RegistrationViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationVIPViewController" id="ey6-1q-otO" customClass="RegistrationVIPViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ob6-mq-Ys0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -261,7 +261,7 @@
                                 <rect key="frame" x="260" y="15" width="100" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="eGp-xo-qjm"/>
-                                    <constraint firstAttribute="width" constant="100" id="sAV-xn-kxM"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="sAV-xn-kxM"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
@@ -326,6 +326,7 @@
                             <constraint firstItem="CUG-21-fbD" firstAttribute="bottom" secondItem="xKZ-5z-oPb" secondAttribute="bottom" constant="10" id="VJz-rS-Y7S"/>
                             <constraint firstItem="xKZ-5z-oPb" firstAttribute="centerX" secondItem="I7Q-gf-xss" secondAttribute="centerX" id="VxH-BA-gag"/>
                             <constraint firstItem="TcB-wC-2KT" firstAttribute="top" secondItem="5E9-W0-rEf" secondAttribute="bottom" constant="20" id="aI2-JC-R1R"/>
+                            <constraint firstItem="Hyn-4J-P2A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CUG-21-fbD" secondAttribute="leading" symbolic="YES" id="bl7-Lh-KFq"/>
                             <constraint firstItem="TcB-wC-2KT" firstAttribute="centerX" secondItem="I7Q-gf-xss" secondAttribute="centerX" id="ccr-xv-gtn"/>
                             <constraint firstItem="ebU-4E-YE4" firstAttribute="top" secondItem="TcB-wC-2KT" secondAttribute="bottom" constant="20" id="duz-4t-cod"/>
                             <constraint firstItem="Hyn-4J-P2A" firstAttribute="top" secondItem="CUG-21-fbD" secondAttribute="top" constant="15" id="gXF-ew-KDO"/>
