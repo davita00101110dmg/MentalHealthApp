@@ -12,7 +12,7 @@ import UIKit
 
 //MARK: - User Service
 
-struct UserService {
+enum UserService {
     
     private static let db = Firestore.firestore()
     private static let collectionName = "users"
@@ -26,18 +26,14 @@ struct UserService {
     
     //MARK: - Registration in database
     
-    static func registerInDB(with name: String, lastname: String, uid: String, label: UILabel) {
+    static func registerInDB(with name: String, lastname: String, uid: String) {
         
         document.setData([
             "firstname": name,
             "lastname": lastname,
             "uid": uid,
             "liked_quotes": []
-        ]) { error in
-            if error != nil {
-                Utilities.showOutcume(for: label, message: "Can't save user", isError: true)
-            }
-        }
+        ])
     }
     
     //MARK: - Fetch User

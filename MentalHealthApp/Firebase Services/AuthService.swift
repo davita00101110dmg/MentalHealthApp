@@ -11,7 +11,7 @@ import FirebaseAuth
 
 //MARK: - Authentication service
 
-struct AuthService {
+enum AuthService {
     
     // MARK: - Sign in
     
