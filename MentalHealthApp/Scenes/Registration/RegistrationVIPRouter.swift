@@ -16,7 +16,7 @@ protocol RegistrationVIPRoutingLogic {
     func routeToLoginVC()
 }
 
-class RegistrationVIPRouter: RegistrationVIPRoutingLogic {
+final class RegistrationVIPRouter: RegistrationVIPRoutingLogic {
     // MARK: - Clean Components
 
     weak var viewController: RegistrationVIPViewController?

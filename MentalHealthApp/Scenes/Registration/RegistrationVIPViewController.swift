@@ -16,11 +16,23 @@ protocol RegistrationVIPDisplayLogic: AnyObject {
     func displayRegistrationOutcome(viewModel: RegistrationVIP.RegistrationValidation.ViewModel)
 }
 
-class RegistrationVIPViewController: UIViewController {
+final class RegistrationVIPViewController: UIViewController {
     // MARK: - Clean Components
     
     var interactor: RegistrationVIPBusinessLogic?
     var router: RegistrationVIPRoutingLogic?
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var lastnameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var loginSuggestionLabel: UILabel!
+    @IBOutlet weak var registrationOutcomeLabel: UILabel!
+    @IBOutlet weak var signupButton: UIButton!
     
     // MARK: - Object lifecycle
     
@@ -55,19 +67,6 @@ class RegistrationVIPViewController: UIViewController {
         setupElements()
     }
     
-    // MARK: - Outlets
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var lastnameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
-    @IBOutlet weak var loginSuggestionLabel: UILabel!
-    @IBOutlet weak var registrationOutcomeLabel: UILabel!
-    @IBOutlet weak var signupButton: UIButton!
-    
-    
     // MARK: - Private Methods
     
     private func setupTextFieldDelegates() {
@@ -80,12 +79,10 @@ class RegistrationVIPViewController: UIViewController {
     
     private func setupElements() {
         self.navigationController?.isNavigationBarHidden = true
-        self.view.backgroundColor = Color.mainColor
-        
-        // Hiding the outcome label.
+        self.view.backgroundColor = Constant.Color.mainColor
+    
         registrationOutcomeLabel.alpha = 0
         
-        // Configuring components of the current view.
         Utilities.customLabel(for: titleLabel, size: 30, text: "Create your account")
         Utilities.customTextField(for: nameTextField, placeholder: "First Name")
         Utilities.customTextField(for: lastnameTextField, placeholder: "Last Name")
@@ -94,19 +91,13 @@ class RegistrationVIPViewController: UIViewController {
         Utilities.customTextField(for: confirmPasswordTextField, placeholder: "Confirm Password")
         Utilities.customLabel(for: loginSuggestionLabel, size: 20, text: "Already have an account? Sign in here!")
         Utilities.customLabel(for: registrationOutcomeLabel, size: 20, text: "Please fill all the fields correctly!")
-        Utilities.customButton(for: signupButton, title: "Sign Up", cornerRadius: 20, color: Color.redColor)
+        Utilities.customButton(for: signupButton, title: "Sign Up", cornerRadius: 20, color: Constant.Color.redColor)
         Utilities.highlightedText(for: loginSuggestionLabel, text: "Sign in")
-        
-        // Setting up gesture to hide keyboard when pressed anywhere else.
         Utilities.setupTapGestureHideKeyboard(self)
-        
-        // Setting up gesture for the label which will lead to loginVC
         Utilities.setupTapGestureToChangeView(self, loginSuggestionLabel, #selector(gestureTapped))
-        
     }
     
     internal func switchBasedNextTextField(for textField: UITextField) {
-        // Setting up switch statement to determine which textfield's return key was pressed and if it's not last move to the next one. If last hide the keyboard
         switch textField {
         case self.nameTextField:
             self.lastnameTextField.becomeFirstResponder()
@@ -120,26 +111,16 @@ class RegistrationVIPViewController: UIViewController {
             self.view.endEditing(true)
         }
     }
-}
-
-// MARK: - RegistrationVIPBusinessLogic
-
-extension RegistrationVIPViewController {
+    
+    // MARK: - Actions
+    
     @IBAction func signupButtonPressed(_ sender: Any) {
-        let request = RegistrationVIP.RegistrationValidation.Request(firstname: nameTextField.text,
+        let validateRegistrationRequest = RegistrationVIP.RegistrationValidation.Request(firstname: nameTextField.text,
                                                                      lastname: lastnameTextField.text,
                                                                      email: emailTextField.text,
                                                                      password: passwordTextField.text,
                                                                      confirmPassword: confirmPasswordTextField.text)
-        interactor?.validateRegistration(request: request)
-    }
-}
-
-// MARK: - RegistrationVIPRoutingLogic
-
-extension RegistrationVIPViewController {
-    @objc func gestureTapped() {
-        router?.routeToLoginVC()
+        interactor?.validateRegistration(request: validateRegistrationRequest)
     }
 }
 
@@ -148,9 +129,18 @@ extension RegistrationVIPViewController {
 extension RegistrationVIPViewController: RegistrationVIPDisplayLogic {
     func displayRegistrationOutcome(viewModel: RegistrationVIP.RegistrationValidation.ViewModel) {
         Utilities.showOutcume(for: registrationOutcomeLabel, message: viewModel.outcome!, isError: viewModel.isError)
+        
         if !viewModel.isError {
             router?.routeToLoginVC()
         }
+    }
+}
+
+// MARK: - RegistrationVIPRoutingLogic
+
+extension RegistrationVIPViewController {
+    @objc func gestureTapped() {
+        router?.routeToLoginVC()
     }
 }
 

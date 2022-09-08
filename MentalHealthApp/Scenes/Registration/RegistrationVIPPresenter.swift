@@ -16,7 +16,7 @@ protocol RegistrationVIPPresentationLogic {
     func presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response)
 }
 
-class RegistrationVIPPresenter {
+final class RegistrationVIPPresenter {
     // MARK: - Clean Components
     
     weak var viewController: RegistrationVIPDisplayLogic?

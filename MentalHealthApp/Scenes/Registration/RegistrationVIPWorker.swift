@@ -27,7 +27,7 @@ extension RegistrationVIPWorker: RegistrationVIPWorkerLogic {
                 completionHandler(error!.localizedDescription, true)
             } else {
                 UserService.registerInDB(with: firstname, lastname: lastname, uid: result!.user.uid)
-                completionHandler("You've succesfully registered!", false)
+                completionHandler(Constant.ValidationOutcome.successfulRegistration, false)
             }
         }
     }

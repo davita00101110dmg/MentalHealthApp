@@ -9,18 +9,14 @@ import UIKit
 
 //MARK: - Network Service
 
-struct NetworkService {
-    
-    static let shared = NetworkService()
-    
+struct NetworkService {    
     private let session = URLSession.shared
     private let urlString = "https://api.quotable.io/random"
     private let endpoint = ["maxLength": "115",
                             "tags": "faith|future|happiness|motivational|philsophy|self-help"]
 
-    func fetchQuotes() async -> Result<Quote, ApiError> {
+    func fetchQuotes() async throws -> Quote {
         var urlComponents = URLComponents(string: urlString)
-        
         var queryItems = [URLQueryItem]()
         
         for (name, value) in endpoint {
@@ -30,21 +26,21 @@ struct NetworkService {
         urlComponents?.queryItems = queryItems
         
         guard let url = urlComponents?.url else {
-            return .failure(.urlError)
+            throw ApiError.urlError
         }
         
         do {
             let (data, response) = try await session.data(from: url)
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                return .failure(.requestError)
+                throw ApiError.requestError
             }
             let quotes = try JSONDecoder().decode(Quote.self, from: data)
-            return .success(quotes)
+            return quotes
         }
         
         catch {
-            return .failure(.decodingError)
+            throw ApiError.decodingError
         }
     }
 }

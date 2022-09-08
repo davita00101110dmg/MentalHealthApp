@@ -31,15 +31,23 @@
 		2B91D20F28C36D9000D0111B /* RegistrationVIPModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D20928C36D9000D0111B /* RegistrationVIPModels.swift */; };
 		2B91D21028C36D9000D0111B /* RegistrationVIPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D20A28C36D9000D0111B /* RegistrationVIPViewController.swift */; };
 		2B91D21128C36D9000D0111B /* RegistrationVIPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D20B28C36D9000D0111B /* RegistrationVIPInteractor.swift */; };
+		2B91D22628C4D2BA00D0111B /* HomeVIPPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D22028C4D2BA00D0111B /* HomeVIPPresenter.swift */; };
+		2B91D22728C4D2BA00D0111B /* HomeVIPWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D22128C4D2BA00D0111B /* HomeVIPWorker.swift */; };
+		2B91D22828C4D2BB00D0111B /* HomeVIPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D22228C4D2BA00D0111B /* HomeVIPRouter.swift */; };
+		2B91D22928C4D2BB00D0111B /* HomeVIPModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D22328C4D2BA00D0111B /* HomeVIPModels.swift */; };
+		2B91D22A28C4D2BB00D0111B /* HomeVIPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D22428C4D2BA00D0111B /* HomeVIPViewController.swift */; };
+		2B91D22B28C4D2BB00D0111B /* HomeVIPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D22528C4D2BA00D0111B /* HomeVIPInteractor.swift */; };
+		2B91D23F28C7521E00D0111B /* ProfileVIPPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D23928C7521E00D0111B /* ProfileVIPPresenter.swift */; };
+		2B91D24028C7521E00D0111B /* ProfileVIPWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D23A28C7521E00D0111B /* ProfileVIPWorker.swift */; };
+		2B91D24128C7521E00D0111B /* ProfileVIPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D23B28C7521E00D0111B /* ProfileVIPRouter.swift */; };
+		2B91D24228C7521E00D0111B /* ProfileVIPModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D23C28C7521E00D0111B /* ProfileVIPModels.swift */; };
+		2B91D24328C7521E00D0111B /* ProfileVIPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D23D28C7521E00D0111B /* ProfileVIPViewController.swift */; };
+		2B91D24428C7521E00D0111B /* ProfileVIPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D23E28C7521E00D0111B /* ProfileVIPInteractor.swift */; };
 		2BB0989F28956F70008707A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB0989E28956F70008707A5 /* AppDelegate.swift */; };
 		2BB098A128956F70008707A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098A028956F70008707A5 /* SceneDelegate.swift */; };
-		2BB098A328956F70008707A5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098A228956F70008707A5 /* LoginViewController.swift */; };
 		2BB098A628956F70008707A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB098A428956F70008707A5 /* Main.storyboard */; };
 		2BB098A828956F72008707A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB098A728956F72008707A5 /* Assets.xcassets */; };
 		2BB098AB28956F72008707A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB098A928956F72008707A5 /* LaunchScreen.storyboard */; };
-		2BB098B428956F9F008707A5 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098B328956F9F008707A5 /* RegistrationViewController.swift */; };
-		2BB098B628956FAC008707A5 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098B528956FAC008707A5 /* HomeScreenViewController.swift */; };
-		2BB098B828956FB2008707A5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098B728956FB2008707A5 /* ProfileViewController.swift */; };
 		2BB098BC28957136008707A5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098BB28957136008707A5 /* Utilities.swift */; };
 		2BB098BE289571B7008707A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098BD289571B7008707A5 /* Constants.swift */; };
 		2BB7437C289F19E0006FD01C /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */; };
@@ -49,7 +57,6 @@
 		2BE992BD2896D71E001E9199 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2BE992BC2896D71E001E9199 /* FirebaseAuth */; };
 		2BE992BF2896D71E001E9199 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2BE992BE2896D71E001E9199 /* FirebaseFirestore */; };
 		2BE992C12896D71E001E9199 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2BE992C02896D71E001E9199 /* FirebaseStorage */; };
-		2BF5CC802899E613007D223F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF5CC7F2899E613007D223F /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,23 +84,30 @@
 		2B91D20928C36D9000D0111B /* RegistrationVIPModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVIPModels.swift; sourceTree = "<group>"; };
 		2B91D20A28C36D9000D0111B /* RegistrationVIPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVIPViewController.swift; sourceTree = "<group>"; };
 		2B91D20B28C36D9000D0111B /* RegistrationVIPInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVIPInteractor.swift; sourceTree = "<group>"; };
+		2B91D22028C4D2BA00D0111B /* HomeVIPPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIPPresenter.swift; sourceTree = "<group>"; };
+		2B91D22128C4D2BA00D0111B /* HomeVIPWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIPWorker.swift; sourceTree = "<group>"; };
+		2B91D22228C4D2BA00D0111B /* HomeVIPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIPRouter.swift; sourceTree = "<group>"; };
+		2B91D22328C4D2BA00D0111B /* HomeVIPModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIPModels.swift; sourceTree = "<group>"; };
+		2B91D22428C4D2BA00D0111B /* HomeVIPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIPViewController.swift; sourceTree = "<group>"; };
+		2B91D22528C4D2BA00D0111B /* HomeVIPInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIPInteractor.swift; sourceTree = "<group>"; };
+		2B91D23928C7521E00D0111B /* ProfileVIPPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVIPPresenter.swift; sourceTree = "<group>"; };
+		2B91D23A28C7521E00D0111B /* ProfileVIPWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVIPWorker.swift; sourceTree = "<group>"; };
+		2B91D23B28C7521E00D0111B /* ProfileVIPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVIPRouter.swift; sourceTree = "<group>"; };
+		2B91D23C28C7521E00D0111B /* ProfileVIPModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVIPModels.swift; sourceTree = "<group>"; };
+		2B91D23D28C7521E00D0111B /* ProfileVIPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVIPViewController.swift; sourceTree = "<group>"; };
+		2B91D23E28C7521E00D0111B /* ProfileVIPInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVIPInteractor.swift; sourceTree = "<group>"; };
 		2BB0989B28956F70008707A5 /* MentalHealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalHealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB0989E28956F70008707A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BB098A028956F70008707A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2BB098A228956F70008707A5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2BB098A528956F70008707A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BB098A728956F72008707A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BB098AA28956F72008707A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BB098AC28956F72008707A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BB098B328956F9F008707A5 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		2BB098B528956FAC008707A5 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
-		2BB098B728956FB2008707A5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2BB098BB28957136008707A5 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		2BB098BD289571B7008707A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		2BD6E5B1289DB2280039661C /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		2BE992B72896D565001E9199 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2BF5CC7F2899E613007D223F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +130,8 @@
 			children = (
 				2B48560828C203A000CFD49A /* Login */,
 				2B91D20528C36D7500D0111B /* Registration */,
+				2B91D21F28C4D2A700D0111B /* Home */,
+				2B91D22C28C7503600D0111B /* Profile */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -217,6 +233,32 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
+		2B91D21F28C4D2A700D0111B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2B91D22428C4D2BA00D0111B /* HomeVIPViewController.swift */,
+				2B91D22528C4D2BA00D0111B /* HomeVIPInteractor.swift */,
+				2B91D22028C4D2BA00D0111B /* HomeVIPPresenter.swift */,
+				2B91D22228C4D2BA00D0111B /* HomeVIPRouter.swift */,
+				2B91D22128C4D2BA00D0111B /* HomeVIPWorker.swift */,
+				2B91D22328C4D2BA00D0111B /* HomeVIPModels.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2B91D22C28C7503600D0111B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2B91D23D28C7521E00D0111B /* ProfileVIPViewController.swift */,
+				2B91D23E28C7521E00D0111B /* ProfileVIPInteractor.swift */,
+				2B91D23928C7521E00D0111B /* ProfileVIPPresenter.swift */,
+				2B91D23B28C7521E00D0111B /* ProfileVIPRouter.swift */,
+				2B91D23A28C7521E00D0111B /* ProfileVIPWorker.swift */,
+				2B91D23C28C7521E00D0111B /* ProfileVIPModels.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		2BB0989228956F70008707A5 = {
 			isa = PBXGroup;
 			children = (
@@ -242,7 +284,6 @@
 				2B59208128C15DFA00B287B0 /* Firebase Services */,
 				2B59208228C15E1400B287B0 /* Model */,
 				2BB098BA28957126008707A5 /* Helpers */,
-				2BB098B228956F7E008707A5 /* Controllers */,
 				2B48560728C2036100CFD49A /* Scenes */,
 				2B815D152895824A00AF6FB6 /* Extensions */,
 				2B815D0C28957A4A00AF6FB6 /* Fonts */,
@@ -255,25 +296,13 @@
 			path = MentalHealthApp;
 			sourceTree = "<group>";
 		};
-		2BB098B228956F7E008707A5 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				2BB098A228956F70008707A5 /* LoginViewController.swift */,
-				2BB098B328956F9F008707A5 /* RegistrationViewController.swift */,
-				2BB098B528956FAC008707A5 /* HomeScreenViewController.swift */,
-				2BB098B728956FB2008707A5 /* ProfileViewController.swift */,
-				2BF5CC7F2899E613007D223F /* TabBarController.swift */,
-				2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		2BB098BA28957126008707A5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				2BB098BD289571B7008707A5 /* Constants.swift */,
 				2BB098BB28957136008707A5 /* Utilities.swift */,
 				2BD6E5B1289DB2280039661C /* LikeButton.swift */,
+				2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -366,12 +395,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BB098B828956FB2008707A5 /* ProfileViewController.swift in Sources */,
+				2B91D22628C4D2BA00D0111B /* HomeVIPPresenter.swift in Sources */,
 				2BB7437C289F19E0006FD01C /* BottomSheetViewController.swift in Sources */,
 				2B91D20F28C36D9000D0111B /* RegistrationVIPModels.swift in Sources */,
 				2B815D172895826100AF6FB6 /* Extensions.swift in Sources */,
-				2BB098B628956FAC008707A5 /* HomeScreenViewController.swift in Sources */,
-				2BF5CC802899E613007D223F /* TabBarController.swift in Sources */,
 				2B91D20E28C36D9000D0111B /* RegistrationVIPRouter.swift in Sources */,
 				2BD6E5B2289DB2290039661C /* LikeButton.swift in Sources */,
 				2B48561F28C2093700CFD49A /* LoginVIPViewController.swift in Sources */,
@@ -379,20 +406,29 @@
 				2B91D21128C36D9000D0111B /* RegistrationVIPInteractor.swift in Sources */,
 				2B48561D28C2093700CFD49A /* LoginVIPRouter.swift in Sources */,
 				2B48561B28C2093700CFD49A /* LoginVIPPresenter.swift in Sources */,
+				2B91D24328C7521E00D0111B /* ProfileVIPViewController.swift in Sources */,
 				2B59207F28C113F700B287B0 /* UserService.swift in Sources */,
 				2B540899289D92900096E0FC /* QuoteCell.swift in Sources */,
 				2B91D20C28C36D9000D0111B /* RegistrationVIPPresenter.swift in Sources */,
 				2BB098BC28957136008707A5 /* Utilities.swift in Sources */,
 				2B48562028C2093700CFD49A /* LoginVIPInteractor.swift in Sources */,
-				2BB098A328956F70008707A5 /* LoginViewController.swift in Sources */,
+				2B91D22828C4D2BB00D0111B /* HomeVIPRouter.swift in Sources */,
+				2B91D24428C7521E00D0111B /* ProfileVIPInteractor.swift in Sources */,
+				2B91D22A28C4D2BB00D0111B /* HomeVIPViewController.swift in Sources */,
+				2B91D24028C7521E00D0111B /* ProfileVIPWorker.swift in Sources */,
+				2B91D23F28C7521E00D0111B /* ProfileVIPPresenter.swift in Sources */,
+				2B91D22928C4D2BB00D0111B /* HomeVIPModels.swift in Sources */,
 				2B0E8C6428AA96F20003A641 /* NetworkService.swift in Sources */,
 				2B0E8C6628AA98220003A641 /* User.swift in Sources */,
+				2B91D24228C7521E00D0111B /* ProfileVIPModels.swift in Sources */,
 				2B48561E28C2093700CFD49A /* LoginVIPModels.swift in Sources */,
 				2BB0989F28956F70008707A5 /* AppDelegate.swift in Sources */,
-				2BB098B428956F9F008707A5 /* RegistrationViewController.swift in Sources */,
 				2B4F27BE28BF7BDF00443099 /* AuthService.swift in Sources */,
 				2B59208728C15F9C00B287B0 /* NetworkError.swift in Sources */,
+				2B91D22728C4D2BA00D0111B /* HomeVIPWorker.swift in Sources */,
 				2BB098A128956F70008707A5 /* SceneDelegate.swift in Sources */,
+				2B91D24128C7521E00D0111B /* ProfileVIPRouter.swift in Sources */,
+				2B91D22B28C4D2BB00D0111B /* HomeVIPInteractor.swift in Sources */,
 				2B91D20D28C36D9000D0111B /* RegistrationVIPWorker.swift in Sources */,
 				2B59208928C1601900B287B0 /* QuoteCellModel.swift in Sources */,
 				2BB098BE289571B7008707A5 /* Constants.swift in Sources */,

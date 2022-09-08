@@ -23,14 +23,14 @@ enum AuthService {
     
     static func logoutUser(viewController: UIViewController) {
         do {
+            guard let rootNavVC = viewController.storyboard?.instantiateViewController(withIdentifier: "rootNavigationController") else { return }
+            
+            UserService.fetchUser(detach: true, completion: nil)
             try Auth.auth().signOut()
             
-            let rootNavVC = viewController.storyboard?.instantiateViewController(withIdentifier: "rootNavigationController")
-            
-            viewController.view.window?.rootViewController = rootNavVC
-            viewController.view.window?.makeKeyAndVisible()
+            viewController.view.window?.switchRootViewController(rootNavVC, animated: true, duration: 0.5, options: .transitionCrossDissolve, completion: nil)
         } catch {
-            //TODO: handle the erorr in the better way
+            //FIXME: handle the erorr in the better way
             print(error)
             
         }

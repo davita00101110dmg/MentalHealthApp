@@ -252,7 +252,7 @@
         <!--Profile View-->
         <scene sceneID="aUk-tL-Wvz">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="cgZ-ZD-mrE" userLabel="Profile View" customClass="ProfileViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVIPViewController" id="cgZ-ZD-mrE" userLabel="Profile View" customClass="ProfileVIPViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I7Q-gf-xss">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -418,7 +418,7 @@
         <!--Home Page View-->
         <scene sceneID="bet-Gy-v4i">
             <objects>
-                <viewController storyboardIdentifier="HomeScreenViewController" id="kCp-Iz-f5h" userLabel="Home Page View" customClass="HomeScreenViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVIPViewController" id="kCp-Iz-f5h" userLabel="Home Page View" customClass="HomeVIPViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zFa-0o-zfA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

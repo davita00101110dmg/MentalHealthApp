@@ -22,7 +22,7 @@ final class LoginVIPRouter: LoginVIPRoutingLogic {
     
     weak var viewController: LoginVIPViewController?
     private let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    
+
     // MARK: - Routing
     
     func routeToRegistrationVC() {
@@ -31,16 +31,14 @@ final class LoginVIPRouter: LoginVIPRoutingLogic {
     }
     
     func routeToTabBarVC() {
-        let tabBarController = TabBarController()
+        //TODO: ask about this 👇🏻
+        let tabBarController = UITabBarController(nibName: nil, bundle: nil)
+        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeVIPViewController") as! HomeVIPViewController
+        let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVIPViewController") as! ProfileVIPViewController
         
-        let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeScreenViewController") as! HomeScreenViewController
-        
-        let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-        
-        Utilities.setupTabBarItem(homeVC, Image.inactiveHome, Image.activeHome)
-        Utilities.setupTabBarItem(profileVC, Image.inactiveProfile, Image.activeProfile)
-        
-        tabBarController.viewControllers = [homeVC, profileVC]
+        Utilities.setupTabBar(for: tabBarController, with: [homeVC, profileVC])
+        Utilities.setupTabBarItem(for: homeVC, Constant.Image.inactiveHome, Constant.Image.activeHome)
+        Utilities.setupTabBarItem(for: profileVC, Constant.Image.inactiveProfile, Constant.Image.activeProfile)
         
         navigateToTabBarVC(source: viewController!, destination: tabBarController)
     }
@@ -51,9 +49,10 @@ final class LoginVIPRouter: LoginVIPRoutingLogic {
         source.navigationController?.pushViewController(destination, animated: true)
     }
     
-    func navigateToTabBarVC(source: LoginVIPViewController, destination: TabBarController) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+    func navigateToTabBarVC(source: LoginVIPViewController, destination: UITabBarController) {
+        //FIXME: move out in interactor somehow
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             source.view.window?.switchRootViewController(destination, animated: true, duration: 0.5, options: .transitionCrossDissolve, completion: nil)
-        }
+//        }
     }
 }

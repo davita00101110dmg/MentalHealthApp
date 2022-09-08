@@ -13,9 +13,9 @@ import UIKit
 //MARK: - User Service
 
 enum UserService {
-    
     private static let db = Firestore.firestore()
     private static let collectionName = "users"
+    private static var firestoreListener: ListenerRegistration?
     
     private static var userUid: String {
         Auth.auth().currentUser?.uid ?? ""
@@ -38,25 +38,28 @@ enum UserService {
     
     //MARK: - Fetch User
     
-    static func fetchUser(completion: @escaping (User) -> Void) {
+    static func fetchUser(detach: Bool, completion: ((User) -> Void)?) {
+        firestoreListener?.remove()
         
-        document.addSnapshotListener { documentSnapshot, error in
-            guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
+        if !detach {
+            firestoreListener = document.addSnapshotListener { documentSnapshot, error in
+                
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                
+                let createdUser = User(snapshot: document)
+                
+                completion!(createdUser)
             }
-            
-            let createdUser = User(snapshot: document)
-            
-            completion(createdUser)
         }
-        
     }
+    
     
     //MARK: - Update liked quotes array
     
     static func updateLikedQuotesArray(condition: Bool, quote: String) {
-        
         switch condition {
         case true:
             document.updateData([

@@ -16,7 +16,7 @@ protocol LoginVIPBusinessLogic {
     func validateUser(request: LoginVIP.UserValidation.Request)
 }
 
-class LoginVIPInteractor {
+final class LoginVIPInteractor {
     // MARK: - Clean Components
     
     var presenter: LoginVIPPresentationLogic?
@@ -29,20 +29,17 @@ class LoginVIPInteractor {
 extension LoginVIPInteractor: LoginVIPBusinessLogic {
     func validateUser(request: LoginVIP.UserValidation.Request) {
         
-        var outcome: String? = nil
-        
         guard let email = request.email?.trimmingCharacters(in: .whitespacesAndNewlines),
               let password = request.password?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         
         if email == "" || password == "" {
-            outcome = "Please fill in all fields"
-            let response = LoginVIP.UserValidation.Response(outcome: outcome!, isError: true)
+            let response = LoginVIP.UserValidation.Response(outcome: Constant.ValidationOutcome.notAllFieldsFilled, isError: true)
             presenter?.presentUserValidationOutcome(response: response)
         } else {
             worker = LoginVIPWorker()
-            worker?.loginUser(email: email, password: password, completionHandler: { (outcome, isError) in
+            worker?.loginUser(email: email, password: password, completionHandler: { [weak self] (outcome, isError) in
                 let response = LoginVIP.UserValidation.Response(outcome: outcome, isError: isError)
-                self.presenter?.presentUserValidationOutcome(response: response)
+                self?.presenter?.presentUserValidationOutcome(response: response)
             })
         }
     }

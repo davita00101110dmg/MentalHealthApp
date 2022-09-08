@@ -16,11 +16,10 @@ protocol LoginVIPPresentationLogic {
     func presentUserValidationOutcome(response: LoginVIP.UserValidation.Response)
 }
 
-class LoginVIPPresenter {
+final class LoginVIPPresenter {
     // MARK: - Clean Components
     
     weak var viewController: LoginVIPDisplayLogic?
-    
 }
 
 // MARK: - LoginVIPPresentationLogic
@@ -28,6 +27,7 @@ class LoginVIPPresenter {
 extension LoginVIPPresenter: LoginVIPPresentationLogic {
     func presentUserValidationOutcome(response: LoginVIP.UserValidation.Response) {
         let viewModel = LoginVIP.UserValidation.ViewModel(outcome: response.outcome, isError: response.isError)
+        
         viewController?.displayUserValidationOutcome(viewModel: viewModel)
     }
 }

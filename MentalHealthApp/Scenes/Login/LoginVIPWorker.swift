@@ -28,7 +28,7 @@ extension LoginVIPWorker: LoginVIPWorkerLogic {
             if error != nil {
                 completionHandler(error!.localizedDescription, true)
             } else {
-                completionHandler("You've succesfully logged in!", false)
+                completionHandler(Constant.ValidationOutcome.successfulLogin, false)
             }
         }
     }

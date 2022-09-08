@@ -10,7 +10,6 @@ import UIKit
 // MARK: - UIFont
 
 extension UIFont {
-    
     static func appRegularFontWith(size: CGFloat) -> UIFont {
         return UIFont(name: "Alegreya-Regular", size: size)!
     }
@@ -25,31 +24,10 @@ extension UIFont {
     
 }
 
-// MARK: - UITextFieldDelegate
-
-extension LoginViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Calling function to make return key switch on next textfield
-        self.switchBasedNextTextField(for: textField)
-        return true
-    }
-    
-}
-
-extension RegistrationViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.switchBasedNextTextField(for: textField)
-        return true
-    }
-    
-}
 
 // MARK: - UIImage
 
 extension UIImage {
-    
     func imageResized(to size: CGSize) -> UIImage {
         return UIGraphicsImageRenderer(size: size).image { _ in
             draw(in: CGRect(origin: .zero, size: size))
@@ -57,10 +35,9 @@ extension UIImage {
     }
 }
 
-// MARK: - UICollectionView register function
+// MARK: - UICollectionView
 
 extension UICollectionView {
-    
     func registerNib<T: UICollectionViewCell>(class: T.Type) {
         self.register(T.nibFile, forCellWithReuseIdentifier: T.identifier)
     }
@@ -69,17 +46,13 @@ extension UICollectionView {
 // MARK: - UICollectionViewCell
 
 extension UICollectionViewCell {
-    
     static var identifier: String { String(describing: self) }
-    static var nibFile: UINib {
-        UINib(nibName: identifier, bundle: nil)
-    }
+    static var nibFile: UINib { UINib(nibName: identifier, bundle: nil) }
 }
 
 // MARK: - UIWindow
 
 extension UIWindow {
-    
     func switchRootViewController(_ viewController: UIViewController,  animated: Bool = true, duration: TimeInterval = 0.5, options: UIView.AnimationOptions = .transitionFlipFromRight, completion: (() -> Void)? = nil) {
         guard animated else {
             rootViewController = viewController

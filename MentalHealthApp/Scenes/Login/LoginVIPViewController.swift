@@ -16,12 +16,22 @@ protocol LoginVIPDisplayLogic: AnyObject {
     func displayUserValidationOutcome(viewModel: LoginVIP.UserValidation.ViewModel)
 }
 
-class LoginVIPViewController: UIViewController {
+final class LoginVIPViewController: UIViewController {
     
     // MARK: - Clean Components
     
     private var interactor: LoginVIPBusinessLogic?
     private var router: LoginVIPRoutingLogic?
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var registerSuggestionLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var signInButton: UIButton!
     
     // MARK: - Object lifecycle
     
@@ -55,17 +65,9 @@ class LoginVIPViewController: UIViewController {
         super.viewDidLoad()
         setupTextFieldDelegates()
         setupElements()
+        emailTextField.text = "test@gmail.com"
+        passwordTextField.text = "Datunia26"
     }
-    
-    // MARK: - Outlets
-    
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var registerSuggestionLabel: UILabel!
-    @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var signInButton: UIButton!
     
     //MARK: - Private Methods
     
@@ -76,33 +78,23 @@ class LoginVIPViewController: UIViewController {
     
     private func setupElements() {
         self.navigationController?.isNavigationBarHidden = true
-        self.view.backgroundColor = Color.mainColor
-        
-        // Hiding the error label.
+        self.view.backgroundColor = Constant.Color.mainColor
+
         errorLabel.alpha = 0
-        
-        // Adding icon to the home page.
         imageView.image = UIImage(named: "Logo")
         
-        // Configuring components of the current view.
         Utilities.customLabel(for: titleLabel, size: 28, text: "Mental Health App")
         Utilities.customTextField(for: emailTextField, placeholder: "Email")
         Utilities.customTextField(for: passwordTextField, placeholder: "Password")
         Utilities.customLabel(for: registerSuggestionLabel, size: 20, text: "Don't have an account? Sign up here!")
         Utilities.customLabel(for: errorLabel, size: 20, text: "Please provide a password which will contain valid creditals")
-        Utilities.customButton(for: signInButton, title: "Login", cornerRadius: 20, color: Color.redColor)
+        Utilities.customButton(for: signInButton, title: "Login", cornerRadius: 20, color: Constant.Color.redColor)
         Utilities.highlightedText(for: registerSuggestionLabel, text: "Sign up")
-        
-        // Setting up gesture to hide keyboard when pressed anywhere else.
         Utilities.setupTapGestureHideKeyboard(self)
-        
-        // Setting up gesture for the label which will lead to registration VC.
         Utilities.setupTapGestureToChangeView(self, registerSuggestionLabel, #selector(navigateToRegistrationVC))
-        
     }
     
     internal func switchBasedNextTextField(for textField: UITextField) {
-        // Setting up switch statement to determine which textfield's return key was pressed and if it's not last move to the next one. If last hide the keyboard
         switch textField {
         case self.emailTextField:
             self.passwordTextField.becomeFirstResponder()
@@ -111,11 +103,8 @@ class LoginVIPViewController: UIViewController {
         }
     }
     
-}
-
-// MARK: - LoginVIPBussinesLogic
-
-extension LoginVIPViewController {
+    // MARK: - Actions
+    
     @IBAction func loginButtonPressed(_ sender: Any) {
         let validationRequest = LoginVIP.UserValidation.Request(email: emailTextField.text,
                                                                 password: passwordTextField.text)
@@ -123,6 +112,17 @@ extension LoginVIPViewController {
     }
 }
 
+// MARK: - LoginVIPDisplayLogic
+
+extension LoginVIPViewController: LoginVIPDisplayLogic {
+    func displayUserValidationOutcome(viewModel: LoginVIP.UserValidation.ViewModel) {
+        Utilities.showOutcume(for: errorLabel, message: viewModel.outcome, isError: viewModel.isError)
+        
+        if !viewModel.isError {
+            self.router?.routeToTabBarVC()
+        }
+    }
+}
 
 // MARK: - LoginVIPRoutingLogic
 
@@ -132,22 +132,11 @@ extension LoginVIPViewController {
     }
 }
 
-// MARK: - LoginVIPDisplayLogic
-
-extension LoginVIPViewController: LoginVIPDisplayLogic {
-    func displayUserValidationOutcome(viewModel: LoginVIP.UserValidation.ViewModel) {
-        Utilities.showOutcume(for: errorLabel, message: viewModel.outcome, isError: viewModel.isError)
-        if !viewModel.isError {
-            self.router?.routeToTabBarVC()
-        }
-    }
-}
 
 // MARK: - UITextFieldDelegate
 
 extension LoginVIPViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Calling function to make return key switch on next textfield
         self.switchBasedNextTextField(for: textField)
         return true
     }

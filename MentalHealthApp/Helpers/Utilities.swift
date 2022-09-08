@@ -19,19 +19,16 @@ enum Utilities {
     }
     
     static func customTextField(for textfield: UITextField, placeholder: String) {
-        
         let bottomLine = CALayer()
         
-        // Make textfields transparent and make visible only red botttom line.
         bottomLine.frame = CGRect(x: 0, y: textfield.frame.height - 2, width: textfield.frame.width, height: 2)
-        bottomLine.backgroundColor = Color.redColor.cgColor
+        bottomLine.backgroundColor = Constant.Color.redColor.cgColor
         textfield.borderStyle = .none
         textfield.layer.addSublayer(bottomLine)
-        
         textfield.font = UIFont.appRegularFontWith(size: 18)
         textfield.textColor = .black
         textfield.textAlignment = .center
-        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : Color.grayColor])
+        textfield.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : Constant.Color.grayColor])
     }
     
     static func customButton(for button: UIButton, title: String, cornerRadius: CGFloat, color: UIColor) {
@@ -44,18 +41,12 @@ enum Utilities {
     }
     
     static func highlightedText(for label: UILabel, text: String) {
-        
-        // Store main text and word that will be colored in different color
         let mainString = label.text!
         let stringToColor = text
-        
         let range = (mainString as NSString).range(of: stringToColor)
-        
         let mutableAttributedString = NSMutableAttributedString.init(string: mainString)
         
-        // Make the word in different color and bold font.
-        mutableAttributedString.addAttribute(.foregroundColor, value: Color.redColor, range: range)
-        
+        mutableAttributedString.addAttribute(.foregroundColor, value: Constant.Color.redColor, range: range)
         mutableAttributedString.addAttribute(.font, value: UIFont.appRegularBoldFontWith(size: label.font.pointSize), range: range)
         
         label.attributedText = mutableAttributedString
@@ -67,20 +58,18 @@ enum Utilities {
         label.font = UIFont.appRegularBoldFontWith(size: label.font.pointSize)
         
         if isError {
-            label.textColor = Color.redColor
+            label.textColor = Constant.Color.redColor
         } else {
-            label.textColor = Color.greenColor
+            label.textColor = Constant.Color.greenColor
         }
     }
     
-    // Function to check if password is secure.
     static func isPasswordValid(_ password: String) -> Bool {
         let passwordTest = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z]).{8,}$")
         
         return passwordTest.evaluate(with: password)
     }
     
-    // Function to change view depending on having or not having registered account
     static func setupTapGestureToChangeView(_ controller: UIViewController, _ label: UILabel, _ selector: Selector) {
         let gestureRecognizer = UITapGestureRecognizer(target: controller, action: selector)
         gestureRecognizer.numberOfTapsRequired = 1
@@ -90,16 +79,37 @@ enum Utilities {
         label.addGestureRecognizer(gestureRecognizer)
     }
     
-    // Add tap gesture to hide keyboard when pressed anywhere else
     static func setupTapGestureHideKeyboard(_ controller: UIViewController) {
         let tap = UITapGestureRecognizer(target: controller.view, action: #selector(UIView.endEditing))
         controller.view.addGestureRecognizer(tap)
     }
-    
-    // Add function to setup tab bar icons
-    static func setupTabBarItem(_ viewController: UIViewController, _ inactiveImage: UIImage, _ activeImage: UIImage ) {
+
+    static func setupTabBarItem(for viewController: UIViewController, _ inactiveImage: UIImage, _ activeImage: UIImage ) {
         viewController.tabBarItem.image = inactiveImage
         viewController.tabBarItem.selectedImage = activeImage
         viewController.title = ""
+    }
+    
+    static func setupTabBar(for tabBarController: UITabBarController, with viewControllers: [UIViewController]) {
+        tabBarController.viewControllers = viewControllers
+        tabBarController.tabBar.backgroundColor = Constant.Color.whiteColor
+        tabBarController.tabBar.tintColor = .black
+        tabBarController.tabBar.layer.cornerRadius = 20
+        tabBarController.tabBar.layer.masksToBounds = true
+        tabBarController.tabBar.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+    }
+    
+    typealias Sheet = UIViewController & UISheetPresentationControllerDelegate
+    
+    static func setupBottomSheet<T: Sheet>(sheet: T, sheetColor: UIColor, sheetTitle: String, buttonColor: UIColor, detents: [UISheetPresentationController.Detent]) {
+        
+        if let sheet = sheet as? BottomSheetViewController {
+            sheet.sheetTitle = sheetTitle
+            sheet.buttonColor = buttonColor
+        }
+        
+        sheet.view.backgroundColor = sheetColor
+        sheet.sheetPresentationController?.detents = detents
+        sheet.sheetPresentationController?.delegate = sheet
     }
 }

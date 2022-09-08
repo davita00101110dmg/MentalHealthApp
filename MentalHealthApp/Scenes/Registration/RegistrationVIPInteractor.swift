@@ -16,7 +16,7 @@ protocol RegistrationVIPBusinessLogic {
     func validateRegistration(request: RegistrationVIP.RegistrationValidation.Request)
 }
 
-class RegistrationVIPInteractor {
+final class RegistrationVIPInteractor {
     //MARK: - Clean Components
     
     var presenter: RegistrationVIPPresentationLogic?
@@ -34,30 +34,27 @@ extension RegistrationVIPInteractor: RegistrationVIPBusinessLogic {
               let password = request.password?.trimmingCharacters(in: .whitespacesAndNewlines),
               let confirmPassword = request.confirmPassword?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         
-        
         if firstname == "" ||
             lastname == "" ||
             email == "" ||
             password == "" ||
             confirmPassword == "" {
-            
-            presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: "Please fill in all fields", isError: true))
+
+            presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.notAllFieldsFilled, isError: true))
         }
-        
-        // Checking if the password is secure
+
         else if Utilities.isPasswordValid(password) == false {
-            presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: "Please make sure your password is at least 8 characters, contains a number and an uppercase letter", isError: true))
+            presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.passwordNotSecure, isError: true))
         }
-        
-        // Checking if passwords match
+
         else if password != confirmPassword {
-            presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: "Please make sure your passwords match", isError: true))
+            presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.passwordsNotMatch, isError: true))
         }
         
         else {
             worker = RegistrationVIPWorker()
-            worker?.registerUser(withEmail: email, password: password, firstname: firstname, lastname: lastname) { (outcome, isError) in
-                self.presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: outcome, isError: isError))
+            worker?.registerUser(withEmail: email, password: password, firstname: firstname, lastname: lastname) { [weak self] (outcome, isError) in
+                self?.presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: outcome, isError: isError))
             }
         }
     }
