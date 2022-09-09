@@ -8,7 +8,6 @@
 import UIKit
 
 enum Constant {
-    
     // MARK: - Colors
     
     enum Color {
@@ -19,7 +18,6 @@ enum Constant {
         static let grayColor = UIColor(red: 0, green: 0, blue: 0.0980392, alpha: 0.22)
         static let whiteColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     }
-    
     
     // MARK: - Icon sizes
     
@@ -32,10 +30,10 @@ enum Constant {
     // MARK: - Images
     
     enum Image {
-        static let activeHome = UIImage(named: "home_active")!.imageResized(to: Constant.ImageSize.defaultIcon)
-        static let inactiveHome = UIImage(named: "home_inactive")!.imageResized(to: Constant.ImageSize.defaultIcon)
-        static let activeProfile = UIImage(named: "user_active")!.imageResized(to: Constant.ImageSize.defaultIcon)
-        static let inactiveProfile = UIImage(named: "user_inactive")!.imageResized(to: Constant.ImageSize.defaultIcon)
+        static let activeHome = UIImage(named: "home_active")?.imageResized(to: Constant.ImageSize.defaultIcon)
+        static let inactiveHome = UIImage(named: "home_inactive")?.imageResized(to: Constant.ImageSize.defaultIcon)
+        static let activeProfile = UIImage(named: "user_active")?.imageResized(to: Constant.ImageSize.defaultIcon)
+        static let inactiveProfile = UIImage(named: "user_inactive")?.imageResized(to: Constant.ImageSize.defaultIcon)
         static let heartEmpty = UIImage(named: "heart_empty")?.imageResized(to: Constant.ImageSize.defaultIcon)
         static let heartFilled = UIImage(named: "heart_filled")?.imageResized(to: Constant.ImageSize.defaultIcon)
         static let cuteBrain = UIImage(named: "CuteBrain")

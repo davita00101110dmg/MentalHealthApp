@@ -1,5 +1,5 @@
 //
-//  LoginVIPWorker.swift
+//  LoginWorker.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 02.09.22.
@@ -14,15 +14,15 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-protocol LoginVIPWorkerLogic {
+protocol LoginWorkerLogic {
     func loginUser(email: String, password: String, completionHandler: @escaping (String, Bool) -> ())
 }
 
-final class LoginVIPWorker { }
+final class LoginWorker { }
 
-// MARK: - LoginVIPWorkerLogic
+// MARK: - LoginWorkerLogic
 
-extension LoginVIPWorker: LoginVIPWorkerLogic {
+extension LoginWorker: LoginWorkerLogic {
     func loginUser(email: String, password: String, completionHandler: @escaping (String, Bool) -> ()) {
         AuthService.loginUser(withEmail: email, password: password) { result, error in
             if error != nil {

@@ -1,5 +1,5 @@
 //
-//  HomeVIPInteractor.swift
+//  HomeInteractor.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 04.09.22.
@@ -12,47 +12,47 @@
 
 import UIKit
 
-protocol HomeVIPBusinessLogic {
-    func getUser(request: HomeVIP.GetUser.Request)
-    func getQuote(request: HomeVIP.GetQuote.Request)
-    func updateLikedQuotes(request: HomeVIP.UpdateLikedQuotes.Request)
+protocol HomeBusinessLogic {
+    func getUser(request: Home.GetUser.Request)
+    func getQuote(request: Home.GetQuote.Request)
+    func updateLikedQuotes(request: Home.UpdateLikedQuotes.Request)
 }
 
-final class HomeVIPInteractor {
+final class HomeInteractor {
     // MARK: - Clean Components
     
-    var presenter: HomeVIPPresentationLogic?
-    var worker: HomeVIPWorker?
+    var presenter: HomePresentationLogic?
+    var worker: HomeWorker?
     
 }
 
-// MARK: - HomeVIPBusinessLogic
+// MARK: - HomeBusinessLogic
 
-extension HomeVIPInteractor: HomeVIPBusinessLogic {
-    func getUser(request: HomeVIP.GetUser.Request) {
+extension HomeInteractor: HomeBusinessLogic {
+    func getUser(request: Home.GetUser.Request) {
         UserService.fetchUser(detach: false) { [weak self] user in
-            let response = HomeVIP.GetUser.Response(user: user)
+            let response = Home.GetUser.Response(user: user)
             self?.presenter?.presentUser(response: response)
         }
     }
     
     
     
-    func getQuote(request: HomeVIP.GetQuote.Request) {
-        worker = HomeVIPWorker()
+    func getQuote(request: Home.GetQuote.Request) {
+        worker = HomeWorker()
         
         Task {
             do {
                 let quote = try await worker?.fetchQuote()
                 DispatchQueue.main.async { [weak self] in
-                    let response = HomeVIP.GetQuote.Response(quote: quote)
+                    let response = Home.GetQuote.Response(quote: quote)
                     self?.presenter?.presentQuote(response: response)
                 }
             }
         }
     }
     
-    func updateLikedQuotes(request: HomeVIP.UpdateLikedQuotes.Request) {
+    func updateLikedQuotes(request: Home.UpdateLikedQuotes.Request) {
         guard let quote = request.quote else { return }
         let condition = request.clickedLike
         

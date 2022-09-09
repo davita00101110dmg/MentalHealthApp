@@ -1,5 +1,5 @@
 //
-//  ProfileVIPModels.swift
+//  ProfileModels.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 06.09.22.
@@ -12,7 +12,7 @@
 
 import UIKit
 
-enum ProfileVIP {
+enum Profile {
     // MARK: - Use cases
   
     enum GetUserInfo {

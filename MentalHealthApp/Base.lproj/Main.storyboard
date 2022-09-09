@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-182" y="93"/>
         </scene>
-        <!--LoginVIP View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginVIPViewController" id="BYZ-38-t0r" customClass="LoginVIPViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="741" y="-256"/>
         </scene>
-        <!--RegistrationVIP View Controller-->
+        <!--Registration View Controller-->
         <scene sceneID="8fF-fy-2ZL">
             <objects>
-                <viewController storyboardIdentifier="RegistrationVIPViewController" id="ey6-1q-otO" customClass="RegistrationVIPViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationViewController" id="ey6-1q-otO" customClass="RegistrationViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ob6-mq-Ys0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,7 +252,7 @@
         <!--Profile View-->
         <scene sceneID="aUk-tL-Wvz">
             <objects>
-                <viewController storyboardIdentifier="ProfileVIPViewController" id="cgZ-ZD-mrE" userLabel="Profile View" customClass="ProfileVIPViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="cgZ-ZD-mrE" userLabel="Profile View" customClass="ProfileViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I7Q-gf-xss">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -418,7 +418,7 @@
         <!--Home Page View-->
         <scene sceneID="bet-Gy-v4i">
             <objects>
-                <viewController storyboardIdentifier="HomeVIPViewController" id="kCp-Iz-f5h" userLabel="Home Page View" customClass="HomeVIPViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="kCp-Iz-f5h" userLabel="Home Page View" customClass="HomeViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zFa-0o-zfA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

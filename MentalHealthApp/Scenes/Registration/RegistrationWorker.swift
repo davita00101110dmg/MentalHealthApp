@@ -1,5 +1,5 @@
 //
-//  RegistrationVIPWorker.swift
+//  RegistrationWorker.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 03.09.22.
@@ -12,15 +12,15 @@
 
 import UIKit
 
-protocol RegistrationVIPWorkerLogic {
+protocol RegistrationWorkerLogic {
     func registerUser(withEmail email: String, password: String, firstname: String, lastname: String, completionHandler: @escaping (String, Bool) -> ())
 }
 
-final class RegistrationVIPWorker { }
+final class RegistrationWorker { }
 
-// MARK: - RegistrationVIPWorkerLogic
+// MARK: - RegistrationWorkerLogic
 
-extension RegistrationVIPWorker: RegistrationVIPWorkerLogic {
+extension RegistrationWorker: RegistrationWorkerLogic {
     func registerUser(withEmail email: String, password: String, firstname: String, lastname: String, completionHandler: @escaping (String, Bool) -> ()) {
         AuthService.registerUser(withEmail: email, password: password) { result, error in
             if error != nil {

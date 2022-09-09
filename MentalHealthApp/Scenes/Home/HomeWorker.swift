@@ -1,5 +1,5 @@
 //
-//  HomeVIPWorker.swift
+//  HomeWorker.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 04.09.22.
@@ -12,19 +12,19 @@
 
 import UIKit
 
-protocol HomeVIPWorkerLogic {
+protocol HomeWorkerLogic {
     func fetchQuote() async throws -> Quote
 }
 
-final class HomeVIPWorker {
+final class HomeWorker {
     // MARK: - Fields
     
     private var networkService = NetworkService()
 }
 
-// MARK: - HomeVIPWorkerLogic
+// MARK: - HomeWorkerLogic
 
-extension HomeVIPWorker: HomeVIPWorkerLogic {
+extension HomeWorker: HomeWorkerLogic {
     func fetchQuote() async throws -> Quote {
         try await networkService.fetchQuotes()
     }

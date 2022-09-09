@@ -5,8 +5,6 @@
 //  Created by Dato Khvedelidze on 02.09.22.
 //
 
-import Foundation
-
 // MARK: - Quote
 
 struct Quote: Decodable {

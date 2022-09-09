@@ -1,5 +1,5 @@
 //
-//  RegistrationVIPInteractor.swift
+//  RegistrationInteractor.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 03.09.22.
@@ -12,22 +12,22 @@
 
 import UIKit
 
-protocol RegistrationVIPBusinessLogic {
-    func validateRegistration(request: RegistrationVIP.RegistrationValidation.Request)
+protocol RegistrationBusinessLogic {
+    func validateRegistration(request: Registration.RegistrationValidation.Request)
 }
 
-final class RegistrationVIPInteractor {
+final class RegistrationInteractor {
     //MARK: - Clean Components
     
-    var presenter: RegistrationVIPPresentationLogic?
-    var worker: RegistrationVIPWorkerLogic?
+    var presenter: RegistrationPresentationLogic?
+    var worker: RegistrationWorkerLogic?
 }
 
-// MARK: - RegistrationVIPBusinessLogic
+// MARK: - RegistrationBusinessLogic
 
-extension RegistrationVIPInteractor: RegistrationVIPBusinessLogic {
+extension RegistrationInteractor: RegistrationBusinessLogic {
     
-    func validateRegistration(request: RegistrationVIP.RegistrationValidation.Request) {
+    func validateRegistration(request: Registration.RegistrationValidation.Request) {
         guard let firstname = request.firstname?.trimmingCharacters(in: .whitespacesAndNewlines),
               let lastname = request.lastname?.trimmingCharacters(in: .whitespacesAndNewlines),
               let email = request.email?.trimmingCharacters(in: .whitespacesAndNewlines),
@@ -40,21 +40,21 @@ extension RegistrationVIPInteractor: RegistrationVIPBusinessLogic {
             password == "" ||
             confirmPassword == "" {
 
-            presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.notAllFieldsFilled, isError: true))
+            presenter?.presentRegistrationOutcome(response: Registration.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.notAllFieldsFilled, isError: true))
         }
 
         else if Utilities.isPasswordValid(password) == false {
-            presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.passwordNotSecure, isError: true))
+            presenter?.presentRegistrationOutcome(response: Registration.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.passwordNotSecure, isError: true))
         }
 
         else if password != confirmPassword {
-            presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.passwordsNotMatch, isError: true))
+            presenter?.presentRegistrationOutcome(response: Registration.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.passwordsNotMatch, isError: true))
         }
         
         else {
-            worker = RegistrationVIPWorker()
+            worker = RegistrationWorker()
             worker?.registerUser(withEmail: email, password: password, firstname: firstname, lastname: lastname) { [weak self] (outcome, isError) in
-                self?.presenter?.presentRegistrationOutcome(response: RegistrationVIP.RegistrationValidation.Response(outcome: outcome, isError: isError))
+                self?.presenter?.presentRegistrationOutcome(response: Registration.RegistrationValidation.Response(outcome: outcome, isError: isError))
             }
         }
     }

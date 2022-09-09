@@ -1,5 +1,5 @@
 //
-//  RegistrationVIPModels.swift
+//  RegistrationModels.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 03.09.22.
@@ -12,7 +12,7 @@
 
 import UIKit
 
-enum RegistrationVIP {
+enum Registration {
   // MARK: - Use cases
   
   enum RegistrationValidation {

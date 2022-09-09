@@ -1,5 +1,5 @@
 //
-//  RegistrationVIPRouter.swift
+//  RegistrationRouter.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 03.09.22.
@@ -12,27 +12,27 @@
 
 import UIKit
 
-protocol RegistrationVIPRoutingLogic {
+protocol RegistrationRoutingLogic {
     func routeToLoginVC()
 }
 
-final class RegistrationVIPRouter: RegistrationVIPRoutingLogic {
+final class RegistrationRouter: RegistrationRoutingLogic {
     // MARK: - Clean Components
 
-    weak var viewController: RegistrationVIPViewController?
+    weak var viewController: RegistrationViewController?
     
     // MARK: - Routing
     
     func routeToLoginVC() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let destinationVC = storyboard.instantiateViewController(withIdentifier: "LoginVIPViewController") as! LoginVIPViewController
+        guard let destinationVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
         navigateToLoginVC(source: viewController!, destination: destinationVC)
         
     }
     
     // MARK: - Navigation
     
-    func navigateToLoginVC(source: RegistrationVIPViewController, destination: LoginVIPViewController) {
+    func navigateToLoginVC(source: RegistrationViewController, destination: LoginViewController) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             source.navigationController?.popToRootViewController(animated: true)
         }

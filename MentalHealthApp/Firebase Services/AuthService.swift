@@ -5,9 +5,7 @@
 //  Created by Dato Khvedelidze on 31.08.22.
 //
 
-import UIKit
 import Firebase
-import FirebaseAuth
 
 //MARK: - Authentication service
 

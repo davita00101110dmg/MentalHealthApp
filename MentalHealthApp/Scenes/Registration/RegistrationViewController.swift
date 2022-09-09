@@ -1,5 +1,5 @@
 //
-//  RegistrationVIPViewController.swift
+//  RegistrationViewController.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 03.09.22.
@@ -12,15 +12,15 @@
 
 import UIKit
 
-protocol RegistrationVIPDisplayLogic: AnyObject {
-    func displayRegistrationOutcome(viewModel: RegistrationVIP.RegistrationValidation.ViewModel)
+protocol RegistrationDisplayLogic: AnyObject {
+    func displayRegistrationOutcome(viewModel: Registration.RegistrationValidation.ViewModel)
 }
 
-final class RegistrationVIPViewController: UIViewController {
+final class RegistrationViewController: UIViewController {
     // MARK: - Clean Components
     
-    var interactor: RegistrationVIPBusinessLogic?
-    var router: RegistrationVIPRoutingLogic?
+    var interactor: RegistrationBusinessLogic?
+    var router: RegistrationRoutingLogic?
     
     // MARK: - Outlets
     
@@ -34,7 +34,7 @@ final class RegistrationVIPViewController: UIViewController {
     @IBOutlet weak var registrationOutcomeLabel: UILabel!
     @IBOutlet weak var signupButton: UIButton!
     
-    // MARK: - Object lifecycle
+    // MARK: - Object Lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -50,9 +50,9 @@ final class RegistrationVIPViewController: UIViewController {
     
     private func setup() {
         let viewController = self
-        let interactor = RegistrationVIPInteractor()
-        let presenter = RegistrationVIPPresenter()
-        let router = RegistrationVIPRouter()
+        let interactor = RegistrationInteractor()
+        let presenter = RegistrationPresenter()
+        let router = RegistrationRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -60,7 +60,7 @@ final class RegistrationVIPViewController: UIViewController {
         router.viewController = viewController
     }
     
-    // MARK: - View lifecycle
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +115,7 @@ final class RegistrationVIPViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func signupButtonPressed(_ sender: Any) {
-        let validateRegistrationRequest = RegistrationVIP.RegistrationValidation.Request(firstname: nameTextField.text,
+        let validateRegistrationRequest = Registration.RegistrationValidation.Request(firstname: nameTextField.text,
                                                                      lastname: lastnameTextField.text,
                                                                      email: emailTextField.text,
                                                                      password: passwordTextField.text,
@@ -124,10 +124,10 @@ final class RegistrationVIPViewController: UIViewController {
     }
 }
 
-// MARK: - RegistrationVIPDisplayLogic
+// MARK: - RegistrationDisplayLogic
 
-extension RegistrationVIPViewController: RegistrationVIPDisplayLogic {
-    func displayRegistrationOutcome(viewModel: RegistrationVIP.RegistrationValidation.ViewModel) {
+extension RegistrationViewController: RegistrationDisplayLogic {
+    func displayRegistrationOutcome(viewModel: Registration.RegistrationValidation.ViewModel) {
         Utilities.showOutcume(for: registrationOutcomeLabel, message: viewModel.outcome!, isError: viewModel.isError)
         
         if !viewModel.isError {
@@ -136,9 +136,9 @@ extension RegistrationVIPViewController: RegistrationVIPDisplayLogic {
     }
 }
 
-// MARK: - RegistrationVIPRoutingLogic
+// MARK: - RegistrationRoutingLogic
 
-extension RegistrationVIPViewController {
+extension RegistrationViewController {
     @objc func gestureTapped() {
         router?.routeToLoginVC()
     }
@@ -146,7 +146,7 @@ extension RegistrationVIPViewController {
 
 // MARK: - UITextFieldDelegate
 
-extension RegistrationVIPViewController: UITextFieldDelegate {
+extension RegistrationViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.switchBasedNextTextField(for: textField)

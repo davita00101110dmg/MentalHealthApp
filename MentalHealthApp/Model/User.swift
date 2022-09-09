@@ -5,7 +5,6 @@
 //  Created by Dato Khvedelidze on 15.08.22.
 //
 
-import Foundation
 import Firebase
 import FirebaseFirestore
 

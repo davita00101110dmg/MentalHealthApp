@@ -6,9 +6,6 @@
 //
 
 import Firebase
-import FirebaseFirestore
-import FirebaseAuth
-import UIKit
 
 //MARK: - User Service
 
@@ -24,7 +21,7 @@ enum UserService {
         db.collection(collectionName).document(userUid)
     }
     
-    //MARK: - Registration in database
+    //MARK: - Registration in Database
     
     static func registerInDB(with name: String, lastname: String, uid: String) {
         

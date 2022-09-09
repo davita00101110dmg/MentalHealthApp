@@ -1,5 +1,5 @@
 //
-//  LoginVIPModels.swift
+//  LoginModels.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 02.09.22.
@@ -12,7 +12,7 @@
 
 import UIKit
 
-enum LoginVIP {
+enum Login {
     // MARK: - Use cases
     
     enum UserValidation {

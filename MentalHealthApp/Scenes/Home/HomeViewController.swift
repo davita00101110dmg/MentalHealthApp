@@ -1,5 +1,5 @@
 //
-//  HomeVIPViewController.swift
+//  HomeViewController.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 04.09.22.
@@ -12,16 +12,16 @@
 
 import UIKit
 
-protocol HomeVIPDisplayLogic: AnyObject {
-    func displayUser(viewModel: HomeVIP.GetUser.ViewModel)
-    func displayQuote(viewModel: HomeVIP.GetQuote.ViewModel)
+protocol HomeDisplayLogic: AnyObject {
+    func displayUser(viewModel: Home.GetUser.ViewModel)
+    func displayQuote(viewModel: Home.GetQuote.ViewModel)
 }
 
-final class HomeVIPViewController: UIViewController {
+final class HomeViewController: UIViewController {
     // MARK: - Clean Components
     
-    var interactor: HomeVIPBusinessLogic?
-    var router: HomeVIPRoutingLogic?
+    var interactor: HomeBusinessLogic?
+    var router: HomeRoutingLogic?
     
     // MARK: - Outlets
     
@@ -32,7 +32,7 @@ final class HomeVIPViewController: UIViewController {
     @IBOutlet weak var likeButtonOutlet: LikeButton!
     @IBOutlet weak var generateButtonOutlet: UIButton!
 
-    // MARK: Object lifecycle
+    // MARK: Object Lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -48,9 +48,9 @@ final class HomeVIPViewController: UIViewController {
     
     private func setup() {
         let viewController = self
-        let interactor = HomeVIPInteractor()
-        let presenter = HomeVIPPresenter()
-        let router = HomeVIPRouter()
+        let interactor = HomeInteractor()
+        let presenter = HomePresenter()
+        let router = HomeRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -58,7 +58,7 @@ final class HomeVIPViewController: UIViewController {
         router.viewController = viewController
     }
     
-    // MARK: View lifecycle
+    // MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,7 @@ final class HomeVIPViewController: UIViewController {
     // MARK: - Private Methods
     
     private func fetchUser() {
-        interactor?.getUser(request: HomeVIP.GetUser.Request())
+        interactor?.getUser(request: Home.GetUser.Request())
     }
     
     private func setupElements() {
@@ -95,14 +95,14 @@ final class HomeVIPViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func likeButtonAction(_ sender: Any) {
-        let updateQuotesRequest = HomeVIP.UpdateLikedQuotes.Request(quote: quoteLabel.text, clickedLike: likeButtonOutlet.isLiked)
+        let updateQuotesRequest = Home.UpdateLikedQuotes.Request(quote: quoteLabel.text, clickedLike: likeButtonOutlet.isLiked)
         
         likeButtonOutlet.flipLikedState()
         interactor?.updateLikedQuotes(request: updateQuotesRequest)
     }
     
     @IBAction func generateButtonAction(_ sender: Any) {
-        let getQuoteRequest = HomeVIP.GetQuote.Request()
+        let getQuoteRequest = Home.GetQuote.Request()
         
 //        FIXME: try to move this logic in interactor
         if likeButtonOutlet.isLiked {
@@ -113,15 +113,15 @@ final class HomeVIPViewController: UIViewController {
     }
 }
 
-// MARK: - HomeVIPDisplayLogic
+// MARK: - HomeDisplayLogic
 
-extension HomeVIPViewController: HomeVIPDisplayLogic {
-    func displayQuote(viewModel: HomeVIP.GetQuote.ViewModel) {
+extension HomeViewController: HomeDisplayLogic {
+    func displayQuote(viewModel: Home.GetQuote.ViewModel) {
         quoteLabel.text = viewModel.quote
         likeButtonOutlet.isHidden = false
     }
     
-    func displayUser(viewModel: HomeVIP.GetUser.ViewModel) {
+    func displayUser(viewModel: Home.GetUser.ViewModel) {
         userLabel.text = viewModel.user
     }
 }

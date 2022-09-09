@@ -1,5 +1,5 @@
 //
-//  HomeVIPPresenter.swift
+//  HomePresenter.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 04.09.22.
@@ -12,31 +12,31 @@
 
 import UIKit
 
-protocol HomeVIPPresentationLogic {
-    func presentUser(response: HomeVIP.GetUser.Response)
-    func presentQuote(response: HomeVIP.GetQuote.Response)
+protocol HomePresentationLogic {
+    func presentUser(response: Home.GetUser.Response)
+    func presentQuote(response: Home.GetQuote.Response)
 }
 
-final class HomeVIPPresenter {
+final class HomePresenter {
     // MARK: - Clean Components
     
-    weak var viewController: HomeVIPDisplayLogic?
+    weak var viewController: HomeDisplayLogic?
 }
 
-// MARK: - HomeVIPPresentationLogic
+// MARK: - HomePresentationLogic
 
-extension HomeVIPPresenter: HomeVIPPresentationLogic {
-    func presentUser(response: HomeVIP.GetUser.Response) {
+extension HomePresenter: HomePresentationLogic {
+    func presentUser(response: Home.GetUser.Response) {
         let welcomeString = "Welcome, \(response.user.firstname) \n How are you feeling today?"
-        let viewModel = HomeVIP.GetUser.ViewModel(user: welcomeString)
+        let viewModel = Home.GetUser.ViewModel(user: welcomeString)
         
         viewController?.displayUser(viewModel: viewModel)
     }
     
-    func presentQuote(response: HomeVIP.GetQuote.Response) {
+    func presentQuote(response: Home.GetQuote.Response) {
         guard let quote = response.quote else { return }
         let quoteToPresent = "\(quote.content) \n - \(quote.author)"
-        let viewModel = HomeVIP.GetQuote.ViewModel(quote: quoteToPresent)
+        let viewModel = Home.GetQuote.ViewModel(quote: quoteToPresent)
         
         viewController?.displayQuote(viewModel: viewModel)
     }

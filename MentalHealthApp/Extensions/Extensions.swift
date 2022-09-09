@@ -11,15 +11,18 @@ import UIKit
 
 extension UIFont {
     static func appRegularFontWith(size: CGFloat) -> UIFont {
-        return UIFont(name: "Alegreya-Regular", size: size)!
+        guard let font = UIFont(name: "Alegreya-Regular", size: size) else { return .init() }
+        return font
     }
     
     static func appRegularBoldFontWith(size: CGFloat) -> UIFont {
-        return UIFont(name: "Alegreya-Bold", size: size)!
+        guard let font = UIFont(name: "Alegreya-Bold", size: size) else { return .init() }
+        return font
     }
     
     static func appSecondaryFontWith(size: CGFloat) -> UIFont {
-        return UIFont(name: "Montserrat-Regular", size: size)!
+        guard let font = UIFont(name: "Montserrat-Regular", size: size) else { return .init() }
+        return font
     }
     
 }

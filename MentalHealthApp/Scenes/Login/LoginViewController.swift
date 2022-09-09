@@ -1,5 +1,5 @@
 //
-//  LoginVIPViewController.swift
+//  LoginViewController.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 02.09.22.
@@ -12,16 +12,16 @@
 
 import UIKit
 
-protocol LoginVIPDisplayLogic: AnyObject {
-    func displayUserValidationOutcome(viewModel: LoginVIP.UserValidation.ViewModel)
+protocol LoginDisplayLogic: AnyObject {
+    func displayUserValidationOutcome(viewModel: Login.UserValidation.ViewModel)
 }
 
-final class LoginVIPViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     // MARK: - Clean Components
     
-    private var interactor: LoginVIPBusinessLogic?
-    private var router: LoginVIPRoutingLogic?
+    private var interactor: LoginBusinessLogic?
+    private var router: LoginRoutingLogic?
     
     // MARK: - Outlets
     
@@ -33,7 +33,7 @@ final class LoginVIPViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var signInButton: UIButton!
     
-    // MARK: - Object lifecycle
+    // MARK: - Object Lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -49,9 +49,9 @@ final class LoginVIPViewController: UIViewController {
     
     private func setup() {
         let viewController = self
-        let interactor = LoginVIPInteractor()
-        let presenter = LoginVIPPresenter()
-        let router = LoginVIPRouter()
+        let interactor = LoginInteractor()
+        let presenter = LoginPresenter()
+        let router = LoginRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -59,14 +59,12 @@ final class LoginVIPViewController: UIViewController {
         router.viewController = viewController
     }
     
-    // MARK: - View lifecycle
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFieldDelegates()
         setupElements()
-        emailTextField.text = "test@gmail.com"
-        passwordTextField.text = "Datunia26"
     }
     
     //MARK: - Private Methods
@@ -106,16 +104,16 @@ final class LoginVIPViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        let validationRequest = LoginVIP.UserValidation.Request(email: emailTextField.text,
+        let validationRequest = Login.UserValidation.Request(email: emailTextField.text,
                                                                 password: passwordTextField.text)
         interactor?.validateUser(request: validationRequest)
     }
 }
 
-// MARK: - LoginVIPDisplayLogic
+// MARK: - LoginDisplayLogic
 
-extension LoginVIPViewController: LoginVIPDisplayLogic {
-    func displayUserValidationOutcome(viewModel: LoginVIP.UserValidation.ViewModel) {
+extension LoginViewController: LoginDisplayLogic {
+    func displayUserValidationOutcome(viewModel: Login.UserValidation.ViewModel) {
         Utilities.showOutcume(for: errorLabel, message: viewModel.outcome, isError: viewModel.isError)
         
         if !viewModel.isError {
@@ -124,9 +122,9 @@ extension LoginVIPViewController: LoginVIPDisplayLogic {
     }
 }
 
-// MARK: - LoginVIPRoutingLogic
+// MARK: - LoginRoutingLogic
 
-extension LoginVIPViewController {
+extension LoginViewController {
     @objc private func navigateToRegistrationVC() {
         router?.routeToRegistrationVC()
     }
@@ -135,7 +133,7 @@ extension LoginVIPViewController {
 
 // MARK: - UITextFieldDelegate
 
-extension LoginVIPViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.switchBasedNextTextField(for: textField)
         return true

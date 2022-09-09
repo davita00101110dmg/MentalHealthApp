@@ -1,5 +1,5 @@
 //
-//  ProfileVIPInteractor.swift
+//  ProfileInteractor.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 06.09.22.
@@ -12,23 +12,23 @@
 
 import UIKit
 
-protocol ProfileVIPBusinessLogic {
-    func getUserInfo(request: ProfileVIP.GetUserInfo.Request)
+protocol ProfileBusinessLogic {
+    func getUserInfo(request: Profile.GetUserInfo.Request)
 }
 
-final class ProfileVIPInteractor {
+final class ProfileInteractor {
     // MARK: - Clean Components
     
-    var presenter: ProfileVIPPresentationLogic?
-    var worker: ProfileVIPWorker?
+    var presenter: ProfilePresentationLogic?
+    var worker: ProfileWorker?
 }
 
-// MARK: - ProfileVIPBusinessLogic
+// MARK: - ProfileBusinessLogic
 
-extension ProfileVIPInteractor: ProfileVIPBusinessLogic {
-    func getUserInfo(request: ProfileVIP.GetUserInfo.Request) {
+extension ProfileInteractor: ProfileBusinessLogic {
+    func getUserInfo(request: Profile.GetUserInfo.Request) {
         UserService.fetchUser(detach: false) { [weak self] user in
-            let response = ProfileVIP.GetUserInfo.Response(user: user)
+            let response = Profile.GetUserInfo.Response(user: user)
             self?.presenter?.presentUserInfo(response: response)
         }
     }

@@ -1,5 +1,5 @@
 //
-//  LoginVIPInteractor.swift
+//  LoginInteractor.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 02.09.22.
@@ -12,33 +12,33 @@
 
 import UIKit
 
-protocol LoginVIPBusinessLogic {
-    func validateUser(request: LoginVIP.UserValidation.Request)
+protocol LoginBusinessLogic {
+    func validateUser(request: Login.UserValidation.Request)
 }
 
-final class LoginVIPInteractor {
+final class LoginInteractor {
     // MARK: - Clean Components
     
-    var presenter: LoginVIPPresentationLogic?
-    var worker: LoginVIPWorkerLogic?
+    var presenter: LoginPresentationLogic?
+    var worker: LoginWorkerLogic?
 }
 
 
-// MARK: - LoginVIPBusinessLogic
+// MARK: - LoginBusinessLogic
 
-extension LoginVIPInteractor: LoginVIPBusinessLogic {
-    func validateUser(request: LoginVIP.UserValidation.Request) {
+extension LoginInteractor: LoginBusinessLogic {
+    func validateUser(request: Login.UserValidation.Request) {
         
         guard let email = request.email?.trimmingCharacters(in: .whitespacesAndNewlines),
               let password = request.password?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         
         if email == "" || password == "" {
-            let response = LoginVIP.UserValidation.Response(outcome: Constant.ValidationOutcome.notAllFieldsFilled, isError: true)
+            let response = Login.UserValidation.Response(outcome: Constant.ValidationOutcome.notAllFieldsFilled, isError: true)
             presenter?.presentUserValidationOutcome(response: response)
         } else {
-            worker = LoginVIPWorker()
+            worker = LoginWorker()
             worker?.loginUser(email: email, password: password, completionHandler: { [weak self] (outcome, isError) in
-                let response = LoginVIP.UserValidation.Response(outcome: outcome, isError: isError)
+                let response = Login.UserValidation.Response(outcome: outcome, isError: isError)
                 self?.presenter?.presentUserValidationOutcome(response: response)
             })
         }

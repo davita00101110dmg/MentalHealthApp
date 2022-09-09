@@ -1,5 +1,5 @@
 //
-//  ProfileVIPRouter.swift
+//  ProfileRouter.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 06.09.22.
@@ -12,14 +12,14 @@
 
 import UIKit
 
-protocol ProfileVIPRoutingLogic {
+protocol ProfileRoutingLogic {
     func routeToBottomSheet()
 }
 
-final class ProfileVIPRouter: ProfileVIPRoutingLogic {
+final class ProfileRouter: ProfileRoutingLogic {
     // MARK: - Clean Components
     
-    weak var viewController: ProfileVIPViewController?
+    weak var viewController: ProfileViewController?
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
     // MARK: - Routing
@@ -34,7 +34,7 @@ final class ProfileVIPRouter: ProfileVIPRoutingLogic {
     
     // MARK: - Navigation
     
-    func navigateToBottomSheetVC(source: ProfileVIPViewController, destination: BottomSheetViewController) {
+    func navigateToBottomSheetVC(source: ProfileViewController, destination: BottomSheetViewController) {
         source.present(destination, animated: true)
     }
 }

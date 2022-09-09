@@ -84,7 +84,7 @@ enum Utilities {
         controller.view.addGestureRecognizer(tap)
     }
 
-    static func setupTabBarItem(for viewController: UIViewController, _ inactiveImage: UIImage, _ activeImage: UIImage ) {
+    static func setupTabBarItem(for viewController: UIViewController, _ inactiveImage: UIImage?, _ activeImage: UIImage?) {
         viewController.tabBarItem.image = inactiveImage
         viewController.tabBarItem.selectedImage = activeImage
         viewController.title = ""

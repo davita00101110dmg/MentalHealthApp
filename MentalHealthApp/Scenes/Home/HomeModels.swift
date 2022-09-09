@@ -1,5 +1,5 @@
 //
-//  HomeVIPModels.swift
+//  HomeModels.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 04.09.22.
@@ -12,7 +12,7 @@
 
 import UIKit
 
-enum HomeVIP {
+enum Home {
     // MARK: - Use cases
     
     enum GetUser {

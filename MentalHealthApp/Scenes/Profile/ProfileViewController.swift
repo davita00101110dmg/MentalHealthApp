@@ -1,5 +1,5 @@
 //
-//  ProfileVIPViewController.swift
+//  ProfileViewController.swift
 //  MentalHealthApp
 //
 //  Created by Dato Khvedelidze on 06.09.22.
@@ -12,15 +12,15 @@
 
 import UIKit
 
-protocol ProfileVIPDisplayLogic: AnyObject {
-    func displayUserInfo(viewModel: ProfileVIP.GetUserInfo.ViewModel)
+protocol ProfileDisplayLogic: AnyObject {
+    func displayUserInfo(viewModel: Profile.GetUserInfo.ViewModel)
 }
 
-final class ProfileVIPViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     // MARK: - Clean Components
     
-    var interactor: ProfileVIPBusinessLogic?
-    var router: ProfileVIPRoutingLogic?
+    var interactor: ProfileBusinessLogic?
+    var router: ProfileRoutingLogic?
     
     // MARK: - Outlets
     
@@ -39,7 +39,7 @@ final class ProfileVIPViewController: UIViewController {
         }
     }
     
-    // MARK: Object lifecycle
+    // MARK: Object Lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -55,9 +55,9 @@ final class ProfileVIPViewController: UIViewController {
     
     private func setup() {
         let viewController = self
-        let interactor = ProfileVIPInteractor()
-        let presenter = ProfileVIPPresenter()
-        let router = ProfileVIPRouter()
+        let interactor = ProfileInteractor()
+        let presenter = ProfilePresenter()
+        let router = ProfileRouter()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
@@ -65,7 +65,7 @@ final class ProfileVIPViewController: UIViewController {
         router.viewController = viewController
     }
     
-    // MARK: View lifecycle
+    // MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +77,7 @@ final class ProfileVIPViewController: UIViewController {
     // MARK: - Private Methods
     
     private func fetchUser() {
-        interactor?.getUserInfo(request: ProfileVIP.GetUserInfo.Request())
+        interactor?.getUserInfo(request: Profile.GetUserInfo.Request())
     }
     
     private func setupCollectionView() {
@@ -114,13 +114,13 @@ final class ProfileVIPViewController: UIViewController {
 
 // MARK: - UICollectionViewDataSource
 
-extension ProfileVIPViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         quotes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuoteCell", for: indexPath) as! QuoteCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuoteCell", for: indexPath) as? QuoteCell else { return .init() }
         let currentQuote = quotes[indexPath.row]
         
         cell.quoteLabel.text = currentQuote
@@ -133,10 +133,10 @@ extension ProfileVIPViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 }
 
-// MARK: - ProfileVIPDisplayLogic
+// MARK: - ProfileDisplayLogic
 
-extension ProfileVIPViewController: ProfileVIPDisplayLogic {    
-    func displayUserInfo(viewModel: ProfileVIP.GetUserInfo.ViewModel) {
+extension ProfileViewController: ProfileDisplayLogic {    
+    func displayUserInfo(viewModel: Profile.GetUserInfo.ViewModel) {
         fullnameLabel.text = viewModel.fullname
         self.quotes = viewModel.likedQuotes
     }
