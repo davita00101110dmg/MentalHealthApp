@@ -40,6 +40,27 @@ enum Constant {
         static let arrowTriangle = UIImage(systemName: "arrowtriangle.forward.circle.fill")?.imageResized(to: Constant.ImageSize.biggerIcon).withTintColor(Constant.Color.greenColor)
     }
     
+    // MARK: - ViewController Identifiers
+    
+    enum ViewControllerIdentifiers {
+        static let loginVC = "LoginViewController"
+        static let registrationVC = "RegistrationViewController"
+        static let homeVC = "HomeViewController"
+        static let profileVC = "ProfileViewController"
+        static let bottomSheetVC = "BottomSheetViewController"
+        static let rootNavVC = "rootNavigationController"
+    }
+    
+    // MARK: - Storyboard Identifiers
+    
+    enum StoryboardIdentifiers {
+        static let login = "Login"
+        static let registration = "Registration"
+        static let home = "Home"
+        static let profile = "Profile"
+        static let bottomSheet = "BottomSheet"
+    }
+    
     // MARK: - Validation Outcome
     
     enum ValidationOutcome {
@@ -48,5 +69,7 @@ enum Constant {
         static let passwordsNotMatch = "Please make sure your passwords match"
         static let successfulLogin = "You've succesfully logged in!"
         static let successfulRegistration = "You've succesfully registered!"
+        static let unsuccessfulLogin = "Not authorized!"
+        static let unsuccessfulRegistration = "Can't register user!"
     }
 }
