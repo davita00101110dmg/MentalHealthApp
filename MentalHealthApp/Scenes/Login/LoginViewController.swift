@@ -52,9 +52,11 @@ final class LoginViewController: UIViewController {
         let interactor = LoginInteractor()
         let presenter = LoginPresenter()
         let router = LoginRouter()
+        let worker = LoginWorker()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
+        interactor.worker = worker
         presenter.viewController = viewController
         router.viewController = viewController
     }

@@ -53,9 +53,11 @@ final class RegistrationViewController: UIViewController {
         let interactor = RegistrationInteractor()
         let presenter = RegistrationPresenter()
         let router = RegistrationRouter()
+        let worker = RegistrationWorker()
         viewController.interactor = interactor
         viewController.router = router
         interactor.presenter = presenter
+        interactor.worker = worker
         presenter.viewController = viewController
         router.viewController = viewController
     }
@@ -128,7 +130,7 @@ final class RegistrationViewController: UIViewController {
 
 extension RegistrationViewController: RegistrationDisplayLogic {
     func displayRegistrationOutcome(viewModel: Registration.RegistrationValidation.ViewModel) {
-        Utilities.showOutcume(for: registrationOutcomeLabel, message: viewModel.outcome!, isError: viewModel.isError)
+        Utilities.showOutcume(for: registrationOutcomeLabel, message: viewModel.outcome, isError: viewModel.isError)
         
         if !viewModel.isError {
             router?.routeToLoginVC()
