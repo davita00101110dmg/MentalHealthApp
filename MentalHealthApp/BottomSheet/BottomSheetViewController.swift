@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BottomSheetViewController: UIViewController, UISheetPresentationControllerDelegate {
+final class BottomSheetViewController: UIViewController, UISheetPresentationControllerDelegate {
     
     // MARK: - Outlets
     
@@ -16,7 +16,7 @@ class BottomSheetViewController: UIViewController, UISheetPresentationController
     @IBOutlet weak var noButtonOutlet: UIButton!
     
     // MARK: - Fields
-
+    
     var sheetColor: UIColor?
     var buttonColor: UIColor?
     var sheetTitle: String?
@@ -29,7 +29,7 @@ class BottomSheetViewController: UIViewController, UISheetPresentationController
     }
     
     // MARK: - Private Methods
-    
+
     private func setupElements() {
         Utilities.customLabel(for: questionLabel, size: 28, text: sheetTitle ?? "No title")
         Utilities.customButton(for: yesButtonOutlet, title: "Yes", cornerRadius: 10, color: buttonColor ?? Constant.Color.redColor)

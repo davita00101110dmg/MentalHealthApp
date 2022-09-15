@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bottom Sheet View Controller-->
+        <scene sceneID="qtM-Ym-n1H">
+            <objects>
+                <viewController storyboardIdentifier="BottomSheetViewController" id="iF6-ld-Bt6" customClass="BottomSheetViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5J9-Ls-U6F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzf-Ht-ufl">
+                                <rect key="frame" x="30" y="77" width="315" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8a-sj-kGT">
+                                <rect key="frame" x="50" y="135" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="hju-Gb-zCF"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="yesButtonAction:" destination="iF6-ld-Bt6" eventType="touchUpInside" id="2nx-eL-si3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8e-xS-PUY">
+                                <rect key="frame" x="225" y="135" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="O22-Hv-hpI"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="noButtonAction:" destination="iF6-ld-Bt6" eventType="touchUpInside" id="rhd-KL-MXr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iEd-Qy-LR8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g8a-sj-kGT" firstAttribute="centerY" secondItem="5J9-Ls-U6F" secondAttribute="centerY" id="AHi-wJ-0LV"/>
+                            <constraint firstItem="g8a-sj-kGT" firstAttribute="leading" secondItem="iEd-Qy-LR8" secondAttribute="leading" constant="50" id="CLE-94-n4P"/>
+                            <constraint firstItem="rzf-Ht-ufl" firstAttribute="top" secondItem="iEd-Qy-LR8" secondAttribute="top" constant="30" id="Tyc-p7-Hmf"/>
+                            <constraint firstItem="rzf-Ht-ufl" firstAttribute="leading" secondItem="iEd-Qy-LR8" secondAttribute="leading" constant="30" id="dwe-tK-lk0"/>
+                            <constraint firstItem="iEd-Qy-LR8" firstAttribute="trailing" secondItem="d8e-xS-PUY" secondAttribute="trailing" constant="50" id="e7d-Y9-TZT"/>
+                            <constraint firstItem="d8e-xS-PUY" firstAttribute="width" secondItem="g8a-sj-kGT" secondAttribute="width" id="lPs-Iz-BUD"/>
+                            <constraint firstItem="d8e-xS-PUY" firstAttribute="centerY" secondItem="5J9-Ls-U6F" secondAttribute="centerY" id="veC-FB-FkI"/>
+                            <constraint firstItem="rzf-Ht-ufl" firstAttribute="centerX" secondItem="5J9-Ls-U6F" secondAttribute="centerX" id="zW3-xK-8KD"/>
+                            <constraint firstItem="d8e-xS-PUY" firstAttribute="centerY" secondItem="g8a-sj-kGT" secondAttribute="centerY" id="zae-qg-6Zb"/>
+                        </constraints>
+                    </view>
+                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="300"/>
+                    <connections>
+                        <outlet property="noButtonOutlet" destination="d8e-xS-PUY" id="LOU-Jr-TdF"/>
+                        <outlet property="questionLabel" destination="rzf-Ht-ufl" id="cAh-vQ-gJS"/>
+                        <outlet property="yesButtonOutlet" destination="g8a-sj-kGT" id="8nI-fe-hVt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="leV-1r-CVa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2631" y="44"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
