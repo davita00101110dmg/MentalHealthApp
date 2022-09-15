@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		2B0E8C6428AA96F20003A641 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E8C6328AA96F20003A641 /* NetworkService.swift */; };
 		2B0E8C6628AA98220003A641 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0E8C6528AA98220003A641 /* User.swift */; };
-		2B382B7828CB3CCA00455404 /* MentalHealthAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B382B7728CB3CCA00455404 /* MentalHealthAppTests.swift */; };
+		2B382B9A28CCC08600455404 /* LoginInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B382B9928CCC08600455404 /* LoginInteractorTests.swift */; };
+		2B382B9C28CCCA4600455404 /* RegistrationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B382B9B28CCCA4600455404 /* RegistrationInteractorTests.swift */; };
+		2B38FD2428D1D32A0086C6D4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B38FD2328D1D32A0086C6D4 /* Login.storyboard */; };
+		2B38FD2628D1D46A0086C6D4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B38FD2528D1D46A0086C6D4 /* Home.storyboard */; };
+		2B38FD2828D1D4C20086C6D4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B38FD2728D1D4C20086C6D4 /* Profile.storyboard */; };
+		2B38FD2B28D1E6C60086C6D4 /* BottomSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B38FD2A28D1E6C60086C6D4 /* BottomSheet.storyboard */; };
 		2B48561B28C2093700CFD49A /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48561528C2093700CFD49A /* LoginPresenter.swift */; };
 		2B48561C28C2093700CFD49A /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48561628C2093700CFD49A /* LoginWorker.swift */; };
 		2B48561D28C2093700CFD49A /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48561728C2093700CFD49A /* LoginRouter.swift */; };
@@ -44,9 +49,9 @@
 		2B91D24228C7521E00D0111B /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D23C28C7521E00D0111B /* ProfileModels.swift */; };
 		2B91D24328C7521E00D0111B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D23D28C7521E00D0111B /* ProfileViewController.swift */; };
 		2B91D24428C7521E00D0111B /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D23E28C7521E00D0111B /* ProfileInteractor.swift */; };
+		2BAE62EF28D1CA6000653C54 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE62EE28D1CA6000653C54 /* Registration.storyboard */; };
 		2BB0989F28956F70008707A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB0989E28956F70008707A5 /* AppDelegate.swift */; };
 		2BB098A128956F70008707A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098A028956F70008707A5 /* SceneDelegate.swift */; };
-		2BB098A628956F70008707A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB098A428956F70008707A5 /* Main.storyboard */; };
 		2BB098A828956F72008707A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB098A728956F72008707A5 /* Assets.xcassets */; };
 		2BB098AB28956F72008707A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB098A928956F72008707A5 /* LaunchScreen.storyboard */; };
 		2BB098BC28957136008707A5 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB098BB28957136008707A5 /* Utilities.swift */; };
@@ -74,7 +79,12 @@
 		2B0E8C6328AA96F20003A641 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = MentalHealthApp/API/NetworkService.swift; sourceTree = SOURCE_ROOT; };
 		2B0E8C6528AA98220003A641 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2B382B7528CB3CCA00455404 /* MentalHealthAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MentalHealthAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B382B7728CB3CCA00455404 /* MentalHealthAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentalHealthAppTests.swift; sourceTree = "<group>"; };
+		2B382B9928CCC08600455404 /* LoginInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorTests.swift; sourceTree = "<group>"; };
+		2B382B9B28CCCA4600455404 /* RegistrationInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractorTests.swift; sourceTree = "<group>"; };
+		2B38FD2328D1D32A0086C6D4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		2B38FD2528D1D46A0086C6D4 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		2B38FD2728D1D4C20086C6D4 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		2B38FD2A28D1E6C60086C6D4 /* BottomSheet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BottomSheet.storyboard; sourceTree = "<group>"; };
 		2B48561528C2093700CFD49A /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		2B48561628C2093700CFD49A /* LoginWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
 		2B48561728C2093700CFD49A /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
@@ -109,10 +119,10 @@
 		2B91D23C28C7521E00D0111B /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
 		2B91D23D28C7521E00D0111B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2B91D23E28C7521E00D0111B /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		2BAE62EE28D1CA6000653C54 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		2BB0989B28956F70008707A5 /* MentalHealthApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MentalHealthApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB0989E28956F70008707A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BB098A028956F70008707A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2BB098A528956F70008707A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2BB098A728956F72008707A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BB098AA28956F72008707A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BB098AC28956F72008707A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,9 +158,19 @@
 		2B382B7628CB3CCA00455404 /* MentalHealthAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				2B382B7728CB3CCA00455404 /* MentalHealthAppTests.swift */,
+				2B382B9928CCC08600455404 /* LoginInteractorTests.swift */,
+				2B382B9B28CCCA4600455404 /* RegistrationInteractorTests.swift */,
 			);
 			path = MentalHealthAppTests;
+			sourceTree = "<group>";
+		};
+		2B38FD2928D1E6A30086C6D4 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */,
+				2B38FD2A28D1E6C60086C6D4 /* BottomSheet.storyboard */,
+			);
+			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 		2B48560728C2036100CFD49A /* Scenes */ = {
@@ -173,6 +193,7 @@
 				2B48561728C2093700CFD49A /* LoginRouter.swift */,
 				2B48561628C2093700CFD49A /* LoginWorker.swift */,
 				2B48561828C2093700CFD49A /* LoginModels.swift */,
+				2B38FD2328D1D32A0086C6D4 /* Login.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -257,6 +278,7 @@
 				2B91D20828C36D9000D0111B /* RegistrationRouter.swift */,
 				2B91D20728C36D9000D0111B /* RegistrationWorker.swift */,
 				2B91D20928C36D9000D0111B /* RegistrationModels.swift */,
+				2BAE62EE28D1CA6000653C54 /* Registration.storyboard */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -270,6 +292,7 @@
 				2B91D22228C4D2BA00D0111B /* HomeRouter.swift */,
 				2B91D22128C4D2BA00D0111B /* HomeWorker.swift */,
 				2B91D22328C4D2BA00D0111B /* HomeModels.swift */,
+				2B38FD2528D1D46A0086C6D4 /* Home.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -283,6 +306,7 @@
 				2B91D23B28C7521E00D0111B /* ProfileRouter.swift */,
 				2B91D23A28C7521E00D0111B /* ProfileWorker.swift */,
 				2B91D23C28C7521E00D0111B /* ProfileModels.swift */,
+				2B38FD2728D1D4C20086C6D4 /* Profile.storyboard */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -311,13 +335,13 @@
 				2B59208328C15E8000B287B0 /* App */,
 				2B59208528C15F8700B287B0 /* API */,
 				2B59208428C15E9000B287B0 /* Cell */,
+				2B38FD2928D1E6A30086C6D4 /* BottomSheet */,
 				2B59208128C15DFA00B287B0 /* Firebase Services */,
 				2B59208228C15E1400B287B0 /* Model */,
 				2BB098BA28957126008707A5 /* Helpers */,
 				2B48560728C2036100CFD49A /* Scenes */,
 				2B815D152895824A00AF6FB6 /* Extensions */,
 				2B815D0C28957A4A00AF6FB6 /* Fonts */,
-				2BB098A428956F70008707A5 /* Main.storyboard */,
 				2BB098A728956F72008707A5 /* Assets.xcassets */,
 				2BB098A928956F72008707A5 /* LaunchScreen.storyboard */,
 				2BE992B72896D565001E9199 /* GoogleService-Info.plist */,
@@ -332,7 +356,6 @@
 				2BB098BD289571B7008707A5 /* Constants.swift */,
 				2BB098BB28957136008707A5 /* Utilities.swift */,
 				2BD6E5B1289DB2280039661C /* LikeButton.swift */,
-				2BB7437A289F19E0006FD01C /* BottomSheetViewController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -438,12 +461,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B815D1B2895884300AF6FB6 /* Alegreya-Bold.ttf in Resources */,
+				2B38FD2628D1D46A0086C6D4 /* Home.storyboard in Resources */,
+				2BAE62EF28D1CA6000653C54 /* Registration.storyboard in Resources */,
+				2B38FD2B28D1E6C60086C6D4 /* BottomSheet.storyboard in Resources */,
 				2BB098AB28956F72008707A5 /* LaunchScreen.storyboard in Resources */,
 				2BB098A828956F72008707A5 /* Assets.xcassets in Resources */,
-				2BB098A628956F70008707A5 /* Main.storyboard in Resources */,
+				2B38FD2828D1D4C20086C6D4 /* Profile.storyboard in Resources */,
 				2B54089A289D92900096E0FC /* QuoteCell.xib in Resources */,
 				2B815D192895878900AF6FB6 /* Alegreya-Regular.ttf in Resources */,
 				2B815D1D2895888400AF6FB6 /* Montserrat-Regular.ttf in Resources */,
+				2B38FD2428D1D32A0086C6D4 /* Login.storyboard in Resources */,
 				2BE992B82896D565001E9199 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,7 +482,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B382B7828CB3CCA00455404 /* MentalHealthAppTests.swift in Sources */,
+				2B382B9A28CCC08600455404 /* LoginInteractorTests.swift in Sources */,
+				2B382B9C28CCCA4600455404 /* RegistrationInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,14 +555,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2BB098A428956F70008707A5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2BB098A528956F70008707A5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2BB098A928956F72008707A5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -632,7 +652,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -686,7 +706,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -708,10 +728,9 @@
 				INFOPLIST_FILE = MentalHealthApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Login;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -737,10 +756,9 @@
 				INFOPLIST_FILE = MentalHealthApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Login;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
