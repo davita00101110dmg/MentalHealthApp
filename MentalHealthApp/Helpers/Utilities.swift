@@ -41,7 +41,7 @@ enum Utilities {
     }
     
     static func highlightedText(for label: UILabel, text: String) {
-        let mainString = label.text!
+        guard let mainString = label.text else { return }
         let stringToColor = text
         let range = (mainString as NSString).range(of: stringToColor)
         let mutableAttributedString = NSMutableAttributedString.init(string: mainString)
@@ -90,19 +90,21 @@ enum Utilities {
         viewController.title = ""
     }
     
-    static func setupTabBar(for tabBarController: UITabBarController, with viewControllers: [UIViewController]) {
+    static func setupTabBar(with viewControllers: [UIViewController]) -> UITabBarController {
+        let tabBarController = UITabBarController(nibName: nil, bundle: nil)
         tabBarController.viewControllers = viewControllers
         tabBarController.tabBar.backgroundColor = Constant.Color.whiteColor
         tabBarController.tabBar.tintColor = .black
         tabBarController.tabBar.layer.cornerRadius = 20
         tabBarController.tabBar.layer.masksToBounds = true
         tabBarController.tabBar.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        return tabBarController
     }
     
     typealias Sheet = UIViewController & UISheetPresentationControllerDelegate
     
     static func setupBottomSheet<T: Sheet>(sheet: T, sheetColor: UIColor, sheetTitle: String, buttonColor: UIColor, detents: [UISheetPresentationController.Detent]) {
-        
         if let sheet = sheet as? BottomSheetViewController {
             sheet.sheetTitle = sheetTitle
             sheet.buttonColor = buttonColor
