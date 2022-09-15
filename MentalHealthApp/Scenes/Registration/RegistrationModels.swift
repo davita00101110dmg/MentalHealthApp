@@ -24,11 +24,11 @@ enum Registration {
         let confirmPassword: String?
     }
     struct Response {
-        let outcome: String?
+        let outcome: String
         let isError: Bool
     }
     struct ViewModel {
-        let outcome: String?
+        let outcome: String
         let isError: Bool
     }
   }
