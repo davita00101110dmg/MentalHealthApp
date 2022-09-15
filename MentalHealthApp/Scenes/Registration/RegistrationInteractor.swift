@@ -43,7 +43,7 @@ extension RegistrationInteractor: RegistrationBusinessLogic {
             presenter?.presentRegistrationOutcome(response: Registration.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.notAllFieldsFilled, isError: true))
         }
 
-        else if Utilities.isPasswordValid(password) == false {
+        else if !Utilities.isPasswordValid(password) {
             presenter?.presentRegistrationOutcome(response: Registration.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.passwordNotSecure, isError: true))
         }
 
@@ -52,8 +52,10 @@ extension RegistrationInteractor: RegistrationBusinessLogic {
         }
         
         else {
-            worker = RegistrationWorker()
-            worker?.registerUser(withEmail: email, password: password, firstname: firstname, lastname: lastname) { [weak self] (outcome, isError) in
+            worker?.registerUser(withEmail: email,
+                                 password: password,
+                                 firstname: firstname,
+                                 lastname: lastname) { [weak self] (outcome, isError) in
                 self?.presenter?.presentRegistrationOutcome(response: Registration.RegistrationValidation.Response(outcome: outcome, isError: isError))
             }
         }

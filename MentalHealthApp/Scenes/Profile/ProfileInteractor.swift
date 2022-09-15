@@ -20,7 +20,6 @@ final class ProfileInteractor {
     // MARK: - Clean Components
     
     var presenter: ProfilePresentationLogic?
-    var worker: ProfileWorker?
 }
 
 // MARK: - ProfileBusinessLogic

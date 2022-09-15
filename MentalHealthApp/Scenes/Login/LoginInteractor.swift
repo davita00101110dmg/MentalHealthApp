@@ -33,11 +33,11 @@ extension LoginInteractor: LoginBusinessLogic {
               let password = request.password?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         
         if email == "" || password == "" {
-            let response = Login.UserValidation.Response(outcome: Constant.ValidationOutcome.notAllFieldsFilled, isError: true)
-            presenter?.presentUserValidationOutcome(response: response)
+            presenter?.presentUserValidationOutcome(response: Login.UserValidation.Response(outcome: Constant.ValidationOutcome.notAllFieldsFilled, isError: true))
         } else {
-            worker = LoginWorker()
-            worker?.loginUser(email: email, password: password, completionHandler: { [weak self] (outcome, isError) in
+            worker?.loginUser(email: email,
+                              password: password,
+                              completionHandler: { [weak self] (outcome, isError) in
                 let response = Login.UserValidation.Response(outcome: outcome, isError: isError)
                 self?.presenter?.presentUserValidationOutcome(response: response)
             })

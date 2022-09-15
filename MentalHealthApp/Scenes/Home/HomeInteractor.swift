@@ -22,8 +22,7 @@ final class HomeInteractor {
     // MARK: - Clean Components
     
     var presenter: HomePresentationLogic?
-    var worker: HomeWorker?
-    
+    var worker: HomeWorkerLogic?
 }
 
 // MARK: - HomeBusinessLogic
@@ -36,11 +35,7 @@ extension HomeInteractor: HomeBusinessLogic {
         }
     }
     
-    
-    
-    func getQuote(request: Home.GetQuote.Request) {
-        worker = HomeWorker()
-        
+    func getQuote(request: Home.GetQuote.Request) {        
         Task {
             do {
                 let quote = try await worker?.fetchQuote()
@@ -58,5 +53,4 @@ extension HomeInteractor: HomeBusinessLogic {
         
         UserService.updateLikedQuotesArray(condition: condition, quote: quote)
     }
-    
 }
