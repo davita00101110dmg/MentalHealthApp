@@ -21,8 +21,9 @@ enum AuthService {
     
     static func logoutUser(viewController: UIViewController) {
         do {
-            guard let rootNavVC = viewController.storyboard?.instantiateViewController(withIdentifier: "rootNavigationController") else { return }
-            
+            let loginStoryboard = UIStoryboard(name: Constant.StoryboardIdentifiers.login, bundle: nil)
+            let rootNavVC = loginStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifiers.rootNavVC)
+
             UserService.fetchUser(detach: true, completion: nil)
             try Auth.auth().signOut()
             
