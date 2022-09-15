@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile View-->
+        <scene sceneID="3f1-YP-q1O">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="MFi-8N-JNi" userLabel="Profile View" customClass="ProfileViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="87T-UI-9vU">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1o-BD-rsk">
+                                <rect key="frame" x="275" y="62" width="100" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="79U-rb-1xz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="sSb-eE-uWr"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logoutAction:" destination="MFi-8N-JNi" eventType="touchUpInside" id="quD-um-2sY"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="X0E-lQ-fzC">
+                                <rect key="frame" x="10" y="410" width="370" height="390"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b62-Bk-af3">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="QuoteCell" id="XeY-43-Npz" customClass="QuoteCell" customModule="MentalHealthApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cus-yJ-yb8">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Dl-QS-tyQ">
+                                <rect key="frame" x="30" y="97" width="330" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ez-Bt-Yq7">
+                                <rect key="frame" x="30" y="359" width="330" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JJ-FI-Idn">
+                                <rect key="frame" x="30" y="308" width="330" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MdZ-BK-qhg">
+                                <rect key="frame" x="120" y="138" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="9Iv-Uv-OM9"/>
+                                    <constraint firstAttribute="width" constant="150" id="v6g-BH-QNT"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5Oa-UH-eSM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Oa-UH-eSM" firstAttribute="bottom" secondItem="X0E-lQ-fzC" secondAttribute="bottom" constant="10" id="5T2-vH-4Tb"/>
+                            <constraint firstItem="8Dl-QS-tyQ" firstAttribute="top" secondItem="5Oa-UH-eSM" secondAttribute="top" constant="50" id="8Pf-X3-68x"/>
+                            <constraint firstItem="X0E-lQ-fzC" firstAttribute="top" secondItem="9ez-Bt-Yq7" secondAttribute="bottom" constant="30" id="BBX-Ma-8o5"/>
+                            <constraint firstItem="9ez-Bt-Yq7" firstAttribute="leading" secondItem="5Oa-UH-eSM" secondAttribute="leading" constant="30" id="GUS-O6-fHU"/>
+                            <constraint firstItem="9ez-Bt-Yq7" firstAttribute="centerX" secondItem="87T-UI-9vU" secondAttribute="centerX" id="Gxe-h8-Zou"/>
+                            <constraint firstItem="8Dl-QS-tyQ" firstAttribute="centerX" secondItem="87T-UI-9vU" secondAttribute="centerX" id="KKD-bn-dMF"/>
+                            <constraint firstItem="MdZ-BK-qhg" firstAttribute="centerX" secondItem="87T-UI-9vU" secondAttribute="centerX" id="LL9-1L-P75"/>
+                            <constraint firstItem="z1o-BD-rsk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Oa-UH-eSM" secondAttribute="leading" symbolic="YES" id="ORX-PV-cuS"/>
+                            <constraint firstItem="2JJ-FI-Idn" firstAttribute="top" secondItem="MdZ-BK-qhg" secondAttribute="bottom" constant="20" id="SVj-8D-7aK"/>
+                            <constraint firstItem="2JJ-FI-Idn" firstAttribute="leading" secondItem="5Oa-UH-eSM" secondAttribute="leading" constant="30" id="Tpz-2F-fv3"/>
+                            <constraint firstItem="5Oa-UH-eSM" firstAttribute="trailing" secondItem="z1o-BD-rsk" secondAttribute="trailing" constant="15" id="ZN0-Yh-Npt"/>
+                            <constraint firstItem="X0E-lQ-fzC" firstAttribute="leading" secondItem="5Oa-UH-eSM" secondAttribute="leading" constant="10" id="ZZ2-W8-6HN"/>
+                            <constraint firstItem="8Dl-QS-tyQ" firstAttribute="leading" secondItem="5Oa-UH-eSM" secondAttribute="leading" constant="30" id="dDc-il-znS"/>
+                            <constraint firstItem="9ez-Bt-Yq7" firstAttribute="top" secondItem="2JJ-FI-Idn" secondAttribute="bottom" constant="30" id="hVH-ym-AdC"/>
+                            <constraint firstItem="MdZ-BK-qhg" firstAttribute="top" secondItem="8Dl-QS-tyQ" secondAttribute="bottom" constant="20" id="npe-Ql-CeU"/>
+                            <constraint firstItem="z1o-BD-rsk" firstAttribute="top" secondItem="5Oa-UH-eSM" secondAttribute="top" constant="15" id="och-Qg-P9P"/>
+                            <constraint firstItem="X0E-lQ-fzC" firstAttribute="centerX" secondItem="87T-UI-9vU" secondAttribute="centerX" id="qHS-0m-Ms2"/>
+                            <constraint firstItem="2JJ-FI-Idn" firstAttribute="centerX" secondItem="87T-UI-9vU" secondAttribute="centerX" id="zW5-2f-qIe"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="8c9-dM-FAT"/>
+                    <connections>
+                        <outlet property="collectionViewOutlet" destination="X0E-lQ-fzC" id="8HF-MN-HP5"/>
+                        <outlet property="fullnameLabel" destination="2JJ-FI-Idn" id="eMb-19-Qh1"/>
+                        <outlet property="logoutButton" destination="z1o-BD-rsk" id="wtg-6d-jUs"/>
+                        <outlet property="profilePictureImage" destination="MdZ-BK-qhg" id="ptP-J3-HIE"/>
+                        <outlet property="titleLabel" destination="8Dl-QS-tyQ" id="NhP-gU-uNh"/>
+                        <outlet property="yourLikedQuotesLabel" destination="9ez-Bt-Yq7" id="mcT-50-t99"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Na-BK-WXR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2670" y="440"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

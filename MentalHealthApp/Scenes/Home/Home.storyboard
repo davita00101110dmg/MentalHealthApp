@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home Page View-->
+        <scene sceneID="acB-LY-sbX">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="Fbi-eu-4wn" userLabel="Home Page View" customClass="HomeViewController" customModule="MentalHealthApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ugn-Db-Tlx">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dde-Ta-Jkf">
+                                <rect key="frame" x="30" y="67" width="330" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Z7-59-NVg">
+                                <rect key="frame" x="30" y="290.33333333333331" width="330" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkI-5t-ofc">
+                                <rect key="frame" x="20" y="320.66666666666669" width="350" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="125" id="UAN-8L-Lcz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dur-aW-4IL">
+                                <rect key="frame" x="75" y="745" width="240" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wGL-FD-hDt"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="generateButtonAction:" destination="Fbi-eu-4wn" eventType="touchUpInside" id="TAW-uz-fvr"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MaU-Pt-7y4">
+                                <rect key="frame" x="70" y="102.33333333333331" width="250" height="173"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MaU-Pt-7y4" secondAttribute="height" multiplier="13:9" id="CIr-so-q35"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nf-2W-mdd" customClass="LikeButton" customModule="MentalHealthApp" customModuleProvider="target">
+                                <rect key="frame" x="157.66666666666666" y="460.66666666666669" width="75" height="34.666666666666686"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="likeButtonAction:" destination="Fbi-eu-4wn" eventType="touchUpInside" id="dp2-4o-e7f"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i8g-Tz-8pb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Dde-Ta-Jkf" firstAttribute="top" secondItem="i8g-Tz-8pb" secondAttribute="top" constant="20" id="0eA-g9-a1s"/>
+                            <constraint firstItem="FkI-5t-ofc" firstAttribute="leading" secondItem="i8g-Tz-8pb" secondAttribute="leading" constant="20" id="22b-Ke-dL6"/>
+                            <constraint firstItem="0Z7-59-NVg" firstAttribute="top" secondItem="MaU-Pt-7y4" secondAttribute="bottom" constant="15" id="6Dw-ho-IbD"/>
+                            <constraint firstItem="MaU-Pt-7y4" firstAttribute="leading" secondItem="i8g-Tz-8pb" secondAttribute="leading" constant="70" id="BAs-ZK-qc9"/>
+                            <constraint firstItem="FkI-5t-ofc" firstAttribute="top" secondItem="0Z7-59-NVg" secondAttribute="bottom" constant="10" id="CJo-DK-pKQ"/>
+                            <constraint firstItem="i8g-Tz-8pb" firstAttribute="bottom" secondItem="Dur-aW-4IL" secondAttribute="bottom" constant="25" id="LlV-Y1-5tj"/>
+                            <constraint firstItem="Dur-aW-4IL" firstAttribute="centerX" secondItem="Ugn-Db-Tlx" secondAttribute="centerX" id="M8V-AY-qyj"/>
+                            <constraint firstItem="Dde-Ta-Jkf" firstAttribute="centerX" secondItem="Ugn-Db-Tlx" secondAttribute="centerX" id="Q5T-s9-Yfp"/>
+                            <constraint firstItem="9nf-2W-mdd" firstAttribute="top" secondItem="FkI-5t-ofc" secondAttribute="bottom" constant="15" id="S1s-9b-Qvj"/>
+                            <constraint firstItem="FkI-5t-ofc" firstAttribute="centerX" secondItem="Ugn-Db-Tlx" secondAttribute="centerX" id="TPv-Mo-PjW"/>
+                            <constraint firstItem="MaU-Pt-7y4" firstAttribute="centerX" secondItem="Ugn-Db-Tlx" secondAttribute="centerX" id="VQS-6B-c1Q"/>
+                            <constraint firstItem="FkI-5t-ofc" firstAttribute="centerX" secondItem="Ugn-Db-Tlx" secondAttribute="centerX" id="lUC-16-qEm"/>
+                            <constraint firstItem="0Z7-59-NVg" firstAttribute="leading" secondItem="i8g-Tz-8pb" secondAttribute="leading" constant="30" id="m7F-Pd-46m"/>
+                            <constraint firstItem="0Z7-59-NVg" firstAttribute="centerX" secondItem="Ugn-Db-Tlx" secondAttribute="centerX" id="mrv-Vk-ria"/>
+                            <constraint firstItem="Dde-Ta-Jkf" firstAttribute="leading" secondItem="i8g-Tz-8pb" secondAttribute="leading" constant="30" id="rv7-5f-adW"/>
+                            <constraint firstItem="MaU-Pt-7y4" firstAttribute="top" secondItem="Dde-Ta-Jkf" secondAttribute="bottom" constant="15" id="uIb-g2-rv6"/>
+                            <constraint firstItem="Dur-aW-4IL" firstAttribute="leading" secondItem="i8g-Tz-8pb" secondAttribute="leading" constant="75" id="v3e-WO-syZ"/>
+                            <constraint firstItem="9nf-2W-mdd" firstAttribute="centerX" secondItem="Ugn-Db-Tlx" secondAttribute="centerX" id="zt3-sE-vYc"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="QNf-Vi-CnW"/>
+                    <connections>
+                        <outlet property="generateButtonOutlet" destination="Dur-aW-4IL" id="u3a-0M-w9g"/>
+                        <outlet property="imageView" destination="MaU-Pt-7y4" id="0MY-5G-J4z"/>
+                        <outlet property="likeButtonOutlet" destination="9nf-2W-mdd" id="qP8-aP-ccd"/>
+                        <outlet property="quoteHeaderLabel" destination="0Z7-59-NVg" id="hBc-5E-fe2"/>
+                        <outlet property="quoteLabel" destination="FkI-5t-ofc" id="Fxd-lv-Al6"/>
+                        <outlet property="userLabel" destination="Dde-Ta-Jkf" id="cgX-if-a4Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aaA-b8-vSU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2669.5999999999999" y="-256.82158920539734"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
