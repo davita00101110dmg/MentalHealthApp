@@ -21,26 +21,30 @@ final class LoginRouter: LoginRoutingLogic {
     // MARK: - Clean Components
     
     weak var viewController: LoginViewController?
-    private let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     // MARK: - Routing
     
     func routeToRegistrationVC() {
-        let registrationVC = storyboard.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
-        navigateToRegistrationVC(source: viewController!, destination: registrationVC)
+        let registrationStoryboard = UIStoryboard(name: Constant.StoryboardIdentifiers.registration, bundle: nil)
+        guard let registrationVC = registrationStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifiers.registrationVC) as? RegistrationViewController else { return }
+        guard let viewController = viewController else { return }
+        navigateToRegistrationVC(source: viewController, destination: registrationVC)
     }
     
     func routeToTabBarVC() {
-        //TODO: ask about this 👇🏻
-        let tabBarController = UITabBarController(nibName: nil, bundle: nil)
-        guard let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else { return }
-        guard let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as? ProfileViewController else { return }
+        let homeStoryboard = UIStoryboard(name: Constant.StoryboardIdentifiers.home, bundle: nil)
+        let profileStoryboard = UIStoryboard(name: Constant.StoryboardIdentifiers.profile, bundle: nil)
         
-        Utilities.setupTabBar(for: tabBarController, with: [homeVC, profileVC])
+        guard let homeVC = homeStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifiers.homeVC) as? HomeViewController else { return }
+        guard let profileVC = profileStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifiers.profileVC) as? ProfileViewController else { return }
+        guard let viewController = viewController else { return }
+        
+        let tabBarController = Utilities.setupTabBar(with: [homeVC, profileVC])
+        
         Utilities.setupTabBarItem(for: homeVC, Constant.Image.inactiveHome, Constant.Image.activeHome)
         Utilities.setupTabBarItem(for: profileVC, Constant.Image.inactiveProfile, Constant.Image.activeProfile)
         
-        navigateToTabBarVC(source: viewController!, destination: tabBarController)
+        navigateToTabBarVC(source: viewController, destination: tabBarController)
     }
     
     // MARK: - Navigation

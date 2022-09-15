@@ -24,9 +24,10 @@ final class RegistrationRouter: RegistrationRoutingLogic {
     // MARK: - Routing
     
     func routeToLoginVC() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let destinationVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
-        navigateToLoginVC(source: viewController!, destination: destinationVC)
+        let loginStoryboard = UIStoryboard(name: Constant.StoryboardIdentifiers.login, bundle: nil)
+        guard let destinationVC = loginStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifiers.loginVC) as? LoginViewController else { return }
+        guard let viewController = viewController else { return }
+        navigateToLoginVC(source: viewController, destination: destinationVC)
         
     }
     
