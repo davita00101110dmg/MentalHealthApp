@@ -30,7 +30,6 @@
 		2B815D172895826100AF6FB6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B815D162895826100AF6FB6 /* Extensions.swift */; };
 		2B815D192895878900AF6FB6 /* Alegreya-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B815D182895878900AF6FB6 /* Alegreya-Regular.ttf */; };
 		2B815D1B2895884300AF6FB6 /* Alegreya-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B815D1A2895884300AF6FB6 /* Alegreya-Bold.ttf */; };
-		2B815D1D2895888400AF6FB6 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B815D1C2895888400AF6FB6 /* Montserrat-Regular.ttf */; };
 		2B91D20C28C36D9000D0111B /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D20628C36D9000D0111B /* RegistrationPresenter.swift */; };
 		2B91D20D28C36D9000D0111B /* RegistrationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D20728C36D9000D0111B /* RegistrationWorker.swift */; };
 		2B91D20E28C36D9000D0111B /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B91D20828C36D9000D0111B /* RegistrationRouter.swift */; };
@@ -100,7 +99,6 @@
 		2B815D162895826100AF6FB6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2B815D182895878900AF6FB6 /* Alegreya-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Regular.ttf"; sourceTree = "<group>"; };
 		2B815D1A2895884300AF6FB6 /* Alegreya-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Alegreya-Bold.ttf"; sourceTree = "<group>"; };
-		2B815D1C2895888400AF6FB6 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		2B91D20628C36D9000D0111B /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
 		2B91D20728C36D9000D0111B /* RegistrationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationWorker.swift; sourceTree = "<group>"; };
 		2B91D20828C36D9000D0111B /* RegistrationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
@@ -201,9 +199,9 @@
 		2B540896289D92680096E0FC /* QuoteCell */ = {
 			isa = PBXGroup;
 			children = (
-				2B540898289D92900096E0FC /* QuoteCell.xib */,
-				2B540897289D92900096E0FC /* QuoteCell.swift */,
 				2B59208828C1601900B287B0 /* QuoteCellModel.swift */,
+				2B540897289D92900096E0FC /* QuoteCell.swift */,
+				2B540898289D92900096E0FC /* QuoteCell.xib */,
 			);
 			path = QuoteCell;
 			sourceTree = "<group>";
@@ -256,17 +254,8 @@
 			children = (
 				2B815D182895878900AF6FB6 /* Alegreya-Regular.ttf */,
 				2B815D1A2895884300AF6FB6 /* Alegreya-Bold.ttf */,
-				2B815D1C2895888400AF6FB6 /* Montserrat-Regular.ttf */,
 			);
 			path = Fonts;
-			sourceTree = "<group>";
-		};
-		2B815D152895824A00AF6FB6 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				2B815D162895826100AF6FB6 /* Extensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2B91D20528C36D7500D0111B /* Registration */ = {
@@ -334,13 +323,12 @@
 			children = (
 				2B59208328C15E8000B287B0 /* App */,
 				2B59208528C15F8700B287B0 /* API */,
-				2B59208428C15E9000B287B0 /* Cell */,
-				2B38FD2928D1E6A30086C6D4 /* BottomSheet */,
 				2B59208128C15DFA00B287B0 /* Firebase Services */,
 				2B59208228C15E1400B287B0 /* Model */,
 				2BB098BA28957126008707A5 /* Helpers */,
+				2B59208428C15E9000B287B0 /* Cell */,
+				2B38FD2928D1E6A30086C6D4 /* BottomSheet */,
 				2B48560728C2036100CFD49A /* Scenes */,
-				2B815D152895824A00AF6FB6 /* Extensions */,
 				2B815D0C28957A4A00AF6FB6 /* Fonts */,
 				2BB098A728956F72008707A5 /* Assets.xcassets */,
 				2BB098A928956F72008707A5 /* LaunchScreen.storyboard */,
@@ -355,6 +343,7 @@
 			children = (
 				2BB098BD289571B7008707A5 /* Constants.swift */,
 				2BB098BB28957136008707A5 /* Utilities.swift */,
+				2B815D162895826100AF6FB6 /* Extensions.swift */,
 				2BD6E5B1289DB2280039661C /* LikeButton.swift */,
 			);
 			path = Helpers;
@@ -469,7 +458,6 @@
 				2B38FD2828D1D4C20086C6D4 /* Profile.storyboard in Resources */,
 				2B54089A289D92900096E0FC /* QuoteCell.xib in Resources */,
 				2B815D192895878900AF6FB6 /* Alegreya-Regular.ttf in Resources */,
-				2B815D1D2895888400AF6FB6 /* Montserrat-Regular.ttf in Resources */,
 				2B38FD2428D1D32A0086C6D4 /* Login.storyboard in Resources */,
 				2BE992B82896D565001E9199 /* GoogleService-Info.plist in Resources */,
 			);

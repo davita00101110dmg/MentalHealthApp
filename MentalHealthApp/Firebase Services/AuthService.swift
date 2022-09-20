@@ -10,7 +10,6 @@ import Firebase
 //MARK: - Authentication service
 
 enum AuthService {
-    
     // MARK: - Sign in
     
     static func loginUser(withEmail email: String, password: String, completion: @escaping ((AuthDataResult?, Error?) -> Void)) {
@@ -21,18 +20,14 @@ enum AuthService {
     
     static func logoutUser(viewController: UIViewController) {
         do {
-            let loginStoryboard = UIStoryboard(name: Constant.StoryboardIdentifiers.login, bundle: nil)
-            let rootNavVC = loginStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifiers.rootNavVC)
+            let loginStoryboard = UIStoryboard(name: Constant.StoryboardIdentifier.login, bundle: nil)
+            let rootNC = loginStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifier.rootNC)
 
             UserService.fetchUser(detach: true, completion: nil)
             try Auth.auth().signOut()
             
-            viewController.view.window?.switchRootViewController(rootNavVC, animated: true, duration: 0.5, options: .transitionCrossDissolve, completion: nil)
-        } catch {
-            //FIXME: handle the erorr in the better way
-            print(error)
-            
-        }
+            viewController.view.window?.switchRootViewController(rootNC, animated: true, duration: 0.5, options: .transitionCrossDissolve)
+        } catch { }
     }
     
     // MARK: - Registration

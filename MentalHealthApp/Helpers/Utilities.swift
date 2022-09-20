@@ -10,7 +10,6 @@ import UIKit
 // MARK: - Utilities
 
 enum Utilities {
-    
     static func customLabel(for label: UILabel, size fontSize: CGFloat, text: String) {
         label.textColor = .black
         label.font = UIFont.appRegularFontWith(size: fontSize)
@@ -57,11 +56,7 @@ enum Utilities {
         label.alpha = 1
         label.font = UIFont.appRegularBoldFontWith(size: label.font.pointSize)
         
-        if isError {
-            label.textColor = Constant.Color.redColor
-        } else {
-            label.textColor = Constant.Color.greenColor
-        }
+        label.textColor = isError ? Constant.Color.redColor : Constant.Color.greenColor
     }
     
     static func isPasswordValid(_ password: String) -> Bool {
@@ -87,7 +82,7 @@ enum Utilities {
     static func setupTabBarItem(for viewController: UIViewController, _ inactiveImage: UIImage?, _ activeImage: UIImage?) {
         viewController.tabBarItem.image = inactiveImage
         viewController.tabBarItem.selectedImage = activeImage
-        viewController.title = ""
+        viewController.title = Constant.String.empty
     }
     
     static func setupTabBar(with viewControllers: [UIViewController]) -> UITabBarController {
@@ -103,7 +98,7 @@ enum Utilities {
     }
     
     typealias Sheet = UIViewController & UISheetPresentationControllerDelegate
-    
+
     static func setupBottomSheet<T: Sheet>(sheet: T, sheetColor: UIColor, sheetTitle: String, buttonColor: UIColor, detents: [UISheetPresentationController.Detent]) {
         if let sheet = sheet as? BottomSheetViewController {
             sheet.sheetTitle = sheetTitle

@@ -11,22 +11,15 @@ import UIKit
 
 extension UIFont {
     static func appRegularFontWith(size: CGFloat) -> UIFont {
-        guard let font = UIFont(name: "Alegreya-Regular", size: size) else { return .init() }
+        guard let font = UIFont(name: Constant.FontIdentifier.regularFont, size: size) else { return .init() }
         return font
     }
     
     static func appRegularBoldFontWith(size: CGFloat) -> UIFont {
-        guard let font = UIFont(name: "Alegreya-Bold", size: size) else { return .init() }
+        guard let font = UIFont(name: Constant.FontIdentifier.boldFont, size: size) else { return .init() }
         return font
     }
-    
-    static func appSecondaryFontWith(size: CGFloat) -> UIFont {
-        guard let font = UIFont(name: "Montserrat-Regular", size: size) else { return .init() }
-        return font
-    }
-    
 }
-
 
 // MARK: - UIImage
 
@@ -38,6 +31,13 @@ extension UIImage {
     }
 }
 
+// MARK: - UICollectionViewCell
+
+extension UICollectionViewCell {
+    static var identifier: String { String(describing: self) }
+    static var nibFile: UINib { UINib(nibName: identifier, bundle: nil) }
+}
+
 // MARK: - UICollectionView
 
 extension UICollectionView {
@@ -46,17 +46,10 @@ extension UICollectionView {
     }
 }
 
-// MARK: - UICollectionViewCell
-
-extension UICollectionViewCell {
-    static var identifier: String { String(describing: self) }
-    static var nibFile: UINib { UINib(nibName: identifier, bundle: nil) }
-}
-
 // MARK: - UIWindow
 
 extension UIWindow {
-    func switchRootViewController(_ viewController: UIViewController,  animated: Bool = true, duration: TimeInterval = 0.5, options: UIView.AnimationOptions = .transitionFlipFromRight, completion: (() -> Void)? = nil) {
+    func switchRootViewController(_ viewController: UIViewController, animated: Bool = true, duration: TimeInterval = 0.5, options: UIView.AnimationOptions = .transitionFlipFromRight) {
         guard animated else {
             rootViewController = viewController
             return
@@ -67,8 +60,6 @@ extension UIWindow {
             UIView.setAnimationsEnabled(false)
             self.rootViewController = viewController
             UIView.setAnimationsEnabled(oldState)
-        }) { _ in
-            completion?()
-        }
+        })
     }
 }

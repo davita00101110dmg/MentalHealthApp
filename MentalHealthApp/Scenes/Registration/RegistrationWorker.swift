@@ -26,7 +26,8 @@ extension RegistrationWorker: RegistrationWorkerLogic {
             if error != nil {
                 completionHandler(error!.localizedDescription, true)
             } else {
-                UserService.registerInDB(with: firstname, lastname: lastname, uid: result!.user.uid)
+                guard let result = result else { return }
+                UserService.registerInDB(with: firstname, lastname: lastname, uid: result.user.uid)
                 completionHandler(Constant.ValidationOutcome.successfulRegistration, false)
             }
         }

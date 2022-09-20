@@ -10,12 +10,7 @@ import XCTest
 
 class LoginInteractorTests: XCTestCase {
     var sut: LoginInteractor!
-    
-    // MARK: - Fields
-    
-    var email: String!
-    var password: String!
-    
+
     override func setUp() {
         sut = LoginInteractor()
         sut.worker = MockedLoginWorker()
@@ -28,26 +23,30 @@ class LoginInteractorTests: XCTestCase {
     
     func test_validateUserFailure() {
         // Given
-        email = "test"
-        password = ""
+        let email = "test"
+        let password = ""
 
         // When
         sut.validateUser(request: Login.UserValidation.Request(email: email, password: password))
         
         // Then
-        XCTAssertTrue((sut.presenter as! MockedLoginPresenter).presenterWasCalled, "Both fields are filled therefore it will first call loginUser function before triggering the presenter function")
+        if let presenter = sut.presenter as? MockedLoginPresenter {
+            XCTAssertTrue(presenter.presenterWasCalled, Constant.TestOutcome.Login.presenterFailed)
+        }
     }
     
     func test_validateUserSuccess() {
         // Given
-        email = "test"
-        password = "test"
+        let email = "test"
+        let password = "test"
         
         // When
         sut.validateUser(request: Login.UserValidation.Request(email: email, password: password))
         
         // Then
-        XCTAssertTrue((sut.worker as! MockedLoginWorker).loginUserWasCalled, "At least one field is empty therefore loginUser function wasn't called")
+        if let worker = sut.worker as? MockedLoginWorker {
+            XCTAssertTrue(worker.loginUserWasCalled, Constant.TestOutcome.Login.workerFailed)
+        }
     }
 }
 

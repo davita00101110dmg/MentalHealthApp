@@ -85,21 +85,21 @@ final class RegistrationViewController: UIViewController {
     
         registrationOutcomeLabel.alpha = 0
         
-        Utilities.customLabel(for: titleLabel, size: 30, text: "Create your account")
-        Utilities.customTextField(for: nameTextField, placeholder: "First Name")
-        Utilities.customTextField(for: lastnameTextField, placeholder: "Last Name")
-        Utilities.customTextField(for: emailTextField, placeholder: "Email")
-        Utilities.customTextField(for: passwordTextField, placeholder: "Password")
-        Utilities.customTextField(for: confirmPasswordTextField, placeholder: "Confirm Password")
-        Utilities.customLabel(for: loginSuggestionLabel, size: 20, text: "Already have an account? Sign in here!")
-        Utilities.customLabel(for: registrationOutcomeLabel, size: 20, text: "Please fill all the fields correctly!")
-        Utilities.customButton(for: signupButton, title: "Sign Up", cornerRadius: 20, color: Constant.Color.redColor)
-        Utilities.highlightedText(for: loginSuggestionLabel, text: "Sign in")
+        Utilities.customLabel(for: titleLabel, size: 30, text: Constant.String.createAccountTitle)
+        Utilities.customLabel(for: loginSuggestionLabel, size: 20, text: Constant.String.loginSuggestion)
+        Utilities.customLabel(for: registrationOutcomeLabel, size: 20, text: Constant.String.empty)
+        Utilities.customTextField(for: nameTextField, placeholder: Constant.String.firstName)
+        Utilities.customTextField(for: lastnameTextField, placeholder: Constant.String.lastName)
+        Utilities.customTextField(for: emailTextField, placeholder: Constant.String.email)
+        Utilities.customTextField(for: passwordTextField, placeholder: Constant.String.password)
+        Utilities.customTextField(for: confirmPasswordTextField, placeholder: Constant.String.confirmPassowrd)
+        Utilities.customButton(for: signupButton, title: Constant.String.signUp, cornerRadius: 20, color: Constant.Color.redColor)
+        Utilities.highlightedText(for: loginSuggestionLabel, text: Constant.String.signIn)
         Utilities.setupTapGestureHideKeyboard(self)
         Utilities.setupTapGestureToChangeView(self, loginSuggestionLabel, #selector(gestureTapped))
     }
     
-    internal func switchBasedNextTextField(for textField: UITextField) {
+    private func switchBasedNextTextField(for textField: UITextField) {
         switch textField {
         case self.nameTextField:
             self.lastnameTextField.becomeFirstResponder()
@@ -117,12 +117,18 @@ final class RegistrationViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func signupButtonPressed(_ sender: Any) {
-        let validateRegistrationRequest = Registration.RegistrationValidation.Request(firstname: nameTextField.text,
-                                                                     lastname: lastnameTextField.text,
-                                                                     email: emailTextField.text,
-                                                                     password: passwordTextField.text,
-                                                                     confirmPassword: confirmPasswordTextField.text)
+        let validateRegistrationRequest = Registration.RegistrationValidation.Request(
+            firstname: nameTextField.text,
+            lastname: lastnameTextField.text,
+            email: emailTextField.text,
+            password: passwordTextField.text,
+            confirmPassword: confirmPasswordTextField.text)
+        
         interactor?.validateRegistration(request: validateRegistrationRequest)
+    }
+    
+    @objc func gestureTapped() {
+        router?.routeToLoginVC()
     }
 }
 
@@ -138,18 +144,9 @@ extension RegistrationViewController: RegistrationDisplayLogic {
     }
 }
 
-// MARK: - RegistrationRoutingLogic
-
-extension RegistrationViewController {
-    @objc func gestureTapped() {
-        router?.routeToLoginVC()
-    }
-}
-
 // MARK: - UITextFieldDelegate
 
 extension RegistrationViewController: UITextFieldDelegate {
-
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.switchBasedNextTextField(for: textField)
         return true

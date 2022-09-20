@@ -18,9 +18,9 @@ struct User: Decodable {
     
     init(snapshot: DocumentSnapshot) {
         let snapshotValue = snapshot.data()
-        firstname = snapshotValue?["firstname"] as? String ?? "No name"
-        lastname = snapshotValue?["lastname"] as? String ?? "No lastname"
-        uid = snapshotValue?["uid"] as? String ?? "No uid"
-        liked_quotes = snapshotValue?["liked_quotes"] as? [String] ?? ["Empty"]
+        firstname = snapshotValue?[Constant.DocumentField.firstname] as? String ?? Constant.String.empty
+        lastname = snapshotValue?[Constant.DocumentField.lastname] as? String ?? Constant.String.empty
+        uid = snapshotValue?[Constant.DocumentField.uid] as? String ?? Constant.String.empty
+        liked_quotes = snapshotValue?[Constant.DocumentField.likedQuotes] as? [String] ?? [Constant.String.empty]
     }
 }

@@ -9,20 +9,30 @@ import UIKit
 
 final class QuoteCell: UICollectionViewCell {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var likeButtonOutlet: LikeButton!
     
+    // MARK: - View Lifecycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        Utilities.customLabel(for: quoteLabel, size: 18, text: "")
+        setupElements()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupElements() {
+        Utilities.customLabel(for: quoteLabel, size: 18, text: Constant.String.empty)
         likeButtonOutlet.flipLikedState()
     }
     
     // MARK: - Actions
     
     @IBAction func likeButtonAction(_ sender: Any) {
-        UserService.updateLikedQuotesArray(condition: true, quote: quoteLabel.text!)
+        if let quote = quoteLabel.text {
+            UserService.updateLikedQuotesArray(clikedLike: true, quote: quote)
+        }
     }
-    
 }

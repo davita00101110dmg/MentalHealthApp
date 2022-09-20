@@ -17,7 +17,6 @@ protocol LoginDisplayLogic: AnyObject {
 }
 
 final class LoginViewController: UIViewController {
-    
     // MARK: - Clean Components
     
     private var interactor: LoginBusinessLogic?
@@ -81,20 +80,20 @@ final class LoginViewController: UIViewController {
         self.view.backgroundColor = Constant.Color.mainColor
 
         errorLabel.alpha = 0
-        imageView.image = UIImage(named: "Logo")
+        imageView.image = UIImage(named: Constant.ImageIdentifier.logo)
         
-        Utilities.customLabel(for: titleLabel, size: 28, text: "Mental Health App")
-        Utilities.customTextField(for: emailTextField, placeholder: "Email")
-        Utilities.customTextField(for: passwordTextField, placeholder: "Password")
-        Utilities.customLabel(for: registerSuggestionLabel, size: 20, text: "Don't have an account? Sign up here!")
-        Utilities.customLabel(for: errorLabel, size: 20, text: "Please provide a password which will contain valid creditals")
-        Utilities.customButton(for: signInButton, title: "Login", cornerRadius: 20, color: Constant.Color.redColor)
-        Utilities.highlightedText(for: registerSuggestionLabel, text: "Sign up")
+        Utilities.customLabel(for: titleLabel, size: 28, text: Constant.String.appName)
+        Utilities.customLabel(for: registerSuggestionLabel, size: 20, text: Constant.String.registerSuggestion)
+        Utilities.customLabel(for: errorLabel, size: 20, text: Constant.String.empty)
+        Utilities.customTextField(for: emailTextField, placeholder: Constant.String.email)
+        Utilities.customTextField(for: passwordTextField, placeholder: Constant.String.password)
+        Utilities.customButton(for: signInButton, title: Constant.String.login, cornerRadius: 20, color: Constant.Color.redColor)
+        Utilities.highlightedText(for: registerSuggestionLabel, text: Constant.String.signUp)
         Utilities.setupTapGestureHideKeyboard(self)
         Utilities.setupTapGestureToChangeView(self, registerSuggestionLabel, #selector(navigateToRegistrationVC))
     }
     
-    internal func switchBasedNextTextField(for textField: UITextField) {
+    private func switchBasedNextTextField(for textField: UITextField) {
         switch textField {
         case self.emailTextField:
             self.passwordTextField.becomeFirstResponder()
@@ -110,6 +109,10 @@ final class LoginViewController: UIViewController {
                                                                 password: passwordTextField.text)
         interactor?.validateUser(request: validationRequest)
     }
+    
+    @objc private func navigateToRegistrationVC() {
+        router?.routeToRegistrationVC()
+    }
 }
 
 // MARK: - LoginDisplayLogic
@@ -123,15 +126,6 @@ extension LoginViewController: LoginDisplayLogic {
         }
     }
 }
-
-// MARK: - LoginRoutingLogic
-
-extension LoginViewController {
-    @objc private func navigateToRegistrationVC() {
-        router?.routeToRegistrationVC()
-    }
-}
-
 
 // MARK: - UITextFieldDelegate
 

@@ -9,17 +9,17 @@ import UIKit
 
 //MARK: - Network Service
 
-struct NetworkService {    
+struct NetworkService {
     private let session = URLSession.shared
     private let urlString = "https://api.quotable.io/random"
-    private let endpoint = ["maxLength": "115",
+    private let query = ["maxLength": "115",
                             "tags": "faith|future|happiness|motivational|philsophy|self-help"]
 
     func fetchQuotes() async throws -> Quote {
         var urlComponents = URLComponents(string: urlString)
         var queryItems = [URLQueryItem]()
         
-        for (name, value) in endpoint {
+        for (name, value) in query {
             queryItems.append(URLQueryItem(name: name, value: value))
         }
         

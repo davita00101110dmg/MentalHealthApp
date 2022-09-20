@@ -26,7 +26,9 @@ enum Home {
     }
     
     enum GetQuote {
-        struct Request { }
+        struct Request {
+            let likeButtonOutlet: LikeButton
+        }
         struct Response {
             let quote: Quote?
         }

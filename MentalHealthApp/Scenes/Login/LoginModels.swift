@@ -31,5 +31,4 @@ enum Login {
             let isError: Bool
         }
     }
-    
 }

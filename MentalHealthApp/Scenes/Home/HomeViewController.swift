@@ -32,7 +32,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var likeButtonOutlet: LikeButton!
     @IBOutlet weak var generateButtonOutlet: UIButton!
 
-    // MARK: Object Lifecycle
+    // MARK: - Object Lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -44,7 +44,7 @@ final class HomeViewController: UIViewController {
         setup()
     }
     
-    // MARK: Setup Relationships
+    // MARK: - Setup Relationships
     
     private func setup() {
         let viewController = self
@@ -60,7 +60,7 @@ final class HomeViewController: UIViewController {
         router.viewController = viewController
     }
     
-    // MARK: View Lifecycle
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,10 +82,10 @@ final class HomeViewController: UIViewController {
         likeButtonOutlet.isHidden = true
 
         setupQuoteLabel()
-        Utilities.customLabel(for: userLabel, size: 24, text: "Welcome, \n How are you feeling today?")
-        Utilities.customLabel(for: quoteHeaderLabel, size: 22, text: "Today's quote👇🏻")
-        Utilities.customLabel(for: quoteLabel, size: 20, text: "Press Next button to generate new quote")
-        Utilities.customButton(for: generateButtonOutlet, title: "Next", cornerRadius: 20, color: Constant.Color.greenColor)
+        Utilities.customLabel(for: userLabel, size: 24, text: Constant.String.welcomeText)
+        Utilities.customLabel(for: quoteHeaderLabel, size: 22, text: Constant.String.todaysQuote)
+        Utilities.customLabel(for: quoteLabel, size: 20, text: Constant.String.nextQuote)
+        Utilities.customButton(for: generateButtonOutlet, title: Constant.String.next, cornerRadius: 20, color: Constant.Color.greenColor)
     }
     
     private func setupQuoteLabel() {
@@ -104,12 +104,7 @@ final class HomeViewController: UIViewController {
     }
     
     @IBAction func generateButtonAction(_ sender: Any) {
-        let getQuoteRequest = Home.GetQuote.Request()
-        
-//        FIXME: try to move this logic in interactor
-        if likeButtonOutlet.isLiked {
-            likeButtonOutlet.flipLikedState()
-        }
+        let getQuoteRequest = Home.GetQuote.Request(likeButtonOutlet: likeButtonOutlet)
 
         interactor?.getQuote(request: getQuoteRequest)
     }

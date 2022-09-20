@@ -24,8 +24,8 @@ final class RegistrationRouter: RegistrationRoutingLogic {
     // MARK: - Routing
     
     func routeToLoginVC() {
-        let loginStoryboard = UIStoryboard(name: Constant.StoryboardIdentifiers.login, bundle: nil)
-        guard let destinationVC = loginStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifiers.loginVC) as? LoginViewController else { return }
+        let loginStoryboard = UIStoryboard(name: Constant.StoryboardIdentifier.login, bundle: nil)
+        guard let destinationVC = loginStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifier.loginVC) as? LoginViewController else { return }
         guard let viewController = viewController else { return }
         navigateToLoginVC(source: viewController, destination: destinationVC)
         
@@ -34,9 +34,8 @@ final class RegistrationRouter: RegistrationRoutingLogic {
     // MARK: - Navigation
     
     func navigateToLoginVC(source: RegistrationViewController, destination: LoginViewController) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             source.navigationController?.popToRootViewController(animated: true)
         }
     }
-
 }

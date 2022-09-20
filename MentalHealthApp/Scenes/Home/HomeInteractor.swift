@@ -35,7 +35,13 @@ extension HomeInteractor: HomeBusinessLogic {
         }
     }
     
-    func getQuote(request: Home.GetQuote.Request) {        
+    func getQuote(request: Home.GetQuote.Request) {
+        let likeButtonOutlet = request.likeButtonOutlet
+        
+        if likeButtonOutlet.isLiked {
+            likeButtonOutlet.flipLikedState()
+        }
+        
         Task {
             do {
                 let quote = try await worker?.fetchQuote()
@@ -49,8 +55,8 @@ extension HomeInteractor: HomeBusinessLogic {
     
     func updateLikedQuotes(request: Home.UpdateLikedQuotes.Request) {
         guard let quote = request.quote else { return }
-        let condition = request.clickedLike
+        let clickedLike = request.clickedLike
         
-        UserService.updateLikedQuotesArray(condition: condition, quote: quote)
+        UserService.updateLikedQuotesArray(clikedLike: clickedLike, quote: quote)
     }
 }

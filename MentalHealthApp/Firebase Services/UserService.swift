@@ -15,8 +15,9 @@ enum UserService {
     private static var firestoreListener: ListenerRegistration?
     
     private static var userUid: String {
-        Auth.auth().currentUser?.uid ?? ""
+        Auth.auth().currentUser?.uid ?? Constant.String.empty
     }
+    
     private static var document: DocumentReference {
         db.collection(collectionName).document(userUid)
     }
@@ -24,12 +25,11 @@ enum UserService {
     //MARK: - Registration in Database
     
     static func registerInDB(with name: String, lastname: String, uid: String) {
-        
         document.setData([
-            "firstname": name,
-            "lastname": lastname,
-            "uid": uid,
-            "liked_quotes": []
+            Constant.DocumentField.firstname: name,
+            Constant.DocumentField.lastname: lastname,
+            Constant.DocumentField.uid: uid,
+            Constant.DocumentField.likedQuotes: []
         ])
     }
     
@@ -40,34 +40,26 @@ enum UserService {
         
         if !detach {
             firestoreListener = document.addSnapshotListener { documentSnapshot, error in
-                
-                guard let document = documentSnapshot else {
-                    print("Error fetching document: \(error!)")
-                    return
-                }
-                
+                guard let document = documentSnapshot else { return }
                 let createdUser = User(snapshot: document)
-                
                 completion!(createdUser)
             }
         }
     }
     
-    
     //MARK: - Update liked quotes array
     
-    static func updateLikedQuotesArray(condition: Bool, quote: String) {
-        switch condition {
+    static func updateLikedQuotesArray(clikedLike: Bool, quote: String) {
+        switch clikedLike {
         case true:
             document.updateData([
-                "liked_quotes": FieldValue.arrayRemove([quote])
+                Constant.DocumentField.likedQuotes: FieldValue.arrayRemove([quote])
             ])
             
         case false:
             document.updateData([
-                "liked_quotes": FieldValue.arrayUnion([quote])
+                Constant.DocumentField.likedQuotes: FieldValue.arrayUnion([quote])
             ])
         }
     }
-    
 }

@@ -11,14 +11,6 @@ import XCTest
 class RegistrationInteractorTests: XCTestCase {
     var sut: RegistrationInteractor!
     
-    // MARK: - Fields
-    
-    var firstname: String!
-    var lastname: String!
-    var email: String!
-    var password: String!
-    var confirmPassword: String!
-    
     override func setUp() {
         sut = RegistrationInteractor()
         sut.worker = MockedRegistrationWorker()
@@ -31,40 +23,46 @@ class RegistrationInteractorTests: XCTestCase {
     
     func testValidateRegistrationFailure() {
         // Given
-        firstname = ""
-        lastname = ""
-        email = ""
-        password = ""
-        confirmPassword = ""
+        let firstname = ""
+        let lastname = ""
+        let email = ""
+        let password = ""
+        let confirmPassword = ""
         
         // When
-        sut.validateRegistration(request: Registration.RegistrationValidation.Request(firstname: firstname,
-                                                                                      lastname: lastname,
-                                                                                      email: email,
-                                                                                      password: password,
-                                                                                      confirmPassword: confirmPassword))
+        sut.validateRegistration(request: Registration.RegistrationValidation.Request(
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword))
         
         // Then
-        XCTAssertTrue((sut.presenter as! MockedRegistrationPresenter).presenterWasCalled, "All fields were filled correctly therefore registerUser function will be called before the presenter will be triggered")
+        if let presenter = sut.presenter as? MockedRegistrationPresenter {
+            XCTAssertTrue(presenter.presenterWasCalled, Constant.TestOutcome.Registration.presenterFailed)
+        }
     }
     
     func testValidateRegistrationSuccess() {
         // Given
-        firstname = "test"
-        lastname = "test"
-        email = "test@gmail.com"
-        password = "Test12345"
-        confirmPassword = "Test12345"
+        let firstname = "test"
+        let lastname = "test"
+        let email = "test@gmail.com"
+        let password = "Test12345"
+        let confirmPassword = "Test12345"
         
         // When
-        sut.validateRegistration(request: Registration.RegistrationValidation.Request(firstname: firstname,
-                                                                                      lastname: lastname,
-                                                                                      email: email,
-                                                                                      password: password,
-                                                                                      confirmPassword: confirmPassword))
+        sut.validateRegistration(request: Registration.RegistrationValidation.Request(
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword))
         
         // Then
-        XCTAssertTrue((sut.worker as! MockedRegistrationWorker).registerUserWasCalled, "One of the following cases didn't happen to fulfil this test: 1. Not all fields were filled 2. Email was formatted badly 3. Password wasn't secure 4. Passwords didn't match")
+        if let worker = sut.worker as? MockedRegistrationWorker {
+            XCTAssertTrue(worker.registerUserWasCalled, Constant.TestOutcome.Registration.workerFailed)
+        }
     }
 }
 

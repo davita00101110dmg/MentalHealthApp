@@ -24,11 +24,11 @@ final class ProfileRouter: ProfileRoutingLogic {
     // MARK: - Routing
     
     func routeToBottomSheet() {
-        let bottomSheetStoryboard = UIStoryboard(name: Constant.StoryboardIdentifiers.bottomSheet, bundle: nil)
-        guard let bottomSheetVC = bottomSheetStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifiers.bottomSheetVC) as? BottomSheetViewController else { return }
+        let bottomSheetStoryboard = UIStoryboard(name: Constant.StoryboardIdentifier.bottomSheet, bundle: nil)
+        guard let bottomSheetVC = bottomSheetStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifier.bottomSheetVC) as? BottomSheetViewController else { return }
         guard let viewController = viewController else { return }
 
-        Utilities.setupBottomSheet(sheet: bottomSheetVC, sheetColor: Constant.Color.mainColor, sheetTitle: "Do you really want to sign out?", buttonColor: Constant.Color.redColor, detents: [.medium()])
+        Utilities.setupBottomSheet(sheet: bottomSheetVC, sheetColor: Constant.Color.mainColor, sheetTitle: Constant.String.signoutQuestion, buttonColor: Constant.Color.redColor, detents: [.medium()])
         
         navigateToBottomSheetVC(source: viewController, destination: bottomSheetVC)
     }

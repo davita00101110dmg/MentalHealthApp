@@ -28,9 +28,8 @@ final class HomePresenter {
 extension HomePresenter: HomePresentationLogic {
     func presentUser(response: Home.GetUser.Response) {
         let welcomeString = "Welcome, \(response.user.firstname) \n How are you feeling today?"
-        let viewModel = Home.GetUser.ViewModel(user: welcomeString)
         
-        viewController?.displayUser(viewModel: viewModel)
+        viewController?.displayUser(viewModel: Home.GetUser.ViewModel(user: welcomeString))
     }
     
     func presentQuote(response: Home.GetQuote.Response) {

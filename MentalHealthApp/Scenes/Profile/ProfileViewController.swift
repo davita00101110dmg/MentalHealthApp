@@ -39,7 +39,7 @@ final class ProfileViewController: UIViewController {
         }
     }
     
-    // MARK: Object Lifecycle
+    // MARK: - Object Lifecycle
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -51,7 +51,7 @@ final class ProfileViewController: UIViewController {
         setup()
     }
     
-    // MARK: Setup Relationships
+    // MARK: - Setup Relationships
     
     private func setup() {
         let viewController = self
@@ -65,7 +65,7 @@ final class ProfileViewController: UIViewController {
         router.viewController = viewController
     }
     
-    // MARK: View Lifecycle
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,19 +96,28 @@ final class ProfileViewController: UIViewController {
     private func setupElements() {
         self.view.backgroundColor = Constant.Color.lightGreenColor
         
-        profilePictureImage.image = UIImage(systemName: "person.crop.circle")
+        profilePictureImage.image = UIImage(systemName: Constant.ImageIdentifier.personCircle)
         profilePictureImage.tintColor = .black
         
-        Utilities.customLabel(for: titleLabel, size: 28, text: "Profile")
-        Utilities.customLabel(for: fullnameLabel, size: 20, text: "Fullname")
-        Utilities.customLabel(for: yourLikedQuotesLabel, size: 28, text: "Your liked quotes👇🏻")
-        Utilities.customButton(for: logoutButton, title: "Logout", cornerRadius: 10, color: Constant.Color.redColor)
+        Utilities.customLabel(for: titleLabel, size: 28, text: Constant.String.profile)
+        Utilities.customLabel(for: fullnameLabel, size: 20, text: Constant.String.fullname)
+        Utilities.customLabel(for: yourLikedQuotesLabel, size: 28, text: Constant.String.yourLikedQuotes)
+        Utilities.customButton(for: logoutButton, title: Constant.String.logout, cornerRadius: 10, color: Constant.Color.redColor)
     }
     
     // MARK: - Actions
     
     @IBAction func logoutAction(_ sender: Any) {
         router?.routeToBottomSheet()
+    }
+}
+
+// MARK: - ProfileDisplayLogic
+
+extension ProfileViewController: ProfileDisplayLogic {
+    func displayUserInfo(viewModel: Profile.GetUserInfo.ViewModel) {
+        fullnameLabel.text = viewModel.fullname
+        self.quotes = viewModel.likedQuotes
     }
 }
 
@@ -120,7 +129,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuoteCell", for: indexPath) as? QuoteCell else { return .init() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constant.CellIdentifier.quoteCell, for: indexPath) as? QuoteCell else { return .init() }
         let currentQuote = quotes[indexPath.row]
         
         cell.quoteLabel.text = currentQuote
@@ -130,14 +139,5 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: collectionView.frame.width, height: 100.0)
-    }
-}
-
-// MARK: - ProfileDisplayLogic
-
-extension ProfileViewController: ProfileDisplayLogic {    
-    func displayUserInfo(viewModel: Profile.GetUserInfo.ViewModel) {
-        fullnameLabel.text = viewModel.fullname
-        self.quotes = viewModel.likedQuotes
     }
 }

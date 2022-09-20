@@ -23,7 +23,6 @@ final class LoginInteractor {
     var worker: LoginWorkerLogic?
 }
 
-
 // MARK: - LoginBusinessLogic
 
 extension LoginInteractor: LoginBusinessLogic {
@@ -32,7 +31,7 @@ extension LoginInteractor: LoginBusinessLogic {
         guard let email = request.email?.trimmingCharacters(in: .whitespacesAndNewlines),
               let password = request.password?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         
-        if email == "" || password == "" {
+        if email == Constant.String.empty || password == Constant.String.empty {
             presenter?.presentUserValidationOutcome(response: Login.UserValidation.Response(outcome: Constant.ValidationOutcome.notAllFieldsFilled, isError: true))
         } else {
             worker?.loginUser(email: email,

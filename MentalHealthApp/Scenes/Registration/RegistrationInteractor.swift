@@ -34,11 +34,11 @@ extension RegistrationInteractor: RegistrationBusinessLogic {
               let password = request.password?.trimmingCharacters(in: .whitespacesAndNewlines),
               let confirmPassword = request.confirmPassword?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         
-        if firstname == "" ||
-            lastname == "" ||
-            email == "" ||
-            password == "" ||
-            confirmPassword == "" {
+        if firstname == Constant.String.empty ||
+            lastname == Constant.String.empty ||
+            email == Constant.String.empty ||
+            password == Constant.String.empty ||
+            confirmPassword == Constant.String.empty {
 
             presenter?.presentRegistrationOutcome(response: Registration.RegistrationValidation.Response(outcome: Constant.ValidationOutcome.notAllFieldsFilled, isError: true))
         }

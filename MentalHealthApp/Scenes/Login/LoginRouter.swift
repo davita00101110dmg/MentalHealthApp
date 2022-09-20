@@ -25,18 +25,18 @@ final class LoginRouter: LoginRoutingLogic {
     // MARK: - Routing
     
     func routeToRegistrationVC() {
-        let registrationStoryboard = UIStoryboard(name: Constant.StoryboardIdentifiers.registration, bundle: nil)
-        guard let registrationVC = registrationStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifiers.registrationVC) as? RegistrationViewController else { return }
+        let registrationStoryboard = UIStoryboard(name: Constant.StoryboardIdentifier.registration, bundle: nil)
+        guard let registrationVC = registrationStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifier.registrationVC) as? RegistrationViewController else { return }
         guard let viewController = viewController else { return }
         navigateToRegistrationVC(source: viewController, destination: registrationVC)
     }
     
     func routeToTabBarVC() {
-        let homeStoryboard = UIStoryboard(name: Constant.StoryboardIdentifiers.home, bundle: nil)
-        let profileStoryboard = UIStoryboard(name: Constant.StoryboardIdentifiers.profile, bundle: nil)
+        let homeStoryboard = UIStoryboard(name: Constant.StoryboardIdentifier.home, bundle: nil)
+        let profileStoryboard = UIStoryboard(name: Constant.StoryboardIdentifier.profile, bundle: nil)
         
-        guard let homeVC = homeStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifiers.homeVC) as? HomeViewController else { return }
-        guard let profileVC = profileStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifiers.profileVC) as? ProfileViewController else { return }
+        guard let homeVC = homeStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifier.homeVC) as? HomeViewController else { return }
+        guard let profileVC = profileStoryboard.instantiateViewController(withIdentifier: Constant.ViewControllerIdentifier.profileVC) as? ProfileViewController else { return }
         guard let viewController = viewController else { return }
         
         let tabBarController = Utilities.setupTabBar(with: [homeVC, profileVC])
@@ -54,9 +54,8 @@ final class LoginRouter: LoginRoutingLogic {
     }
     
     func navigateToTabBarVC(source: LoginViewController, destination: UITabBarController) {
-        //FIXME: move out in interactor somehow
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            source.view.window?.switchRootViewController(destination, animated: true, duration: 0.5, options: .transitionCrossDissolve, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            source.view.window?.switchRootViewController(destination, animated: true, duration: 0.5, options: .transitionCrossDissolve)
         }
     }
 }

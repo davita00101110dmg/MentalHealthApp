@@ -31,17 +31,15 @@ final class BottomSheetViewController: UIViewController, UISheetPresentationCont
     // MARK: - Private Methods
 
     private func setupElements() {
-        Utilities.customLabel(for: questionLabel, size: 28, text: sheetTitle ?? "No title")
-        Utilities.customButton(for: yesButtonOutlet, title: "Yes", cornerRadius: 10, color: buttonColor ?? Constant.Color.redColor)
-        Utilities.customButton(for: noButtonOutlet, title: "No", cornerRadius: 10, color: buttonColor ?? Constant.Color.redColor)
+        Utilities.customLabel(for: questionLabel, size: 28, text: sheetTitle ?? Constant.String.noTitle)
+        Utilities.customButton(for: yesButtonOutlet, title: Constant.String.yes, cornerRadius: 10, color: buttonColor ?? Constant.Color.redColor)
+        Utilities.customButton(for: noButtonOutlet, title: Constant.String.no, cornerRadius: 10, color: buttonColor ?? Constant.Color.redColor)
     }
     
     // MARK: - Actions
 
     @IBAction func yesButtonAction(_ sender: Any) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            AuthService.logoutUser(viewController: self)
-        }
+        AuthService.logoutUser(viewController: self)
     }
     
     @IBAction func noButtonAction(_ sender: Any) {

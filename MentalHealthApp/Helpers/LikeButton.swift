@@ -10,11 +10,14 @@ import UIKit
 // MARK: - Like Button
 
 final class LikeButton: UIButton {
-    var isLiked = false
+    // MARK: - Fields
     
+    public var isLiked = false
     
     private let unlikedScale: CGFloat = 0.7
     private let likedScale: CGFloat = 1.3
+    
+    // MARK: - Object Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,9 +25,11 @@ final class LikeButton: UIButton {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setTitle("", for: .normal)
+        setTitle(Constant.String.empty, for: .normal)
         setImage(Constant.Image.heartEmpty, for: .normal)
     }
+    
+    // MARK: - Methods
     
     public func flipLikedState() {
         isLiked.toggle()
@@ -43,5 +48,4 @@ final class LikeButton: UIButton {
             })
         })
     }
-    
 }
