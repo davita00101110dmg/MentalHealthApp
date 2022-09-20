@@ -15,7 +15,7 @@ struct NetworkService {
     private let query = ["maxLength": "115",
                             "tags": "faith|future|happiness|motivational|philsophy|self-help"]
 
-    func fetchQuotes() async throws -> Quote {
+    func fetchQuotes<T: Decodable>(decodingType: T.Type) async throws -> T {
         var urlComponents = URLComponents(string: urlString)
         var queryItems = [URLQueryItem]()
         
@@ -35,7 +35,7 @@ struct NetworkService {
                   (200...299).contains(httpResponse.statusCode) else {
                 throw ApiError.requestError
             }
-            let quotes = try JSONDecoder().decode(Quote.self, from: data)
+            let quotes = try JSONDecoder().decode(decodingType.self, from: data)
             return quotes
         }
         

@@ -26,6 +26,6 @@ final class HomeWorker {
 
 extension HomeWorker: HomeWorkerLogic {
     func fetchQuote() async throws -> Quote {
-        try await networkService.fetchQuotes()
+        try await networkService.fetchQuotes(decodingType: Quote.self)
     }
 }
